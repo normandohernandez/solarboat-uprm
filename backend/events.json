@@ -1,0 +1,32 @@
+[
+  {
+    "date": "2025-06-14",
+    "title": "Solar Splash 2025 — Springfield, OH",
+    "description": "Competencia internacional de botes solares. El equipo UPRM defenderá su título mundial en Springfield, Ohio. ¡Todos a apoyar!",
+    "location": "Springfield, Ohio"
+  },
+  {
+    "date": "2025-06-06",
+    "title": "Venta de Pizza — Stefani's",
+    "description": "Ven a apoyar el equipo comprando pizza en Stefani's. Cada pedido ayuda a financiar materiales y gastos de la competencia.",
+    "location": "Stefani's, Mayagüez"
+  },
+  {
+    "date": "2025-05-30",
+    "title": "Reunión general del equipo",
+    "description": "Reunión de todos los subgrupos para repasar el status del bote, asignaciones finales y logística previo a la competencia.",
+    "location": "Stefani Building, UPRM"
+  },
+  {
+    "date": "2025-05-20",
+    "title": "Venta de camisetas del equipo",
+    "description": "Edición limitada de camisetas Solar Boat UPRM. Disponibles en el patio del Colegio de Ingeniería.",
+    "location": "Patio Colegio de Ingeniería, UPRM"
+  },
+  {
+    "date": "2025-05-13",
+    "title": "Venta de Pizza — Edificio Monzón",
+    "description": "Venta de pizza en el edificio Monzón para recaudar fondos para los materiales de la competencia 2025.",
+    "location": "Edificio Monzón, UPRM"
+  }
+]

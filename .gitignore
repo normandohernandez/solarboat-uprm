@@ -1,0 +1,7 @@
+# Mac junk
+.DS_Store
+
+# Internal / unrelated files — keep OFF the public repo
+MEBC-2026-Tracking-and-Measurement-Device-Presentation.pdf
+PAD.py
+SolarBoat_Decoder.py

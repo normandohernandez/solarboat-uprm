@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Solar Boat UPRM — Campeones Mundiales</title>
+  <meta name="description" content="Equipo estudiantil de botes solares de la Universidad de Puerto Rico Mayagüez. Campeones mundiales del Solar Splash." />
+
+  <!-- ================================================
+       FONTS — change these to swap typography
+  ================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ================================================
+       CSS CUSTOM PROPERTIES — edit these to restyle
+    ================================================ */
+    :root {
+      /* Brand colors */
+      --green-dark:    #0f4d22;   /* nav, footer, dark bg */
+      --green-mid:     #1a7c35;   /* primary buttons, accents */
+      --green-light:   #4ac26a;   /* hero accent, highlights */
+      --green-pale:    #e8f5ec;   /* card backgrounds, pills */
+
+      --blue-mid:      #1a57c2;   /* secondary accent (water) */
+      --blue-pale:     #e8f0fb;   /* blue pill bg */
+
+      --white:         #ffffff;
+      --off-white:     #f7f8f5;   /* section backgrounds */
+      --text-dark:     #0f1a12;   /* headings */
+      --text-mid:      #444d47;   /* body copy */
+      --text-muted:    #8a9490;   /* captions, dates */
+      --border:        #e0e8e2;   /* card borders */
+
+      /* Typography */
+      --font-display: 'Syne', sans-serif;
+      --font-body:    'DM Sans', sans-serif;
+
+      /* Spacing */
+      --section-pad: 88px 48px;
+      --radius-sm:   8px;
+      --radius-md:   14px;
+      --radius-lg:   20px;
+
+      /* Nav height (used for scroll offset) */
+      --nav-h: 64px;
+    }
+
+    /* ================================================
+       RESET & BASE
+    ================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      background: var(--white);
+      color: var(--text-dark);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+
+    /* ================================================
+       UTILITY CLASSES
+    ================================================ */
+    .container {
+      width: 100%;
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+    .tag {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+    .tag-green { background: var(--green-pale); color: var(--green-mid); }
+    .tag-blue  { background: var(--blue-pale);  color: var(--blue-mid);  }
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+    .section-heading em { color: var(--green-mid); font-style: normal; }
+    .section-lead {
+      font-size: 16px;
+      color: var(--text-mid);
+      line-height: 1.8;
+      max-width: 540px;
+    }
+    .btn {
+      display: inline-block;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      padding: 13px 28px;
+      border-radius: var(--radius-sm);
+      border: none;
+      cursor: pointer;
+      transition: transform 0.15s, opacity 0.15s;
+    }
+    .btn:hover { transform: translateY(-1px); opacity: 0.92; }
+    .btn-primary { background: var(--green-mid); color: var(--white); }
+    .btn-ghost   { background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
+    /* Honeypot anti-spam field: invisible to humans, tempting to bots.
+       Off-screen (not display:none) so more bots fall for it. */
+    .hp-field {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px; height: 1px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ================================================
+       NAVIGATION
+    ================================================ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      height: var(--nav-h);
+      background: rgba(255, 255, 255, 0.97);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+    }
+    .nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    /* ── LOGO IMAGE: swap src to your real logo ── */
+    .nav-logo-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .nav-brand {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-dark);
+      letter-spacing: -0.3px;
+    }
+    .nav-brand span { color: var(--green-mid); }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    .nav-links a {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text-mid);
+      transition: color 0.15s;
+    }
+    .nav-links a:hover { color: var(--green-mid); }
+    .nav-cta {
+      background: var(--green-mid);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      padding: 9px 20px;
+      border-radius: var(--radius-sm);
+      transition: background 0.15s;
+    }
+    .nav-cta:hover { background: var(--green-dark); }
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      width: 24px; height: 2px;
+      background: var(--text-dark);
+      border-radius: 2px;
+      transition: all 0.25s;
+    }
+    .mobile-menu {
+      display: none;
+      flex-direction: column;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 24px;
+      gap: 4px;
+    }
+    .mobile-menu a {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--text-mid);
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .mobile-menu a:last-child { border-bottom: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* ================================================
+       HERO
+    ================================================ */
+    .hero {
+      background: var(--green-dark);
+      padding: 96px 0 0;
+      overflow: hidden;
+      position: relative;
+    }
+    /* subtle dot grid texture */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(74,194,106,0.08) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+    }
+    .hero .container { position: relative; text-align: center; }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(74,194,106,0.12);
+      border: 1px solid rgba(74,194,106,0.3);
+      color: var(--green-light);
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--green-light);
+    }
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(44px, 7vw, 80px);
+      font-weight: 800;
+      color: var(--white);
+      line-height: 1.0;
+      letter-spacing: -2px;
+      margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--green-light); font-style: normal; display: block; }
+    .hero-sub {
+      font-size: 18px;
+      color: rgba(255,255,255,0.6);
+      max-width: 500px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 64px;
+    }
+    /* ── HERO BOAT ILLUSTRATION ── */
+    .hero-visual {
+      width: 100%;
+      max-width: 700px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* ================================================
+       STATS STRIP
+    ================================================ */
+    .strip {
+      background: var(--green-mid);
+      padding: 28px 24px;
+    }
+    .strip .container {
+      display: flex;
+      gap: 0;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .strip-item {
+      text-align: center;
+      padding: 8px 40px;
+      border-right: 1px solid rgba(255,255,255,0.2);
+    }
+    .strip-item:last-child { border-right: none; }
+    .strip-num {
+      font-family: var(--font-display);
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+    }
+    .strip-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.65);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 2px;
+    }
+
+    /* ================================================
+       ABOUT SECTION
+    ================================================ */
+    .about { padding: var(--section-pad); background: var(--off-white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .about-text .section-lead + .section-lead { margin-top: 16px; }
+    .about-visual {
+      aspect-ratio: 4/3;
+      background: var(--green-pale);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    /* ── REPLACE with <img src="your-team-photo.jpg"> ── */
+    .about-visual-placeholder {
+      text-align: center;
+      color: var(--green-mid);
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    /* ================================================
+       ACHIEVEMENTS
+    ================================================ */
+    .achievements {
+      padding: var(--section-pad);
+      background: var(--white);
+    }
+    .achievements-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .achievements-header .section-lead { margin: 0 auto; }
+    .wins-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+    .win-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .win-card:hover {
+      border-color: var(--green-mid);
+      transform: translateY(-2px);
+    }
+    .win-icon {
+      width: 42px; height: 42px;
+      border-radius: 10px;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      font-size: 18px;
+    }
+    .win-year {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .win-title {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-top: 3px;
+      line-height: 1.3;
+    }
+    .win-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    /* ================================================
+       NEWS SECTION
+    ================================================ */
+    .news { padding: var(--section-pad); background: var(--off-white); }
+    .news-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .news-view-all {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green-mid);
+      border-bottom: 1px solid var(--green-light);
+      padding-bottom: 2px;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .news-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .news-card:hover {
+      border-color: var(--green-mid);
+      transform: translateY(-2px);
+    }
+    .news-thumb {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* ── REPLACE each thumb div with <img src="..."> ── */
+    .news-body { padding: 20px; }
+    .news-pill {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+    }
+    .pill-green { background: var(--green-pale); color: var(--green-mid); }
+    .pill-blue  { background: var(--blue-pale);  color: var(--blue-mid);  }
+    .news-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+    .news-date {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .news-excerpt {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-top: 10px;
+    }
+
+    /* ================================================
+       TEAM SECTION
+    ================================================ */
+    .team { padding: var(--section-pad); background: var(--white); }
+    .team-header { text-align: center; margin-bottom: 48px; }
+    .team-header .section-lead { margin: 0 auto; }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 20px;
+    }
+    .member-card {
+      text-align: center;
+      padding: 24px 16px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .member-card:hover {
+      border-color: var(--green-mid);
+      transform: translateY(-2px);
+    }
+    .member-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px;
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--green-mid);
+      overflow: hidden;
+    }
+    /* ── REPLACE inner content with <img src="..."> ── */
+    .member-name {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .member-role {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    /* ================================================
+       SOCIAL / FOLLOW SECTION
+    ================================================ */
+    .social-section {
+      padding: var(--section-pad);
+      background: var(--off-white);
+      text-align: center;
+    }
+    .social-section .section-heading,
+    .social-section .section-lead { margin: 0 auto; text-align: center; }
+    .social-section .section-lead { margin-top: 12px; margin-bottom: 40px; }
+    .social-row {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .social-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 28px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border);
+      background: var(--white);
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .social-card:hover {
+      border-color: var(--green-mid);
+      transform: translateY(-2px);
+    }
+    .social-icon { width: 22px; height: 22px; flex-shrink: 0; }
+
+    /* ================================================
+       CONTACT SECTION
+    ================================================ */
+    .contact {
+      padding: var(--section-pad);
+      background: var(--green-dark);
+      text-align: center;
+    }
+    .contact .section-heading { color: var(--white); margin: 0 auto 12px; text-align: center; }
+    .contact .section-heading em { color: var(--green-light); }
+    .contact p {
+      color: rgba(255,255,255,0.6);
+      font-size: 16px;
+      max-width: 480px;
+      margin: 0 auto 40px;
+      line-height: 1.7;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: var(--radius-sm);
+      padding: 13px 16px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--white);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: var(--green-light); }
+    .contact-form textarea { resize: vertical; min-height: 120px; }
+    .contact-form .btn-primary { width: 100%; text-align: center; font-size: 15px; padding: 14px; }
+
+    /* ================================================
+       FOOTER
+    ================================================ */
+    footer {
+      background: #080f09;
+      padding: 48px 24px 32px;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .footer-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding-bottom: 40px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 32px;
+    }
+    .footer-brand {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.5px;
+      margin-bottom: 8px;
+    }
+    .footer-brand span { color: var(--green-light); }
+    .footer-tagline {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      max-width: 260px;
+      line-height: 1.6;
+    }
+    .footer-col h4 {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+    }
+    .footer-col ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .footer-col ul a {
+      font-size: 14px;
+      color: rgba(255,255,255,0.6);
+      transition: color 0.15s;
+    }
+    .footer-col ul a:hover { color: var(--green-light); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+    }
+    .footer-bottom a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.4);
+      transition: color 0.15s;
+    }
+    .footer-bottom a:hover { color: var(--green-light); }
+
+    /* ================================================
+       RESPONSIVE
+    ================================================ */
+    @media (max-width: 768px) {
+      :root { --section-pad: 64px 24px; }
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      .about-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-visual { aspect-ratio: 16/9; }
+      .contact-row { grid-template-columns: 1fr; }
+      .strip-item { padding: 8px 20px; }
+      .footer-top { flex-direction: column; }
+    }
+    @media (max-width: 500px) {
+      .hero h1 { letter-spacing: -1px; }
+      .wins-grid { grid-template-columns: 1fr; }
+      .news-grid  { grid-template-columns: 1fr; }
+      .team-grid  { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    /* ================================================
+       RECRUITMENT SECTION
+    ================================================ */
+    .recruitment { padding: var(--section-pad); background: var(--white); }
+    .recruitment-header { text-align: center; margin-bottom: 56px; }
+    .recruitment-header .section-lead { margin: 0 auto; }
+    .recruitment-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-bottom: 48px;
+    }
+    .dept-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 28px 24px;
+      transition: border-color 0.2s, transform 0.2s;
+      background: var(--white);
+    }
+    .dept-card:hover { border-color: var(--green-mid); transform: translateY(-2px); }
+    .dept-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+    .dept-name {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 8px;
+    }
+    .dept-desc {
+      font-size: 14px;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+    .dept-tag {
+      display: inline-block;
+      margin-top: 14px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--green-pale);
+      color: var(--green-mid);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .recruitment-cta {
+      background: var(--green-pale);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 48px 40px;
+      text-align: center;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .recruitment-cta h3 {
+      font-family: var(--font-display);
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 12px;
+      letter-spacing: -0.5px;
+    }
+    .recruitment-cta p {
+      color: var(--text-mid);
+      font-size: 15px;
+      line-height: 1.7;
+      max-width: 440px;
+      margin: 0 auto 28px;
+    }
+    .recruitment-form {
+      display: flex;
+      gap: 10px;
+      max-width: 400px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+    .recruitment-form input {
+      flex: 1;
+      min-width: 180px;
+      padding: 13px 16px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 14px;
+      color: var(--text-dark);
+      outline: none;
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+    .recruitment-form input:focus { border-color: var(--green-mid); }
+    .recruitment-form input::placeholder { color: var(--text-muted); }
+
+    /* ================================================
+       DONATION / SPONSORS SECTION
+    ================================================ */
+    .donations { padding: var(--section-pad); background: var(--green-dark); }
+    .donations-header { text-align: center; margin-bottom: 56px; }
+    .donations-header .section-heading { color: var(--white); }
+    .donations-header .section-heading em { color: var(--green-light); }
+    .donations-header .section-lead { color: rgba(255,255,255,0.6); margin: 0 auto; }
+    .donation-ways {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 64px;
+    }
+    .donation-way {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius-md);
+      padding: 28px 22px;
+      text-align: center;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .donation-way:hover {
+      border-color: var(--green-light);
+      background: rgba(74,194,106,0.07);
+    }
+    .donation-way-icon { font-size: 32px; margin-bottom: 12px; }
+    .donation-way h4 {
+      font-family: var(--font-display);
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .donation-way p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+    .donation-way .btn-donate {
+      display: inline-block;
+      margin-top: 16px;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      background: var(--green-mid);
+      color: var(--white);
+      transition: background 0.15s, transform 0.15s;
+    }
+    .donation-way .btn-donate:hover { background: var(--green-light); transform: translateY(-1px); }
+    .sponsors-section { margin-top: 16px; }
+    .sponsors-title {
+      text-align: center;
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.35);
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 32px;
+    }
+    .sponsors-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    .sponsor-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.10);
+      border-radius: var(--radius-md);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      text-align: center;
+      transition: border-color 0.2s;
+    }
+    .sponsor-card:hover { border-color: rgba(74,194,106,0.4); }
+    .sponsor-avatar {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--green-dark);
+    }
+    .sponsor-name {
+      font-family: var(--font-display);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .sponsor-type {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .sponsor-amount {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--green-light);
+    }
+    .sponsor-add {
+      border: 2px dashed rgba(255,255,255,0.15);
+      background: transparent;
+      cursor: pointer;
+    }
+    .sponsor-add:hover { border-color: var(--green-light); }
+    .sponsor-add .sponsor-avatar { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); font-size: 22px; }
+    .sponsor-add .sponsor-name { color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 500; }
+
+    /* ================================================
+       GALLERY / IMAGES SECTION
+    ================================================ */
+    .gallery { padding: var(--section-pad); background: var(--off-white); }
+    .gallery-header {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .gallery-filter {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-btn {
+      font-family: var(--font-body);
+      font-size: 12px;
+      font-weight: 600;
+      padding: 7px 16px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--text-mid);
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: var(--green-mid);
+      border-color: var(--green-mid);
+      color: var(--white);
+    }
+    .gallery-masonry {
+      columns: 3 280px;
+      gap: 16px;
+    }
+    .gallery-item {
+      break-inside: avoid;
+      margin-bottom: 16px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      background: var(--white);
+      position: relative;
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .gallery-item:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+    .gallery-placeholder {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--green-pale);
+      position: relative;
+    }
+    .gallery-placeholder svg { opacity: 0.4; }
+    .gallery-caption {
+      padding: 14px 16px;
+      background: var(--white);
+    }
+    .gallery-caption-title {
+      font-family: var(--font-display);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 3px;
+    }
+    .gallery-caption-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .gallery-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      z-index: 999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+    }
+    .gallery-overlay.open { display: flex; }
+    .gallery-overlay-inner {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      max-width: 700px;
+      width: 100%;
+      overflow: hidden;
+    }
+    .gallery-overlay-img {
+      width: 100%;
+      aspect-ratio: 16/9;
+      background: var(--green-pale);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .gallery-overlay-body { padding: 24px; }
+    .gallery-overlay-body h3 {
+      font-family: var(--font-display);
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+    .gallery-overlay-body p { font-size: 14px; color: var(--text-mid); line-height: 1.7; }
+    .gallery-overlay-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.15);
+      border: none; cursor: pointer;
+      color: var(--white);
+      font-size: 20px;
+      display: flex; align-items: center; justify-content: center;
+      transition: background 0.15s;
+    }
+    .gallery-overlay-close:hover { background: rgba(255,255,255,0.25); }
+
+    /* ================================================
+       EVENTS SECTION
+    ================================================ */
+    .events { padding: var(--section-pad); background: var(--white); }
+    .events-header { margin-bottom: 48px; }
+    .events-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 40px;
+      align-items: start;
+    }
+    .events-list { display: flex; flex-direction: column; gap: 16px; }
+    .event-card {
+      display: flex;
+      gap: 20px;
+      padding: 22px 24px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      transition: border-color 0.2s, transform 0.2s;
+      align-items: flex-start;
+    }
+    .event-card:hover { border-color: var(--green-mid); transform: translateY(-2px); }
+    .event-card.featured {
+      border-color: var(--green-mid);
+      background: var(--green-pale);
+    }
+    .event-date-block {
+      text-align: center;
+      min-width: 54px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 10px;
+      flex-shrink: 0;
+    }
+    .event-card.featured .event-date-block {
+      background: var(--green-mid);
+      border-color: var(--green-mid);
+    }
+    .event-day {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--text-dark);
+      line-height: 1;
+    }
+    .event-card.featured .event-day { color: var(--white); }
+    .event-month {
+      font-size: 10px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      letter-spacing: 0.5px;
+      margin-top: 3px;
+    }
+    .event-card.featured .event-month { color: rgba(255,255,255,0.7); }
+    .event-content { flex: 1; }
+    .event-pills { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 6px; }
+    .event-pill {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .pill-pizza  { background: #fff3e0; color: #e65100; }
+    .pill-comp   { background: var(--green-pale); color: var(--green-mid); }
+    .pill-meeting{ background: var(--blue-pale); color: var(--blue-mid); }
+    .pill-sale   { background: #fce4ec; color: #c2185b; }
+    .event-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 5px;
+    }
+    .event-desc { font-size: 13px; color: var(--text-mid); line-height: 1.6; }
+    .event-meta {
+      display: flex;
+      gap: 16px;
+      margin-top: 10px;
+      flex-wrap: wrap;
+    }
+    .event-meta span {
+      font-size: 12px;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .events-sidebar {
+      position: sticky;
+      top: calc(var(--nav-h) + 20px);
+    }
+    .sidebar-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .sidebar-card h4 {
+      font-family: var(--font-display);
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--text-dark);
+      margin-bottom: 4px;
+    }
+    .sidebar-card p { font-size: 13px; color: var(--text-mid); line-height: 1.6; margin-bottom: 16px; }
+    .sidebar-notify-form { display: flex; flex-direction: column; gap: 10px; }
+    .sidebar-notify-form input {
+      padding: 11px 14px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: var(--text-dark);
+      outline: none;
+      background: var(--white);
+      transition: border-color 0.2s;
+    }
+    .sidebar-notify-form input:focus { border-color: var(--green-mid); }
+    .sidebar-notify-form input::placeholder { color: var(--text-muted); }
+    @media (max-width: 860px) {
+      .events-layout { grid-template-columns: 1fr; }
+      .events-sidebar { position: static; }
+    }
+    @media (max-width: 768px) {
+      .gallery-masonry { columns: 2 200px; }
+      .recruitment-cta { padding: 32px 24px; }
+    }
+    @media (max-width: 500px) {
+      .gallery-masonry { columns: 1; }
+      .donation-ways { grid-template-columns: 1fr; }
+    }
+
+    /* ================================================
+       SCROLL ANIMATIONS — fade up on enter
+    ================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================================================
+       NAVIGATION
+  ================================================ -->
+  <header>
+    <nav class="nav" role="navigation" aria-label="Main navigation">
+      <div class="container">
+        <a href="#inicio" class="nav-logo">
+          <!-- ── SWAP src with your real logo image ── -->
+          <div class="nav-logo-img">
+            <svg width="22" height="18" viewBox="0 0 22 18" fill="none">
+              <path d="M1 12 Q11 5 21 12 L21 15 Q11 19 1 15Z" fill="#1a7c35"/>
+              <path d="M4 8 Q11 2 18 8 L17 12 H5Z" fill="#4ac26a" opacity="0.9"/>
+            </svg>
+          </div>
+          <span class="nav-brand">Solar<span>Boat</span> UPRM</span>
+        </a>
+        <div class="nav-links" role="list">
+          <a href="#sobre" role="listitem">Sobre nosotros</a>
+          <a href="#logros" role="listitem">Logros</a>
+          <a href="#noticias" role="listitem">Noticias</a>
+          <a href="#equipo" role="listitem">Equipo</a>
+          <a href="#fotos" role="listitem">Fotos</a>
+          <a href="#eventos" role="listitem">Eventos</a>
+          <a href="#donar" role="listitem">Donar</a>
+          <a href="#reclutamiento" role="listitem">Únete</a>
+        </div>
+        <a href="#contacto" class="nav-cta">Contacto</a>
+        <div class="nav-toggle" id="navToggle" aria-label="Abrir menú" role="button" tabindex="0">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+    <div class="mobile-menu" id="mobileMenu" role="menu">
+      <a href="#sobre"     role="menuitem">Sobre nosotros</a>
+      <a href="#logros"    role="menuitem">Logros</a>
+      <a href="#noticias"  role="menuitem">Noticias</a>
+      <a href="#equipo"    role="menuitem">Equipo</a>
+      <a href="#fotos"     role="menuitem">Fotos</a>
+      <a href="#eventos"   role="menuitem">Eventos</a>
+      <a href="#donar"     role="menuitem">Donar</a>
+      <a href="#reclutamiento" role="menuitem">Únete al equipo</a>
+      <a href="#contacto"  role="menuitem">Contacto</a>
+    </div>
+  </header>
+
+  <!-- ================================================
+       HERO
+  ================================================ -->
+  <section class="hero" id="inicio">
+    <div class="container">
+      <div class="hero-eyebrow">Universidad de Puerto Rico · Mayagüez</div>
+      <h1>
+        Ingeniería solar.
+        <em>Campeones mundiales.</em>
+      </h1>
+      <p class="hero-sub">
+        El equipo estudiantil del Colegio de Ingeniería de la UPR Mayagüez que diseña,
+        construye y compite con botes solares a nivel internacional.
+      </p>
+      <div class="hero-btns">
+        <a href="#logros" class="btn btn-primary">Ver nuestros logros</a>
+        <a href="#sobre"  class="btn btn-ghost">Conoce el equipo</a>
+      </div>
+    </div>
+
+    <!-- ── SWAP this SVG with <img class="hero-visual" src="hero-boat.jpg" alt="Solar Boat UPRM"> ── -->
+    <svg class="hero-visual" viewBox="0 0 700 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs>
+        <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#1a57c2" stop-opacity="0.5"/>
+          <stop offset="100%" stop-color="#0d1f0f" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+      <!-- water shimmer lines -->
+      <path d="M30 180 Q200 165 350 170 Q500 175 670 178" stroke="#1a57c2" stroke-width="2.5" fill="none" opacity="0.35"/>
+      <path d="M10 192 Q200 178 350 183 Q500 188 690 190" stroke="#1a57c2" stroke-width="3.5" fill="none" opacity="0.22"/>
+      <path d="M0  202 Q200 190 350 194 Q500 198 700 200" stroke="#1565c0" stroke-width="5" fill="none" opacity="0.14"/>
+      <!-- hull -->
+      <path d="M100 152 Q250 110 420 120 Q540 128 610 152 L592 176 Q350 194 118 176Z" fill="#1e3d28"/>
+      <path d="M118 152 Q250 120 420 130 Q520 138 590 152" stroke="#2a5c38" stroke-width="1.8" fill="none"/>
+      <!-- deck panels -->
+      <rect x="148" y="132" width="220" height="24" rx="5" fill="#142b1c"/>
+      <line x1="148" y1="140" x2="368" y2="140" stroke="#4ac26a" stroke-width="1.4" opacity="0.55"/>
+      <line x1="148" y1="146" x2="368" y2="146" stroke="#4ac26a" stroke-width="1.4" opacity="0.55"/>
+      <line x1="148" y1="152" x2="368" y2="152" stroke="#4ac26a" stroke-width="1.4" opacity="0.3"/>
+      <!-- solar sail / panel -->
+      <path d="M190 56 Q310 8 430 36 L416 132 H204Z" fill="#1a7c35" opacity="0.92"/>
+      <path d="M210 56 Q310 22 410 44 L398 100 H222Z" fill="#22a045" opacity="0.85"/>
+      <!-- solar panel grid lines -->
+      <line x1="260" y1="30" x2="250" y2="96" stroke="rgba(74,194,106,0.4)" stroke-width="1"/>
+      <line x1="310" y1="18" x2="300" y2="95" stroke="rgba(74,194,106,0.4)" stroke-width="1"/>
+      <line x1="360" y1="25" x2="350" y2="95" stroke="rgba(74,194,106,0.4)" stroke-width="1"/>
+      <line x1="215" y1="65" x2="410" y2="65" stroke="rgba(74,194,106,0.35)" stroke-width="1"/>
+      <line x1="208" y1="85" x2="412" y2="85" stroke="rgba(74,194,106,0.35)" stroke-width="1"/>
+      <!-- paw / logo mark on sail -->
+      <circle cx="330" cy="52" r="14" fill="#0f4d22" opacity="0.8"/>
+      <circle cx="326" cy="48" r="4" fill="#4ac26a" opacity="0.9"/>
+      <circle cx="334" cy="48" r="4" fill="#4ac26a" opacity="0.9"/>
+      <path d="M323 53 Q330 62 337 53 Q330 58 323 53Z" fill="#4ac26a" opacity="0.9"/>
+      <!-- flag -->
+      <line x1="490" y1="70" x2="490" y2="132" stroke="#4ac26a" stroke-width="2"/>
+      <path d="M490 70 L520 80 L490 90Z" fill="#4ac26a" opacity="0.8"/>
+    </svg>
+  </section>
+
+  <!-- ================================================
+       STATS STRIP
+  ================================================ -->
+  <div class="strip" aria-label="Estadísticas del equipo">
+    <div class="container">
+      <div class="strip-item">
+        <div class="strip-num">4+</div>
+        <div class="strip-label">Campeonatos mundiales</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">2021</div>
+        <div class="strip-label">Primer título mundial</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">23.86s</div>
+        <div class="strip-label">Récord sprint 300m</div>
+      </div>
+      <div class="strip-item">
+        <div class="strip-num">UPRM</div>
+        <div class="strip-label">Colegio de Ingeniería</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================================================
+       ABOUT
+  ================================================ -->
+  <section class="about" id="sobre" aria-label="Sobre nosotros">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <span class="tag tag-green">Quiénes somos</span>
+          <h2 class="section-heading">Estudiantes de ingeniería.<br><em>Campeones</em> globales.</h2>
+          <p class="section-lead">
+            Somos el equipo estudiantil del Colegio de Ingeniería de la Universidad de Puerto Rico,
+            Recinto de Mayagüez (UPRM). Nos dedicamos al diseño, construcción y competencia
+            de embarcaciones impulsadas por energía solar.
+          </p>
+          <p class="section-lead" style="margin-top:16px;">
+            Participamos en competencias internacionales de botes solares representando a
+            Puerto Rico en el escenario mundial con orgullo, innovación y trabajo en equipo.
+          </p>
+          <div style="margin-top:32px;">
+            <a href="#logros" class="btn btn-primary">Ver nuestros logros</a>
+          </div>
+        </div>
+        <div class="about-visual reveal" style="transition-delay:0.15s;">
+          <!-- ── REPLACE with <img src="team-photo.jpg" alt="Equipo Solar Boat UPRM"> ── -->
+          <div class="about-visual-placeholder">
+            <svg width="120" height="90" viewBox="0 0 120 90" fill="none" aria-hidden="true">
+              <ellipse cx="60" cy="78" rx="52" ry="12" fill="#29b6f6" opacity="0.2"/>
+              <path d="M12 58 Q60 30 108 58 L105 72 Q60 84 15 72Z" fill="#4a7c58"/>
+              <rect x="18" y="48" width="54" height="14" rx="4" fill="#2d5c3e"/>
+              <line x1="18" y1="54" x2="72" y2="54" stroke="#4ac26a" stroke-width="1.6"/>
+              <line x1="18" y1="59" x2="72" y2="59" stroke="#4ac26a" stroke-width="1.6"/>
+              <path d="M28 28 Q60 8 92 28 L88 48 H32Z" fill="#1a7c35"/>
+              <path d="M36 28 Q60 14 84 28 L80 42 H40Z" fill="#22a045"/>
+            </svg>
+            <p style="margin-top:12px;">Foto del equipo</p>
+            <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">Reemplaza con tu imagen</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       ACHIEVEMENTS
+  ================================================ -->
+  <section class="achievements" id="logros" aria-label="Logros">
+    <div class="container">
+      <div class="achievements-header reveal">
+        <span class="tag tag-green">Logros</span>
+        <h2 class="section-heading">Un historial de <em>victorias</em></h2>
+        <p class="section-lead">Competimos al más alto nivel y cosechamos títulos año tras año representando a Puerto Rico.</p>
+      </div>
+      <div class="wins-grid">
+        <!-- ── ADD / REMOVE / EDIT win cards here ── -->
+        <div class="win-card reveal">
+          <div class="win-icon">🏆</div>
+          <div>
+            <div class="win-year">2021</div>
+            <div class="win-title">Campeones Mundiales</div>
+            <div class="win-sub">Solar Splash · Springfield, OH</div>
+          </div>
+        </div>
+        <div class="win-card reveal" style="transition-delay:0.05s;">
+          <div class="win-icon">⚡</div>
+          <div>
+            <div class="win-year">2022</div>
+            <div class="win-title">Bote más veloz</div>
+            <div class="win-sub">Sprint 300m · 23.86 segundos</div>
+          </div>
+        </div>
+        <div class="win-card reveal" style="transition-delay:0.10s;">
+          <div class="win-icon">🏆</div>
+          <div>
+            <div class="win-year">2023</div>
+            <div class="win-title">Campeones Mundiales</div>
+            <div class="win-sub">Solar Splash · Springfield, OH</div>
+          </div>
+        </div>
+        <div class="win-card reveal" style="transition-delay:0.15s;">
+          <div class="win-icon">⚡</div>
+          <div>
+            <div class="win-year">2024</div>
+            <div class="win-title">Bote más veloz</div>
+            <div class="win-sub">Sprint 300m · 27.11 segundos</div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       NEWS
+  ================================================ -->
+  <section class="news" id="noticias" aria-label="Noticias">
+    <div class="container">
+      <div class="news-header reveal">
+        <div>
+          <span class="tag tag-green">Noticias</span>
+          <h2 class="section-heading">Lo más <em>reciente</em></h2>
+        </div>
+        <a href="#" class="news-view-all">Ver todas las noticias →</a>
+      </div>
+      <div class="news-grid">
+
+        <!-- ── NEWS CARD 1 — replace thumb with <img> ── -->
+        <article class="news-card reveal">
+          <div class="news-thumb" style="background:#e8f5ec;">
+            <!-- <img src="news-2024.jpg" alt="Solar Splash 2024"> -->
+            <svg width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
+              <ellipse cx="35" cy="42" rx="30" ry="8" fill="#29b6f6" opacity="0.3"/>
+              <path d="M5 28 Q35 12 65 28 L63 38 Q35 48 7 38Z" fill="#4a7c58"/>
+              <rect x="10" y="21" width="32" height="10" rx="3" fill="#2d5c3e"/>
+              <line x1="10" y1="26" x2="42" y2="26" stroke="#4ac26a" stroke-width="1.4"/>
+              <path d="M18 10 Q35 2 52 10 L50 22 H20Z" fill="#1a7c35"/>
+            </svg>
+          </div>
+          <div class="news-body">
+            <span class="news-pill pill-green">Sprint 2024</span>
+            <h3 class="news-title">Bote solar más rápido en Solar Splash 2024</h3>
+            <p class="news-date">14 de junio, 2024</p>
+            <p class="news-excerpt">
+              La embarcación del UPRM Solar Boat marcó 27.11 segundos en la categoría de 300m,
+              coronándose la más veloz de la competencia en Springfield, Ohio.
+            </p>
+          </div>
+        </article>
+
+        <!-- ── NEWS CARD 2 ── -->
+        <article class="news-card reveal" style="transition-delay:0.08s;">
+          <div class="news-thumb" style="background:#f1f8e9;">
+            <svg width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
+              <ellipse cx="35" cy="42" rx="30" ry="8" fill="#29b6f6" opacity="0.3"/>
+              <path d="M5 28 Q35 12 65 28 L63 38 Q35 48 7 38Z" fill="#5a7c65"/>
+              <rect x="10" y="21" width="32" height="10" rx="3" fill="#2d5c3e"/>
+            </svg>
+          </div>
+          <div class="news-body">
+            <span class="news-pill pill-green">Campeones 2023</span>
+            <h3 class="news-title">El Colegio recupera campeonato en Solar Splash 2023</h3>
+            <p class="news-date">23 de junio, 2023</p>
+            <p class="news-excerpt">
+              El equipo UPRM Solar Boat se coronó campeón nuevamente en la competencia
+              Solar Splash 2023 celebrada en Springfield, Ohio.
+            </p>
+          </div>
+        </article>
+
+        <!-- ── NEWS CARD 3 ── -->
+        <article class="news-card reveal" style="transition-delay:0.16s;">
+          <div class="news-thumb" style="background:#e8f0fb;">
+            <svg width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
+              <ellipse cx="35" cy="42" rx="30" ry="8" fill="#29b6f6" opacity="0.45"/>
+              <path d="M5 28 Q35 12 65 28 L63 38 Q35 48 7 38Z" fill="#4a5e7c"/>
+              <rect x="10" y="21" width="32" height="10" rx="3" fill="#2d3e5c"/>
+            </svg>
+          </div>
+          <div class="news-body">
+            <span class="news-pill pill-blue">Mundial 2021</span>
+            <h3 class="news-title">Primer campeonato mundial — Solar Splash 2021</h3>
+            <p class="news-date">18 de junio, 2021</p>
+            <p class="news-excerpt">
+              El UPRM Solar Boat Team dominó la competencia Solar Splash 2021 y se coronó
+              campeón mundial por primera vez en la historia del equipo.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       TEAM
+  ================================================ -->
+  <section class="team" id="equipo" aria-label="Equipo">
+    <div class="container">
+      <div class="team-header reveal">
+        <span class="tag tag-green">Equipo</span>
+        <h2 class="section-heading">Las personas <em>detrás</em> del bote</h2>
+        <p class="section-lead">Estudiantes de ingeniería que combinan pasión, técnica y trabajo en equipo para competir al más alto nivel.</p>
+      </div>
+      <div class="team-grid">
+        <!-- ── EDIT name/role/initials or swap avatar div with <img> ── -->
+        <div class="member-card reveal">
+          <div class="member-avatar">AS</div>
+          <div class="member-name">Nombre Apellido</div>
+          <div class="member-role">Team Captain</div>
+        </div>
+        <div class="member-card reveal" style="transition-delay:0.05s;">
+          <div class="member-avatar">BM</div>
+          <div class="member-name">Nombre Apellido</div>
+          <div class="member-role">Mechanical Lead</div>
+        </div>
+        <div class="member-card reveal" style="transition-delay:0.10s;">
+          <div class="member-avatar">CL</div>
+          <div class="member-name">Nombre Apellido</div>
+          <div class="member-role">Electrical Lead</div>
+        </div>
+        <div class="member-card reveal" style="transition-delay:0.15s;">
+          <div class="member-avatar">DR</div>
+          <div class="member-name">Nombre Apellido</div>
+          <div class="member-role">Software Lead</div>
+        </div>
+        <div class="member-card reveal" style="transition-delay:0.20s;">
+          <div class="member-avatar">EM</div>
+          <div class="member-name">Nombre Apellido</div>
+          <div class="member-role">Hull Design</div>
+        </div>
+        <div class="member-card reveal" style="transition-delay:0.25s;">
+          <div class="member-avatar">FV</div>
+          <div class="member-name">Nombre Apellido</div>
+          <div class="member-role">Solar Systems</div>
+        </div>
+        <!-- ADD more .member-card blocks as needed -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       GALLERY / IMAGES
+  ================================================ -->
+  <section class="gallery" id="fotos" aria-label="Galería de imágenes">
+    <div class="container">
+      <div class="gallery-header reveal">
+        <div>
+          <span class="tag tag-green">Galería</span>
+          <h2 class="section-heading">Momentos <em>épicos</em></h2>
+          <p class="section-lead">Competencias, construcción, pruebas en el agua y mucho más.</p>
+        </div>
+        <div class="gallery-filter">
+          <button class="filter-btn active" data-filter="all">Todo</button>
+          <button class="filter-btn" data-filter="competencia">Competencia</button>
+          <button class="filter-btn" data-filter="construccion">Construcción</button>
+          <button class="filter-btn" data-filter="equipo">Equipo</button>
+        </div>
+      </div>
+      <div class="gallery-masonry">
+
+        <!-- Item 1 -->
+        <div class="gallery-item reveal" data-cat="competencia" onclick="openGallery('Solar Splash 2024 — Sprint','Springfield, Ohio · Junio 2024')">
+          <div class="gallery-placeholder" style="height:200px;">
+            <!-- <img src="fotos/solar-splash-2024.jpg" alt="Solar Splash 2024"> -->
+            <svg width="90" height="65" viewBox="0 0 90 65" fill="none" aria-hidden="true">
+              <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
+              <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
+              <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
+              <line x1="14" y1="34" x2="56" y2="34" stroke="#4ac26a" stroke-width="1.6"/>
+              <path d="M22 12 Q45 2 68 12 L65 28 H25Z" fill="#1a7c35"/>
+              <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">Solar Splash 2024 — Sprint</div>
+            <div class="gallery-caption-sub">Springfield, Ohio · Junio 2024</div>
+          </div>
+        </div>
+
+        <!-- Item 2 -->
+        <div class="gallery-item reveal" style="transition-delay:0.05s;" data-cat="equipo" onclick="openGallery('El equipo campeón 2023','Foto grupal después del título mundial')">
+          <div class="gallery-placeholder" style="height:240px;">
+            <!-- <img src="fotos/equipo-2023.jpg" alt="Equipo 2023"> -->
+            <svg width="100" height="80" viewBox="0 0 100 80" fill="none" aria-hidden="true">
+              <circle cx="20" cy="40" r="12" fill="#e8f5ec"/>
+              <circle cx="20" cy="28" r="8" fill="#4a7c58"/>
+              <circle cx="50" cy="40" r="12" fill="#e8f5ec"/>
+              <circle cx="50" cy="27" r="9" fill="#1a7c35"/>
+              <circle cx="80" cy="40" r="12" fill="#e8f5ec"/>
+              <circle cx="80" cy="28" r="8" fill="#4a7c58"/>
+              <text x="50" y="68" text-anchor="middle" fill="#4ac26a" font-size="11" font-weight="bold">¡Campeones!</text>
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">El equipo campeón 2023</div>
+            <div class="gallery-caption-sub">Foto grupal · Solar Splash 2023</div>
+          </div>
+        </div>
+
+        <!-- Item 3 -->
+        <div class="gallery-item reveal" style="transition-delay:0.10s;" data-cat="construccion" onclick="openGallery('Construcción del casco','Taller de ingeniería · UPRM')">
+          <div class="gallery-placeholder" style="height:180px;">
+            <!-- <img src="fotos/construccion.jpg" alt="Construcción"> -->
+            <svg width="90" height="60" viewBox="0 0 90 60" fill="none" aria-hidden="true">
+              <rect x="10" y="20" width="70" height="28" rx="6" fill="#e8f5ec"/>
+              <rect x="20" y="25" width="50" height="14" rx="3" fill="#4a7c58"/>
+              <line x1="20" y1="31" x2="70" y2="31" stroke="#4ac26a" stroke-width="1.5"/>
+              <line x1="20" y1="35" x2="70" y2="35" stroke="#4ac26a" stroke-width="1.5"/>
+              <circle cx="15" cy="8" r="5" fill="#1a7c35"/>
+              <circle cx="75" cy="8" r="5" fill="#1a7c35"/>
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">Construcción del casco</div>
+            <div class="gallery-caption-sub">Taller de ingeniería · UPRM</div>
+          </div>
+        </div>
+
+        <!-- Item 4 -->
+        <div class="gallery-item reveal" style="transition-delay:0.15s;" data-cat="competencia" onclick="openGallery('Pruebas en el agua','Lago local · Mayagüez, PR')">
+          <div class="gallery-placeholder" style="height:220px;">
+            <!-- <img src="fotos/pruebas-agua.jpg" alt="Pruebas en el agua"> -->
+            <svg width="100" height="70" viewBox="0 0 100 70" fill="none" aria-hidden="true">
+              <ellipse cx="50" cy="58" rx="42" ry="12" fill="#1a57c2" opacity="0.2"/>
+              <path d="M8 40 Q50 24 92 40 L89 52 Q50 64 11 52Z" fill="#4a7c58"/>
+              <path d="M8 40 Q50 27 92 40" stroke="#4ac26a" stroke-width="1.8" fill="none"/>
+              <rect x="14" y="31" width="48" height="12" rx="3" fill="#2d5c3e"/>
+              <path d="M26 14 Q50 4 74 14 L71 30 H29Z" fill="#1a7c35"/>
+              <path d="M33 14 Q50 7 67 14 L64 27 H36Z" fill="#22a045"/>
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">Pruebas en el agua</div>
+            <div class="gallery-caption-sub">Lago local · Mayagüez, PR</div>
+          </div>
+        </div>
+
+        <!-- Item 5 -->
+        <div class="gallery-item reveal" style="transition-delay:0.20s;" data-cat="competencia" onclick="openGallery('Ceremonia de premios 2021','Primer campeonato mundial del equipo')">
+          <div class="gallery-placeholder" style="height:190px;">
+            <!-- <img src="fotos/premios-2021.jpg" alt="Premios 2021"> -->
+            <svg width="80" height="60" viewBox="0 0 80 60" fill="none" aria-hidden="true">
+              <text x="40" y="38" text-anchor="middle" font-size="36" fill="#f0b429">🏆</text>
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">Ceremonia de premios 2021</div>
+            <div class="gallery-caption-sub">Primer campeonato mundial</div>
+          </div>
+        </div>
+
+        <!-- Item 6 -->
+        <div class="gallery-item reveal" style="transition-delay:0.25s;" data-cat="construccion" onclick="openGallery('Sistema de paneles solares','Instalación y calibración')">
+          <div class="gallery-placeholder" style="height:200px;">
+            <!-- <img src="fotos/paneles-solares.jpg" alt="Paneles Solares"> -->
+            <svg width="90" height="65" viewBox="0 0 90 65" fill="none" aria-hidden="true">
+              <rect x="10" y="8" width="70" height="42" rx="6" fill="#e8f5ec"/>
+              <rect x="14" y="12" width="29" height="18" rx="2" fill="#1a7c35" opacity="0.7"/>
+              <rect x="47" y="12" width="29" height="18" rx="2" fill="#1a7c35" opacity="0.7"/>
+              <rect x="14" y="34" width="29" height="11" rx="2" fill="#22a045" opacity="0.7"/>
+              <rect x="47" y="34" width="29" height="11" rx="2" fill="#22a045" opacity="0.7"/>
+              <line x1="29" y1="12" x2="29" y2="30" stroke="#4ac26a" stroke-width="1.2"/>
+              <line x1="62" y1="12" x2="62" y2="30" stroke="#4ac26a" stroke-width="1.2"/>
+              <line x1="14" y1="21" x2="43" y2="21" stroke="#4ac26a" stroke-width="1.2"/>
+              <line x1="47" y1="21" x2="76" y2="21" stroke="#4ac26a" stroke-width="1.2"/>
+            </svg>
+          </div>
+          <div class="gallery-caption">
+            <div class="gallery-caption-title">Sistema de paneles solares</div>
+            <div class="gallery-caption-sub">Instalación y calibración</div>
+          </div>
+        </div>
+
+        <!-- ADD MORE: copy a .gallery-item block and set data-cat + replace the placeholder comment with your <img> -->
+
+      </div>
+
+      <div style="text-align:center;margin-top:40px;" class="reveal">
+        <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">
+          ¿Tienes fotos del equipo? Envíalas a <a href="mailto:solarboat@uprm.edu" style="color:var(--green-mid);font-weight:600;">solarboat@uprm.edu</a>
+        </p>
+        <a href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener" class="btn btn-primary">Ver más en Instagram →</a>
+      </div>
+    </div>
+
+    <!-- Lightbox overlay -->
+    <div class="gallery-overlay" id="galleryOverlay" onclick="closeGallery(event)">
+      <div class="gallery-overlay-inner">
+        <div class="gallery-overlay-img" id="galleryOverlayImg">
+          <!-- image renders here -->
+        </div>
+        <div class="gallery-overlay-body">
+          <h3 id="galleryOverlayTitle"></h3>
+          <p id="galleryOverlayDesc"></p>
+        </div>
+      </div>
+      <button class="gallery-overlay-close" onclick="closeGallery()">✕</button>
+    </div>
+  </section>
+
+  <!-- ================================================
+       EVENTS
+  ================================================ -->
+  <section class="events" id="eventos" aria-label="Eventos">
+    <div class="container">
+      <div class="events-header reveal">
+        <span class="tag tag-green">Eventos</span>
+        <h2 class="section-heading">Próximos <em>eventos</em></h2>
+        <p class="section-lead">Ventas de pizza, competencias, reuniones del equipo y fechas importantes.</p>
+      </div>
+      <div class="events-layout">
+        <div class="events-list">
+
+          <!-- FEATURED EVENT -->
+          <div class="event-card featured reveal">
+            <div class="event-date-block">
+              <div class="event-day">14</div>
+              <div class="event-month">Jun</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-comp">🏆 Competencia</span>
+              </div>
+              <div class="event-title">Solar Splash 2025 — Springfield, OH</div>
+              <div class="event-desc">Competencia internacional de botes solares. El equipo UPRM defenderá su título mundial en Springfield, Ohio. ¡Todos a apoyar!</div>
+              <div class="event-meta">
+                <span>📍 Springfield, Ohio</span>
+                <span>🕗 Toda la semana</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA SALE 1 -->
+          <div class="event-card reveal" style="transition-delay:0.05s;">
+            <div class="event-date-block">
+              <div class="event-day">6</div>
+              <div class="event-month">Jun</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-pizza">🍕 Venta de Pizza</span>
+              </div>
+              <div class="event-title">Venta de Pizza — Stefani's</div>
+              <div class="event-desc">Ven a apoyar el equipo comprando pizza en Stefani's. Cada pedido ayuda a financiar materiales y gastos de la competencia.</div>
+              <div class="event-meta">
+                <span>📍 Stefani's, Mayagüez</span>
+                <span>🕗 11am – 8pm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TEAM MEETING -->
+          <div class="event-card reveal" style="transition-delay:0.10s;">
+            <div class="event-date-block">
+              <div class="event-day">30</div>
+              <div class="event-month">May</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-meeting">📅 Reunión</span>
+              </div>
+              <div class="event-title">Reunión general del equipo</div>
+              <div class="event-desc">Reunión de todos los subgrupos para repasar el status del bote, asignaciones finales y logística previo a la competencia.</div>
+              <div class="event-meta">
+                <span>📍 Stefani Building, UPRM</span>
+                <span>🕗 6:00pm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FUNDRAISER SALE -->
+          <div class="event-card reveal" style="transition-delay:0.15s;">
+            <div class="event-date-block">
+              <div class="event-day">20</div>
+              <div class="event-month">May</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-sale">💰 Fundraiser</span>
+              </div>
+              <div class="event-title">Venta de camisetas del equipo</div>
+              <div class="event-desc">Edición limitada de camisetas Solar Boat UPRM. Disponibles en el patio del Colegio de Ingeniería. ¡No te quedes sin la tuya!</div>
+              <div class="event-meta">
+                <span>📍 Patio Colegio de Ingeniería, UPRM</span>
+                <span>🕗 9am – 3pm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA SALE 2 -->
+          <div class="event-card reveal" style="transition-delay:0.20s;">
+            <div class="event-date-block">
+              <div class="event-day">13</div>
+              <div class="event-month">May</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-pizza">🍕 Venta de Pizza</span>
+              </div>
+              <div class="event-title">Venta de Pizza — Edificio Monzón</div>
+              <div class="event-desc">Venta de pizza en el edificio Monzón para recaudar fondos para los materiales de la competencia 2025.</div>
+              <div class="event-meta">
+                <span>📍 Edificio Monzón, UPRM</span>
+                <span>🕗 11am – 2pm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADD MORE EVENT CARDS: copy .event-card block and fill in details -->
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="events-sidebar">
+          <div class="sidebar-card reveal">
+            <h4>📬 Notificaciones de eventos</h4>
+            <p>Déjanos tu correo y te avisamos de próximas ventas de pizza, fundraisers y fechas importantes.</p>
+            <div class="sidebar-notify-form">
+              <input type="text" placeholder="Tu nombre" />
+              <input type="email" placeholder="tu@correo.edu" />
+              <input type="text" class="hp-field notify-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <button class="btn btn-primary" style="font-size:13px;padding:11px;" onclick="handleNotify(this)">Notificarme</button>
+            </div>
+          </div>
+          <div class="sidebar-card reveal" style="transition-delay:0.1s;">
+            <h4>📅 Añade a tu calendario</h4>
+            <p>Descarga el archivo .ics con todos los eventos del Solar Boat UPRM para 2025.</p>
+            <a href="#" id="calendarDownload" class="btn btn-primary" style="width:100%;text-align:center;font-size:13px;padding:11px;display:block;">Descargar calendario</a>
+          </div>
+          <div class="sidebar-card reveal" style="transition-delay:0.2s;background:var(--green-pale);border-color:var(--green-mid);">
+            <h4 style="color:var(--green-dark);">🍕 ¿Quieres organizar una venta?</h4>
+            <p>Si tienes un lugar o quieres colaborar en un fundraiser, contáctanos.</p>
+            <a href="#contacto" class="btn btn-primary" style="width:100%;text-align:center;font-size:13px;padding:11px;display:block;">Contáctanos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       DONATIONS / SPONSORS
+  ================================================ -->
+  <section class="donations" id="donar" aria-label="Donaciones y patrocinadores">
+    <div class="container">
+      <div class="donations-header reveal">
+        <span class="tag tag-green">Apóyanos</span>
+        <h2 class="section-heading">Tu apoyo nos lleva a <em>ganar</em></h2>
+        <p class="section-lead">Cada contribución ayuda a costear materiales, viajes y la próxima campaña para defender el título mundial.</p>
+      </div>
+
+      <div class="donation-ways">
+        <!-- PayPal -->
+        <div class="donation-way reveal">
+          <div class="donation-way-icon">🅿️</div>
+          <h4>PayPal</h4>
+          <p>Donación rápida y segura vía PayPal. Cualquier cantidad suma.</p>
+          <!-- Replace href with your real PayPal.me link -->
+          <a href="https://paypal.me/UPRMSolarBoat" target="_blank" rel="noopener" class="btn-donate">Donar con PayPal</a>
+        </div>
+        <!-- Venmo -->
+        <div class="donation-way reveal" style="transition-delay:0.05s;">
+          <div class="donation-way-icon">💚</div>
+          <h4>Venmo</h4>
+          <p>Envía tu donación directamente por Venmo desde tu celular.</p>
+          <!-- Replace href with your real Venmo link -->
+          <a href="https://venmo.com/UPRMSolarBoat" target="_blank" rel="noopener" class="btn-donate">Donar con Venmo</a>
+        </div>
+        <!-- ATH Móvil -->
+        <div class="donation-way reveal" style="transition-delay:0.10s;">
+          <div class="donation-way-icon">🇵🇷</div>
+          <h4>ATH Móvil</h4>
+          <p>Si estás en Puerto Rico, puedes donarnos directamente por ATH Móvil Business.</p>
+          <!-- Replace with your actual ATH Móvil handle -->
+          <a href="#contacto" class="btn-donate">Ver número de teléfono</a>
+        </div>
+        <!-- Patrocinio empresarial -->
+        <div class="donation-way reveal" style="transition-delay:0.15s;">
+          <div class="donation-way-icon">🏢</div>
+          <h4>Patrocinio empresarial</h4>
+          <p>Tu empresa aparece en el bote y el sitio web. Distintos niveles disponibles.</p>
+          <a href="#contacto" class="btn-donate">Hablar con el equipo</a>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- ================================================
+       RECRUITMENT
+  ================================================ -->
+  <section class="recruitment" id="reclutamiento" aria-label="Reclutamiento">
+    <div class="container">
+      <div class="recruitment-header reveal">
+        <span class="tag tag-green">Únete al equipo</span>
+        <h2 class="section-heading">¿Quieres ser <em>campeón mundial</em>?</h2>
+        <p class="section-lead">Buscamos estudiantes apasionados de UPRM en todas las disciplinas de ingeniería. No necesitas experiencia previa — solo ganas de aprender y trabajar en equipo.</p>
+      </div>
+
+      <div class="recruitment-grid">
+        <div class="dept-card reveal">
+          <div class="dept-icon">⚙️</div>
+          <div class="dept-name">Ingeniería Mecánica</div>
+          <div class="dept-desc">Diseño y construcción del casco, análisis estructural, manufactura y ensamblaje del bote.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.05s;">
+          <div class="dept-icon">⚡</div>
+          <div class="dept-name">Ingeniería Eléctrica</div>
+          <div class="dept-desc">Sistema de propulsión, circuitos de potencia, paneles solares y gestión de baterías.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.10s;">
+          <div class="dept-icon">💻</div>
+          <div class="dept-name">Software & Computadoras</div>
+          <div class="dept-desc">Control de sistemas embebidos, telemetría, adquisición de datos y software de monitoreo.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.15s;">
+          <div class="dept-icon">🎨</div>
+          <div class="dept-name">Diseño & Medios</div>
+          <div class="dept-desc">Branding del equipo, redes sociales, fotografía, video y diseño de materiales de fundraising.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.20s;">
+          <div class="dept-icon">📊</div>
+          <div class="dept-name">Administración & Finanzas</div>
+          <div class="dept-desc">Gestión de presupuesto, solicitudes de fondos, logística de viajes y patrocinios.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.25s;">
+          <div class="dept-icon">🔬</div>
+          <div class="dept-name">Investigación & Desarrollo</div>
+          <div class="dept-desc">Optimización aerodinámica, simulaciones CFD y desarrollo de nuevas tecnologías para el bote.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+      </div>
+
+      <div class="recruitment-cta reveal">
+        <h3>¿Listo para unirte? 🚀</h3>
+        <p>Déjanos tu correo y nos comunicamos contigo para contarte los próximos pasos del proceso de reclutamiento.</p>
+        <div class="recruitment-form">
+          <input type="email" id="recruitEmail" placeholder="tu@uprm.edu" />
+          <input type="text" id="recruitWebsite" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="btn btn-primary" onclick="handleRecruit(this)">Aplicar ahora</button>
+        </div>
+        <p style="margin-top:16px;font-size:12px;color:var(--text-muted);">También puedes escribirnos directamente a <a href="mailto:solarboat@uprm.edu" style="color:var(--green-mid);font-weight:600;">solarboat@uprm.edu</a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       SOCIAL
+  ================================================ -->
+  <section class="social-section" id="redes" aria-label="Redes sociales">
+    <div class="container">
+      <span class="tag tag-green">Síguenos</span>
+      <h2 class="section-heading reveal">Únete a <em>nuestra comunidad</em></h2>
+      <p class="section-lead reveal">Mira el día a día del equipo, fotos de competencia, detrás de cámaras y más.</p>
+      <div class="social-row reveal">
+        <!-- ── Instagram ── -->
+        <a class="social-card" href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="#c13584" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="0.5" fill="#c13584"/>
+          </svg>
+          <span>@uprm_solar_boat</span>
+        </a>
+        <!-- ── Facebook ── -->
+        <a class="social-card" href="https://www.facebook.com/UPRMSolarBoat/" target="_blank" rel="noopener">
+          <svg class="social-icon" viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true">
+            <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/>
+          </svg>
+          <span>UPRMSolarBoat</span>
+        </a>
+        <!-- ── ADD more social links here (YouTube, LinkedIn, etc.) ── -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================
+       CONTACT
+  ================================================ -->
+  <section class="contact" id="contacto" aria-label="Contacto">
+    <div class="container">
+      <h2 class="section-heading reveal">¿Quieres <em>saber más</em>?</h2>
+      <p class="reveal">Contáctanos para colaboraciones, patrocinios, prensa o simplemente para saber más sobre el equipo.</p>
+      <form class="contact-form reveal" id="contactForm" novalidate>
+        <div class="contact-row">
+          <input type="text"  name="nombre"  placeholder="Tu nombre"  required autocomplete="name" />
+          <input type="email" name="email"   placeholder="Tu correo"  required autocomplete="email" />
+        </div>
+        <input type="text" name="asunto" placeholder="Asunto" />
+        <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+        <textarea name="mensaje" placeholder="Tu mensaje..." required></textarea>
+        <!-- ── Wire up your backend/EmailJS/Formspree here ── -->
+        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ================================================
+       FOOTER
+  ================================================ -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand">Solar<span>Boat</span> UPRM</div>
+          <p class="footer-tagline">
+            Universidad de Puerto Rico · Recinto de Mayagüez<br>
+            Colegio de Ingeniería
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Navegación</h4>
+          <ul>
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#sobre">Sobre nosotros</a></li>
+            <li><a href="#logros">Logros</a></li>
+            <li><a href="#noticias">Noticias</a></li>
+            <li><a href="#equipo">Equipo</a></li>
+            <li><a href="#fotos">Fotos</a></li>
+            <li><a href="#eventos">Eventos</a></li>
+            <li><a href="#donar">Donar</a></li>
+            <li><a href="#reclutamiento">Únete</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Redes sociales</h4>
+          <ul>
+            <li><a href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener">Instagram</a></li>
+            <li><a href="https://www.facebook.com/UPRMSolarBoat/" target="_blank" rel="noopener">Facebook</a></li>
+            <!-- ADD more ── -->
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contacto</h4>
+          <ul>
+            <!-- ── EDIT email ── -->
+            <li><a href="mailto:solarboat@uprm.edu">solarboat@uprm.edu</a></li>
+            <li><a href="https://www.uprm.edu" target="_blank" rel="noopener">uprm.edu</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 UPRM Solar Boat Team · Todos los derechos reservados</p>
+        <a href="#inicio">Volver arriba ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================================================
+       JAVASCRIPT
+  ================================================ -->
+  <script>
+    // ================================================
+    //  BACKEND API
+    //  Point this at your deployed backend. For local dev with the Flask
+    //  server (backend/app.py) running, use 'http://localhost:5000'.
+    // ================================================
+    const API_BASE = 'http://localhost:5000';
+
+    async function postForm(path, data) {
+      const res = await fetch(API_BASE + path, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const body = await res.json().catch(() => ({}));
+      if (!res.ok || !body.ok) {
+        throw new Error(body.error || 'Error de servidor');
+      }
+      return body;
+    }
+
+    // "Descargar calendario" serves the .ics generated by the backend.
+    document.getElementById('calendarDownload').href = API_BASE + '/api/events.ics';
+
+    // ── Gallery filter ──
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        document.querySelectorAll('.gallery-item').forEach(item => {
+          if (filter === 'all' || item.dataset.cat === filter) {
+            item.style.display = '';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // ── Gallery lightbox ──
+    function openGallery(title, desc) {
+      document.getElementById('galleryOverlayTitle').textContent = title;
+      document.getElementById('galleryOverlayDesc').textContent = desc;
+      // If you have a real <img> you can swap it here
+      document.getElementById('galleryOverlayImg').innerHTML =
+        '<svg width="120" height="90" viewBox="0 0 120 90" fill="none" aria-hidden="true"><ellipse cx="60" cy="78" rx="52" ry="12" fill="#29b6f6" opacity="0.2"/><path d="M12 58 Q60 30 108 58 L105 72 Q60 84 15 72Z" fill="#4a7c58"/><rect x="18" y="48" width="54" height="14" rx="4" fill="#2d5c3e"/><line x1="18" y1="54" x2="72" y2="54" stroke="#4ac26a" stroke-width="1.6"/><path d="M28 28 Q60 8 92 28 L88 48 H32Z" fill="#1a7c35"/><path d="M36 28 Q60 14 84 28 L80 42 H40Z" fill="#22a045"/></svg>';
+      document.getElementById('galleryOverlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeGallery(e) {
+      if (!e || e.target === document.getElementById('galleryOverlay') || e.currentTarget.tagName === 'BUTTON') {
+        document.getElementById('galleryOverlay').classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeGallery({target: document.getElementById('galleryOverlay')}); });
+
+    // ── Recruitment form ──
+    async function handleRecruit(btn) {
+      const input = document.getElementById('recruitEmail');
+      const email = input.value.trim();
+      if (!email || !email.includes('@')) {
+        input.style.borderColor = '#e53e3e';
+        return;
+      }
+      input.style.borderColor = '';
+      const original = btn.textContent;
+      btn.textContent = 'Enviando…';
+      btn.disabled = true;
+      try {
+        const website = document.getElementById('recruitWebsite').value;
+        await postForm('/api/recruit', { email, website });
+        btn.textContent = '¡Recibido! ✓';
+      } catch (err) {
+        btn.textContent = 'Error — reintenta';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = original; }, 2500);
+      }
+    }
+
+    // ── Events notify form ──
+    async function handleNotify(btn) {
+      const wrap = btn.closest('.sidebar-notify-form');
+      const nombre = wrap.querySelector('input[type="text"]:not(.hp-field)').value.trim();
+      const emailInput = wrap.querySelector('input[type="email"]');
+      const email = emailInput.value.trim();
+      const website = wrap.querySelector('.notify-hp').value;
+      if (!email || !email.includes('@')) {
+        emailInput.style.borderColor = '#e53e3e';
+        return;
+      }
+      emailInput.style.borderColor = '';
+      const original = btn.textContent;
+      btn.textContent = 'Enviando…';
+      btn.disabled = true;
+      try {
+        await postForm('/api/notify', { nombre, email, website });
+        btn.textContent = '¡Listo! ✓';
+      } catch (err) {
+        btn.textContent = 'Error — reintenta';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = original; }, 2500);
+      }
+    }
+
+    // ── Mobile nav toggle ──
+    const toggle   = document.getElementById('navToggle');
+    const mobileMenu = document.getElementById('mobileMenu');
+    toggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('open');
+    });
+    // close when a link is tapped
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.remove('open'));
+    });
+
+    // ── Scroll reveal ──
+    const revealEls = document.querySelectorAll('.reveal');
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(el => io.observe(el));
+
+    // ── Contact form ──
+    document.getElementById('contactForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const btn = this.querySelector('button[type="submit"]');
+      const original = btn.textContent;
+      btn.textContent = 'Enviando…';
+      btn.disabled = true;
+
+      const data = Object.fromEntries(new FormData(this));
+      try {
+        await postForm('/api/contact', data);
+        btn.textContent = '¡Mensaje enviado! ✓';
+        this.reset();
+      } catch (err) {
+        btn.textContent = 'Error — intenta de nuevo';
+        btn.disabled = false;
+        setTimeout(() => { btn.textContent = original; }, 2500);
+      }
+    });
+
+    // ── Smooth close mobile menu on outside click ──
+    document.addEventListener('click', (e) => {
+      if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+      }
+    });
+  </script>
+
+</body>
+</html>
