@@ -1,0 +1,61 @@
+/* Clases reutilizables: container, btn, tag, section-heading
+   Solar Boat UPRM — css/utilities.css */
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.tag {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 20px;
+  margin-bottom: 16px;
+}
+.tag-green { background: var(--green-pale); color: var(--green-mid); }
+.tag-blue  { background: var(--blue-pale);  color: var(--blue-mid);  }
+.section-heading {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 800;
+  color: var(--text-dark);
+  letter-spacing: -0.8px;
+  line-height: 1.1;
+  margin-bottom: 14px;
+}
+.section-heading em { color: var(--green-mid); font-style: normal; }
+.section-lead {
+  font-size: 16px;
+  color: var(--text-mid);
+  line-height: 1.8;
+  max-width: 540px;
+}
+.btn {
+  display: inline-block;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+  padding: 13px 28px;
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s, opacity 0.15s;
+}
+.btn:hover { transform: translateY(-1px); opacity: 0.92; }
+.btn-primary { background: var(--green-mid); color: var(--white); }
+.btn-ghost   { background: rgba(255,255,255,0.1); color: var(--white); border: 1px solid rgba(255,255,255,0.25); }
+/* Honeypot anti-spam field: invisible to humans, tempting to bots.
+   Off-screen (not display:none) so more bots fall for it. */
+.hp-field {
+  position: absolute !important;
+  left: -9999px !important;
+  width: 1px; height: 1px;
+  opacity: 0;
+  pointer-events: none;
+}

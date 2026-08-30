@@ -1,0 +1,195 @@
+/* Logros — objetivos y línea de tiempo
+   Solar Boat UPRM — css/sections/achievements.css */
+
+.achievements {
+  padding: var(--section-pad);
+  background: var(--white);
+}
+.achievements-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+.achievements-header .section-lead { margin: 0 auto; }
+.wins-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.win-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 24px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.win-card:hover {
+  border-color: var(--green-mid);
+  transform: translateY(-2px);
+}
+.win-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: var(--green-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 18px;
+}
+.win-year {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.win-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-top: 3px;
+  line-height: 1.3;
+}
+.win-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* ── Objetivos del equipo ── */
+.goals-block { margin-bottom: 64px; }
+.goals-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+.goals-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 16px;
+}
+.goal-card {
+  background: var(--green-pale);
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  padding: 22px;
+  transition: border-color 0.2s, transform 0.2s;
+}
+.goal-card:hover { border-color: var(--green-mid); transform: translateY(-2px); }
+.goal-num {
+  font-family: var(--font-display);
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--green-mid);
+  letter-spacing: 0.5px;
+}
+.goal-text {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.6;
+  margin-top: 8px;
+}
+
+/* ── Historial (línea de tiempo) ── */
+.timeline-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 28px;
+}
+.timeline {
+  position: relative;
+  padding-left: 30px;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px; top: 6px; bottom: 6px;
+  width: 2px;
+  background: var(--border);
+}
+.tl-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 28px;
+  align-items: start;
+  padding-bottom: 40px;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -30px; top: 6px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 3px solid var(--green-mid);
+}
+.tl-year {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: var(--green-mid);
+  background: var(--green-pale);
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 10px;
+}
+.tl-heading {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.3;
+}
+.tl-desc {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin-top: 10px;
+}
+.tl-challenge {
+  display: block;
+  margin-top: 14px;
+  padding: 14px 16px;
+  background: var(--off-white);
+  border-left: 3px solid var(--green-light);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 13px;
+  color: var(--text-mid);
+  line-height: 1.65;
+}
+.tl-challenge strong {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: var(--green-mid);
+  margin-bottom: 5px;
+}
+.tl-photo {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--off-white);
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  font-size: 12px;
+  text-align: center;
+  padding: 12px;
+}
+.tl-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }

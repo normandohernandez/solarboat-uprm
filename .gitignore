@@ -5,3 +5,14 @@
 MEBC-2026-Tracking-and-Measurement-Device-Presentation.pdf
 PAD.py
 SolarBoat_Decoder.py
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.pytest_cache/
+
+# Nunca subir secretos ni la base de datos
+.env
+*.db

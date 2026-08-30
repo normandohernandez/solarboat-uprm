@@ -31,7 +31,7 @@ tables of all contacts/recruits/subscribers plus one-click CSV downloads
 (for mailing lists, Excel, etc.). The token is never stored in the browser.
 
 ### Team calendar
-`backend/events.json` is a hand-editable list of events:
+`web/backend/events.json` is a hand-editable list of events:
 
 ```json
 { "date": "2025-06-14", "title": "Solar Splash 2025",
@@ -45,7 +45,7 @@ Edit the JSON and redeploy to update the calendar.
 ## Tests
 
 ```bash
-cd backend
+cd web/backend
 source .venv/bin/activate
 pip install pytest
 pytest -q
@@ -54,7 +54,7 @@ pytest -q
 ## Run locally
 
 ```bash
-cd backend
+cd web/backend
 python3 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
@@ -63,7 +63,7 @@ cp .env.example .env      # then edit .env with your values
 python app.py             # serves on http://localhost:5000
 ```
 
-The frontend (`index.html`) points at `http://localhost:5000` via the
+The frontend (`web/frontend/js/api.js`) points at `http://localhost:5000` via the
 `API_BASE` constant in its `<script>` block — change that to your deployed
 URL for production.
 
@@ -90,7 +90,7 @@ gunicorn app:app --bind 0.0.0.0:$PORT --workers 2
 
 Works out of the box on Render, Railway, or Fly.io — set the environment
 variables from `.env.example` in the host's dashboard. The SQLite file lives
-at `backend/solarboat.db`; on platforms with ephemeral disks, mount a volume
+at `web/backend/solarboat.db`; on platforms with ephemeral disks, mount a volume
 or point `SOLARBOAT_DB` at persistent storage.
 
 ## Viewing submissions

@@ -115,7 +115,7 @@
 
     <section id="sec-subscribers">
       <div class="sec-head">
-        <h2>🔔 Suscriptores de eventos<span class="count" id="n-subscribers"></span></h2>
+        <h2>🔔 Suscriptores a notificaciones<span class="count" id="n-subscribers"></span></h2>
         <button class="ghost" onclick="csv('subscribers')">Descargar CSV</button>
       </div>
       <div id="t-subscribers"></div>
@@ -130,7 +130,7 @@
     const COLS = {
       contacts:    ['created', 'nombre', 'email', 'asunto', 'mensaje'],
       recruits:    ['created', 'email'],
-      subscribers: ['created', 'nombre', 'email'],
+      subscribers: ['created', 'nombre', 'email', 'intereses'],
     };
 
     async function load() {

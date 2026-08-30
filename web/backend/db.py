@@ -4,7 +4,7 @@ SQLite persistence for Solar Boat UPRM form submissions.
 Three tables, one per form on index.html:
   - contacts     : contact form (nombre, email, asunto, mensaje)
   - recruits     : recruitment form (email)
-  - subscribers  : events notify form (nombre, email)
+  - subscribers  : notification signup (nombre, email, intereses)
 
 The database file lives next to this module (solarboat.db) unless the
 SOLARBOAT_DB env var points somewhere else.
@@ -56,14 +56,19 @@ def init_db():
             );
 
             CREATE TABLE IF NOT EXISTS subscribers (
-                id       INTEGER PRIMARY KEY AUTOINCREMENT,
-                nombre   TEXT,
-                email    TEXT NOT NULL UNIQUE,
-                ip       TEXT,
-                created  TEXT NOT NULL
+                id        INTEGER PRIMARY KEY AUTOINCREMENT,
+                nombre    TEXT,
+                email     TEXT NOT NULL UNIQUE,
+                intereses TEXT,
+                ip        TEXT,
+                created   TEXT NOT NULL
             );
             """
         )
+        # Migration: older databases have `subscribers` without `intereses`.
+        cols = {row["name"] for row in conn.execute("PRAGMA table_info(subscribers)")}
+        if "intereses" not in cols:
+            conn.execute("ALTER TABLE subscribers ADD COLUMN intereses TEXT")
 
 
 def _now():
@@ -90,15 +95,28 @@ def add_recruit(email, ip=None):
         return cur.lastrowid if cur.rowcount else None
 
 
-def add_subscriber(nombre, email, ip=None):
-    """Insert a subscriber. Returns row id, or None if the email already exists."""
+def add_subscriber(nombre, email, intereses=None, ip=None):
+    """Insert a subscriber, or refresh the record if the email already exists.
+
+    Someone re-subscribing usually means they changed what they want to hear
+    about, so an existing row gets its name and interests updated rather than
+    being silently dropped. Returns the row id for a brand-new subscriber and
+    None when an existing one was updated.
+    """
     with _connect() as conn:
         cur = conn.execute(
-            "INSERT OR IGNORE INTO subscribers (nombre, email, ip, created) "
-            "VALUES (?, ?, ?, ?)",
-            (nombre, email, ip, _now()),
+            "INSERT OR IGNORE INTO subscribers (nombre, email, intereses, ip, created) "
+            "VALUES (?, ?, ?, ?, ?)",
+            (nombre, email, intereses, ip, _now()),
         )
-        return cur.lastrowid if cur.rowcount else None
+        if cur.rowcount:
+            return cur.lastrowid
+        conn.execute(
+            "UPDATE subscribers SET nombre = COALESCE(NULLIF(?, ''), nombre), "
+            "intereses = COALESCE(NULLIF(?, ''), intereses) WHERE email = ?",
+            (nombre, intereses, email),
+        )
+        return None
 
 
 def _all(table):

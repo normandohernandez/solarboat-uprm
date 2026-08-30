@@ -1,0 +1,73 @@
+/* Contacto
+   Solar Boat UPRM — css/sections/contact.css */
+
+.contact {
+  padding: var(--section-pad);
+  background: var(--green-dark);
+  text-align: center;
+}
+.contact .section-heading { color: var(--white); margin: 0 auto 12px; text-align: center; }
+.contact .section-heading em { color: var(--green-light); }
+.contact p {
+  color: rgba(255,255,255,0.6);
+  font-size: 16px;
+  max-width: 480px;
+  margin: 0 auto 40px;
+  line-height: 1.7;
+}
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 520px;
+  margin: 0 auto;
+  text-align: left;
+}
+.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 13px 16px;
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.contact-form input::placeholder,
+.contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+.contact-form input:focus,
+.contact-form textarea:focus { border-color: var(--green-light); }
+.contact-form textarea { resize: vertical; min-height: 120px; }
+.contact-form .btn-primary { width: 100%; text-align: center; font-size: 15px; padding: 14px; }
+
+.contact-social {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  max-width: 520px;
+  margin: 32px auto 0;
+}
+.contact-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: var(--radius-sm);
+  padding: 11px 18px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--white);
+  text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.contact-social a:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: var(--green-light);
+}
+.contact-social svg { width: 18px; height: 18px; flex-shrink: 0; }

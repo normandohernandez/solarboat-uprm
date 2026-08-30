@@ -1,0 +1,35 @@
+/* Redes sociales
+   Solar Boat UPRM — css/sections/social.css */
+
+.social-section {
+  padding: var(--section-pad);
+  background: var(--off-white);
+  text-align: center;
+}
+.social-section .section-heading,
+.social-section .section-lead { margin: 0 auto; text-align: center; }
+.social-section .section-lead { margin-top: 12px; margin-bottom: 40px; }
+.social-row {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.social-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 28px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--white);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: border-color 0.2s, transform 0.2s;
+}
+.social-card:hover {
+  border-color: var(--green-mid);
+  transform: translateY(-2px);
+}
+.social-icon { width: 22px; height: 22px; flex-shrink: 0; }

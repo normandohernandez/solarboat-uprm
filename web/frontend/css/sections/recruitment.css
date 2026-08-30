@@ -1,0 +1,98 @@
+/* Reclutamiento / Únete
+   Solar Boat UPRM — css/sections/recruitment.css */
+
+.recruitment { padding: var(--section-pad); background: var(--white); }
+.recruitment-header { text-align: center; margin-bottom: 56px; }
+.recruitment-header .section-lead { margin: 0 auto; }
+.recruitment-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin-bottom: 48px;
+}
+.dept-card {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  transition: border-color 0.2s, transform 0.2s;
+  background: var(--white);
+}
+.dept-card:hover { border-color: var(--green-mid); transform: translateY(-2px); }
+.dept-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  background: var(--green-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  margin-bottom: 16px;
+}
+.dept-name {
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+.dept-desc {
+  font-size: 14px;
+  color: var(--text-mid);
+  line-height: 1.7;
+}
+.dept-tag {
+  display: inline-block;
+  margin-top: 14px;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: var(--green-pale);
+  color: var(--green-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.recruitment-cta {
+  background: var(--green-pale);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 48px 40px;
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto;
+}
+.recruitment-cta h3 {
+  font-family: var(--font-display);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+  letter-spacing: -0.5px;
+}
+.recruitment-cta p {
+  color: var(--text-mid);
+  font-size: 15px;
+  line-height: 1.7;
+  max-width: 440px;
+  margin: 0 auto 28px;
+}
+.recruitment-form {
+  display: flex;
+  gap: 10px;
+  max-width: 400px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+.recruitment-form input {
+  flex: 1;
+  min-width: 180px;
+  padding: 13px 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--text-dark);
+  outline: none;
+  background: var(--white);
+  transition: border-color 0.2s;
+}
+.recruitment-form input:focus { border-color: var(--green-mid); }
+.recruitment-form input::placeholder { color: var(--text-muted); }

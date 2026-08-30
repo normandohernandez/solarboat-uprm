@@ -1,0 +1,33 @@
+/* Variables de marca — cambia aquí colores, tipografía y espaciado
+   Solar Boat UPRM — css/tokens.css */
+
+:root {
+  /* Brand colors */
+  --green-dark:    #0f4d22;   /* nav, footer, dark bg */
+  --green-mid:     #1a7c35;   /* primary buttons, accents */
+  --green-light:   #4ac26a;   /* hero accent, highlights */
+  --green-pale:    #e8f5ec;   /* card backgrounds, pills */
+
+  --blue-mid:      #1a57c2;   /* secondary accent (water) */
+  --blue-pale:     #e8f0fb;   /* blue pill bg */
+
+  --white:         #ffffff;
+  --off-white:     #f7f8f5;   /* section backgrounds */
+  --text-dark:     #0f1a12;   /* headings */
+  --text-mid:      #444d47;   /* body copy */
+  --text-muted:    #8a9490;   /* captions, dates */
+  --border:        #e0e8e2;   /* card borders */
+
+  /* Typography */
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* Spacing */
+  --section-pad: 88px 48px;
+  --radius-sm:   8px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+
+  /* Nav height (used for scroll offset) */
+  --nav-h: 64px;
+}

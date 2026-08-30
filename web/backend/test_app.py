@@ -111,6 +111,42 @@ def test_notify_rejects_bad_email(client):
     assert res.status_code == 400
 
 
+ADMIN = {"X-Admin-Token": "test-token"}
+
+
+def _subscribers(client):
+    return client.get("/api/admin/submissions", headers=ADMIN).get_json()["subscribers"]
+
+
+def test_notify_stores_interests_as_a_list(client):
+    res = client.post("/api/notify", json={
+        "nombre": "Mia", "email": "mia@upr.edu",
+        "intereses": ["Reclutamiento", "Eventos"],
+    })
+    assert res.status_code == 200
+    assert _subscribers(client)[0]["intereses"] == "Reclutamiento, Eventos"
+
+
+def test_notify_accepts_interests_as_a_string(client):
+    client.post("/api/notify", json={
+        "email": "str@upr.edu", "intereses": "Eventos,  Competencias ",
+    })
+    assert _subscribers(client)[0]["intereses"] == "Eventos, Competencias"
+
+
+def test_notify_updates_interests_when_resubscribing(client):
+    client.post("/api/notify", json={
+        "nombre": "Leo", "email": "leo@upr.edu", "intereses": ["Eventos"],
+    })
+    client.post("/api/notify", json={
+        "email": "leo@upr.edu", "intereses": ["Reclutamiento"],
+    })
+    rows = _subscribers(client)
+    assert len(rows) == 1
+    assert rows[0]["intereses"] == "Reclutamiento"
+    assert rows[0]["nombre"] == "Leo"  # a blank name must not wipe the old one
+
+
 # ------------------------------------------------------------ rate limit ----
 def test_rate_limit_kicks_in_after_five(client):
     payload = {"nombre": "N", "email": "n@u.edu", "mensaje": "spam?"}

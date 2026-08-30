@@ -1,0 +1,29 @@
+/* Sobre nosotros
+   Solar Boat UPRM — css/sections/about.css */
+
+.about { padding: var(--section-pad); background: var(--off-white); }
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 72px;
+  align-items: center;
+}
+.about-text .section-lead + .section-lead { margin-top: 16px; }
+.about-visual {
+  aspect-ratio: 4/3;
+  background: var(--green-pale);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+/* ── REPLACE with <img src="your-team-photo.jpg"> ── */
+.about-visual-placeholder {
+  text-align: center;
+  color: var(--green-mid);
+  font-size: 13px;
+  font-weight: 500;
+}

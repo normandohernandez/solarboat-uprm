@@ -1,0 +1,40 @@
+/* Puntos de ruptura — todos los @media del sitio viven aquí
+   Solar Boat UPRM — css/responsive.css */
+
+@media (max-width: 860px) {
+  .events-layout  { grid-template-columns: 1fr; }
+  .events-sidebar { position: static; }
+}
+
+@media (max-width: 768px) {
+  :root { --section-pad: 64px 24px; }
+
+  .nav-links, .nav-cta { display: none; }
+  .nav-toggle { display: flex; }
+
+  .about-grid   { grid-template-columns: 1fr; gap: 40px; }
+  .about-visual { aspect-ratio: 16/9; }
+
+  .contact-row    { grid-template-columns: 1fr; }
+  .subscribe-row  { grid-template-columns: 1fr; }
+  .subscribe-card { padding: 24px 20px; }
+
+  .strip-item      { padding: 8px 20px; }
+  .footer-top      { flex-direction: column; }
+  .gallery-masonry { columns: 2 200px; }
+  .recruitment-cta { padding: 32px 24px; }
+}
+
+@media (max-width: 500px) {
+  .hero h1 { letter-spacing: -1px; }
+
+  .wins-grid { grid-template-columns: 1fr; }
+  .tl-item   { grid-template-columns: 1fr; gap: 18px; }
+  .tl-photo  { aspect-ratio: 16 / 9; }
+
+  .news-grid { grid-template-columns: 1fr; }
+  .team-grid { grid-template-columns: repeat(2, 1fr); }
+
+  .gallery-masonry { columns: 1; }
+  .donation-ways   { grid-template-columns: 1fr; }
+}

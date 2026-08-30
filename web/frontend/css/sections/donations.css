@@ -1,0 +1,111 @@
+/* Donaciones y patrocinadores
+   Solar Boat UPRM — css/sections/donations.css */
+
+.donations { padding: var(--section-pad); background: var(--green-dark); }
+.donations-header { text-align: center; margin-bottom: 56px; }
+.donations-header .section-heading { color: var(--white); }
+.donations-header .section-heading em { color: var(--green-light); }
+.donations-header .section-lead { color: rgba(255,255,255,0.6); margin: 0 auto; }
+.donation-ways {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 64px;
+}
+.donation-way {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: var(--radius-md);
+  padding: 28px 22px;
+  text-align: center;
+  transition: border-color 0.2s, background 0.2s;
+}
+.donation-way:hover {
+  border-color: var(--green-light);
+  background: rgba(74,194,106,0.07);
+}
+.donation-way-icon { font-size: 32px; margin-bottom: 12px; }
+.donation-way h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.donation-way p { font-size: 13px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+.donation-way .btn-donate {
+  display: inline-block;
+  margin-top: 16px;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 22px;
+  border-radius: var(--radius-sm);
+  background: var(--green-mid);
+  color: var(--white);
+  transition: background 0.15s, transform 0.15s;
+}
+.donation-way .btn-donate:hover { background: var(--green-light); transform: translateY(-1px); }
+.sponsors-section { margin-top: 16px; }
+.sponsors-title {
+  text-align: center;
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 700;
+  color: rgba(255,255,255,0.35);
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  margin-bottom: 32px;
+}
+.sponsors-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+}
+.sponsor-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: var(--radius-md);
+  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  transition: border-color 0.2s;
+}
+.sponsor-card:hover { border-color: rgba(74,194,106,0.4); }
+.sponsor-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  background: var(--green-pale);
+  display: flex; align-items: center; justify-content: center;
+  font-family: var(--font-display);
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--green-dark);
+}
+.sponsor-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--white);
+}
+.sponsor-type {
+  font-size: 11px;
+  color: rgba(255,255,255,0.4);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.sponsor-amount {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--green-light);
+}
+.sponsor-add {
+  border: 2px dashed rgba(255,255,255,0.15);
+  background: transparent;
+  cursor: pointer;
+}
+.sponsor-add:hover { border-color: var(--green-light); }
+.sponsor-add .sponsor-avatar { background: rgba(255,255,255,0.05); color: rgba(255,255,255,0.3); font-size: 22px; }
+.sponsor-add .sponsor-name { color: rgba(255,255,255,0.4); font-size: 13px; font-weight: 500; }

@@ -5,7 +5,7 @@ Endpoints
   GET  /api/health              -> liveness check
   POST /api/contact             -> contact form  {nombre, email, asunto?, mensaje}
   POST /api/recruit             -> recruitment    {email}
-  POST /api/notify              -> events mailing  {nombre?, email}
+  POST /api/notify              -> notification signup {nombre?, email, intereses?}
   GET  /api/events.ics          -> team calendar download (from events.json)
   GET  /api/admin/submissions   -> view everything (requires X-Admin-Token)
   GET  /admin                   -> browser dashboard for the endpoint above
@@ -17,6 +17,7 @@ All POSTs are rate-limited per IP and honeypot-protected (a hidden
 Run locally:  python app.py    (serves on http://localhost:5000)
 """
 
+import hmac
 import json
 import os
 import re
@@ -76,6 +77,19 @@ def _clean(value):
 
 def _valid_email(value):
     return bool(EMAIL_RE.match(value or ""))
+
+
+def _clean_intereses(value):
+    """Normalise the notify form's interests to a comma-separated string.
+
+    The browser sends a list of checkbox values, but a form-encoded POST or a
+    hand-rolled client may send a plain string, so both are accepted.
+    """
+    if isinstance(value, (list, tuple)):
+        items = [_clean(v) for v in value]
+    else:
+        items = [part.strip() for part in _clean(value).split(",")]
+    return ", ".join(item for item in items if item)[:MAX_LEN]
 
 
 def _client_ip():
@@ -159,12 +173,22 @@ def notify():
 
     nombre = _clean(data.get("nombre"))
     email = _clean(data.get("email"))
+    intereses = _clean_intereses(data.get("intereses"))
 
     if not _valid_email(email):
         return jsonify(ok=False, error="Correo inválido."), 400
 
-    db.add_subscriber(nombre, email, ip=_client_ip())
-    return jsonify(ok=True, message="¡Listo! Te avisaremos de próximos eventos.")
+    new_id = db.add_subscriber(nombre, email, intereses, ip=_client_ip())
+    if new_id:
+        emailer.send_notification(
+            subject="[Solar Boat] Nueva suscripción a notificaciones",
+            body=(
+                f"Nombre:     {nombre or '(no dio nombre)'}\n"
+                f"Correo:     {email}\n"
+                f"Le interesa: {intereses or '(no especificó)'}\n"
+            ),
+        )
+    return jsonify(ok=True, message="¡Listo! Te avisaremos.")
 
 
 # ----------------------------------------------------------------------------
@@ -240,10 +264,13 @@ def events_ics():
 # routes — admin
 # ----------------------------------------------------------------------------
 @app.get("/api/admin/submissions")
+@rate_limit(max_requests=20, per_seconds=300)
 def admin_submissions():
     if not ADMIN_TOKEN:
         return jsonify(ok=False, error="ADMIN_TOKEN no configurado en el servidor."), 503
-    if request.headers.get("X-Admin-Token") != ADMIN_TOKEN:
+    # compare_digest instead of != so the comparison takes the same time
+    # whether the token is wrong on the first character or the last one.
+    if not hmac.compare_digest(request.headers.get("X-Admin-Token", ""), ADMIN_TOKEN):
         return jsonify(ok=False, error="No autorizado."), 401
 
     return jsonify(
