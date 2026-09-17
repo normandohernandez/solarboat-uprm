@@ -169,6 +169,8 @@ body { font-size: 15px; letter-spacing: -0.01em; }
   .hero-visual { opacity: .42; width: 72vw; }
   .news-grid { grid-template-columns: 1fr; }
   .recruitment-grid { grid-template-columns: repeat(2, 1fr); }
+  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .events-layout { grid-template-columns: 1fr; gap: 44px; }
 }
 
 @media (max-width: 600px) {

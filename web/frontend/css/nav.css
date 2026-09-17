@@ -54,6 +54,8 @@
   transition: color 0.15s;
 }
 .nav-links a:hover { color: var(--green-mid); }
+/* Tab de la página abierta */
+.nav-links a.active { color: var(--green-mid); font-weight: 600; box-shadow: inset 0 -2px 0 var(--green-mid); padding-bottom: 4px; }
 .nav-cta {
   background: var(--green-mid);
   color: var(--white);
@@ -94,4 +96,5 @@
   border-bottom: 1px solid var(--border);
 }
 .mobile-menu a:last-child { border-bottom: none; }
+.mobile-menu a.active { color: var(--green-mid); font-weight: 600; }
 .mobile-menu.open { display: flex; }

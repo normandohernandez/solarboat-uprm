@@ -1,12 +1,22 @@
 # Sitio web — UPRM Solar Boat Team
 
-Sitio estático. No hay build ni dependencias: se abre `index.html` y ya.
+Sitio estático de varias páginas. No hay build ni dependencias: se abre `index.html` y ya.
 
 ## Estructura
 
 ```
 web/frontend/
-  index.html          Todo el contenido de la página
+  index.html          Inicio (portada, estadísticas, fotos clave y redes)
+  sobre.html          Sobre nosotros + equipo
+  logros.html         Logros
+  noticias.html       Noticias
+  eventos.html        Eventos
+  donar.html          Donar
+  unete.html          Únete al equipo
+  avisame.html        Avísame (suscripción)
+  fotos.html          Galería
+  contacto.html       Contacto
+  fotos/              Las fotos reales van aquí (lee fotos/README.md)
   css/
     tokens.css        Colores, tipografía y espaciado. Empieza aquí para recolorear el sitio.
     base.css          Reset y estilos base
@@ -14,9 +24,10 @@ web/frontend/
     nav.css           Barra de navegación y menú móvil
     footer.css        Pie de página
     animations.css    Aparición al hacer scroll (.reveal)
-    sections/         Un archivo por sección de la página
+    sections/         Un archivo por sección (home.css = fotos clave del inicio)
     responsive.css    Todos los @media juntos
   js/
+    layout.js         Menú y pie de página de TODAS las páginas (un solo lugar)
     api.js            Contacto con el backend. Aquí está API_BASE.
     nav.js            Menú móvil
     reveal.js         Animación de scroll
@@ -28,10 +39,14 @@ web/frontend/
 
 - **Cambiar un color o el espaciado de todo el sitio** → `css/tokens.css`
 - **Cambiar cómo se ve una sección** → `css/sections/<sección>.css`
-- **Cambiar el texto o añadir tarjetas** → `index.html`
+- **Cambiar el texto o añadir tarjetas** → el `.html` de esa página
+- **Cambiar el menú o el pie de página** → `js/layout.js` (se aplica a todas las páginas)
+- **Poner fotos de verdad** → `fotos/README.md` explica cómo cambiar un dibujo por una foto
+- **Añadir un tab nuevo** → copia una página parecida (p. ej. `donar.html`), cambia su
+  `<title>` y su contenido dentro de `<main>`, y añádela a la lista `PAGES` de `js/layout.js`
 - **Que la página deje de verse bien en móvil** → `css/responsive.css`
 
-Dos reglas al tocar el orden de los `<link>` en `index.html`:
+Todas las páginas cargan los mismos `<link>`. Dos reglas al tocar su orden:
 
 1. `tokens.css` va primero — el resto usa sus variables.
 2. `responsive.css` va último — tiene que poder pisar lo anterior.

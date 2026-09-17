@@ -39,56 +39,17 @@
   <link rel="stylesheet" href="css/sections/gallery.css" />
   <link rel="stylesheet" href="css/sections/social.css" />
   <link rel="stylesheet" href="css/sections/contact.css" />
+  <link rel="stylesheet" href="css/sections/home.css" />
 
   <link rel="stylesheet" href="css/responsive.css" />
   <link rel="stylesheet" href="css/redesign.css" />
 </head>
 <body>
 
-  <!-- ================================================
-       NAVIGATION
-  ================================================ -->
-  <header>
-    <nav class="nav" role="navigation" aria-label="Main navigation">
-      <div class="container">
-        <a href="#inicio" class="nav-logo">
-          <!-- ── SWAP src with your real logo image ── -->
-          <div class="nav-logo-img">
-            <svg width="22" height="18" viewBox="0 0 22 18" fill="none">
-              <path d="M1 12 Q11 5 21 12 L21 15 Q11 19 1 15Z" fill="#1a7c35"/>
-              <path d="M4 8 Q11 2 18 8 L17 12 H5Z" fill="#4ac26a" opacity="0.9"/>
-            </svg>
-          </div>
-          <span class="nav-brand">Solar<span>Boat</span> UPRM</span>
-        </a>
-        <div class="nav-links" role="list">
-          <a href="#sobre" role="listitem">Sobre nosotros</a>
-          <a href="#logros" role="listitem">Logros</a>
-          <a href="#noticias" role="listitem">Noticias</a>
-          <a href="#eventos" role="listitem">Eventos</a>
-          <a href="#donar" role="listitem">Donar</a>
-          <a href="#reclutamiento" role="listitem">Únete</a>
-          <a href="#suscribete" role="listitem">Avísame</a>
-          <a href="#fotos" role="listitem">Fotos</a>
-        </div>
-        <a href="#contacto" class="nav-cta">Contacto</a>
-        <div class="nav-toggle" id="navToggle" aria-label="Abrir menú" role="button" tabindex="0">
-          <span></span><span></span><span></span>
-        </div>
-      </div>
-    </nav>
-    <div class="mobile-menu" id="mobileMenu" role="menu">
-      <a href="#sobre"     role="menuitem">Sobre nosotros</a>
-      <a href="#logros"    role="menuitem">Logros</a>
-      <a href="#noticias"  role="menuitem">Noticias</a>
-      <a href="#eventos"   role="menuitem">Eventos</a>
-      <a href="#donar"     role="menuitem">Donar</a>
-      <a href="#reclutamiento" role="menuitem">Únete al equipo</a>
-      <a href="#suscribete" role="menuitem">Avísame</a>
-      <a href="#fotos"     role="menuitem">Fotos</a>
-      <a href="#contacto"  role="menuitem">Contacto</a>
-    </div>
-  </header>
+  <!-- Menú de navegación: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="header"></script>
+
+  <main>
 
   <!-- ================================================
        HERO
@@ -105,8 +66,8 @@
           universidades del mundo.
         </p>
         <div class="hero-btns">
-          <a href="#logros" class="btn btn-primary">Explora el historial</a>
-          <a href="#reclutamiento" class="btn btn-ghost">Únete al equipo</a>
+          <a href="logros.html" class="btn btn-primary">Explora el historial</a>
+          <a href="unete.html" class="btn btn-ghost">Únete al equipo</a>
         </div>
       </div>
       <div class="hero-meta" aria-label="Datos destacados">
@@ -181,641 +142,26 @@
   </div>
 
   <!-- ================================================
-       ABOUT
+       FOTOS CLAVE
+       Cuatro fotos que resumen el equipo. Las fotos completas
+       viven en fotos.html — aquí van solo las mejores.
   ================================================ -->
-  <section class="about" id="sobre" aria-label="Sobre nosotros">
+  <section class="home-photos" id="fotos-clave" aria-label="Fotos del equipo">
     <div class="container">
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <span class="tag tag-green">Quiénes somos</span>
-          <h2 class="section-heading">Estudiantes de ingeniería.<br><em>Representando</em> a P.R.</h2>
-          <p class="section-lead">
-            Somos el equipo estudiantil del Colegio de Ingeniería de la Universidad de Puerto Rico,
-            Recinto de Mayagüez (UPRM). Nos dedicamos al diseño, construcción y competencia
-            de embarcaciones impulsadas por energía solar.
-          </p>
-          <p class="section-lead" style="margin-top:16px;">
-            Participamos en competencias internacionales de botes solares representando a
-            Puerto Rico en el escenario mundial con orgullo, innovación y trabajo en equipo.
-          </p>
-          <div style="margin-top:32px;">
-            <a href="#logros" class="btn btn-primary">Ver nuestros logros</a>
-          </div>
-        </div>
-        <div class="about-visual reveal" style="transition-delay:0.15s;">
-          <!-- ── REPLACE with <img src="team-photo.jpg" alt="Equipo Solar Boat UPRM"> ── -->
-          <div class="about-visual-placeholder">
-            <svg width="120" height="90" viewBox="0 0 120 90" fill="none" aria-hidden="true">
-              <ellipse cx="60" cy="78" rx="52" ry="12" fill="#29b6f6" opacity="0.2"/>
-              <path d="M12 58 Q60 30 108 58 L105 72 Q60 84 15 72Z" fill="#4a7c58"/>
-              <rect x="18" y="48" width="54" height="14" rx="4" fill="#2d5c3e"/>
-              <line x1="18" y1="54" x2="72" y2="54" stroke="#4ac26a" stroke-width="1.6"/>
-              <line x1="18" y1="59" x2="72" y2="59" stroke="#4ac26a" stroke-width="1.6"/>
-              <path d="M28 28 Q60 8 92 28 L88 48 H32Z" fill="#1a7c35"/>
-              <path d="M36 28 Q60 14 84 28 L80 42 H40Z" fill="#22a045"/>
-            </svg>
-            <p style="margin-top:12px;">Foto del equipo</p>
-            <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">Reemplaza con tu imagen</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================
-       ACHIEVEMENTS
-  ================================================ -->
-  <section class="achievements" id="logros" aria-label="Logros">
-    <div class="container">
-      <div class="achievements-header reveal">
-        <span class="tag tag-green">Logros</span>
-        <h2 class="section-heading">Nuestro <em>historial</em></h2>
-        <p class="section-lead">De dónde venimos, qué nos propusimos y los retos que tuvimos que resolver para llegar hasta aquí.</p>
-      </div>
-
-      <!-- ================================================
-           OBJETIVOS — edita el texto de cada tarjeta
-      ================================================ -->
-      <div class="goals-block reveal">
-        <h3 class="goals-title">Nuestros objetivos</h3>
-        <div class="goals-grid">
-          <div class="goal-card">
-            <div class="goal-num">01</div>
-            <p class="goal-text">Diseñar, construir y competir con embarcaciones impulsadas exclusivamente por energía solar.</p>
-          </div>
-          <div class="goal-card">
-            <div class="goal-num">02</div>
-            <p class="goal-text">Representar a Puerto Rico y al Colegio de Ingeniería de la UPRM en competencias internacionales.</p>
-          </div>
-          <div class="goal-card">
-            <div class="goal-num">03</div>
-            <p class="goal-text">Formar estudiantes con experiencia real de ingeniería aplicada, más allá del salón de clases.</p>
-          </div>
-          <div class="goal-card">
-            <div class="goal-num">04</div>
-            <p class="goal-text">Empujar la energía renovable como algo práctico y competitivo, no solo como teoría.</p>
-          </div>
-          <!-- AÑADIR MÁS: copia un bloque .goal-card y cámbiale el número y el texto -->
-        </div>
-      </div>
-
-      <!-- ================================================
-           HISTORIAL — un .tl-item por año
-           · .tl-challenge = el reto/conflicto de ese año  ← RELLENAR
-           · .tl-photo     = descomenta el <img> y borra el placeholder
-      ================================================ -->
-      <h3 class="timeline-title reveal">Año por año</h3>
-      <div class="timeline">
-
-        <!-- ── 2024 ── -->
-        <div class="tl-item reveal">
-          <div class="tl-body">
-            <span class="tl-year">2024</span>
-            <div class="tl-heading">Bote más veloz del Solar Splash</div>
-            <p class="tl-desc">
-              La embarcación marcó 27.11 segundos en el sprint de 300m en Springfield, Ohio,
-              quedando como la más rápida de la competencia.
-            </p>
-            <span class="tl-challenge">
-              <strong>El reto de ese año</strong>
-              ‹ Escribe aquí qué se complicó en 2024 y cómo lo resolvió el equipo ›
-            </span>
-          </div>
-          <div class="tl-photo">
-            <!-- <img src="fotos/historial-2024.jpg" alt="Solar Splash 2024"> -->
-            📷 Foto 2024
-          </div>
-        </div>
-
-        <!-- ── 2023 ── -->
-        <div class="tl-item reveal">
-          <div class="tl-body">
-            <span class="tl-year">2023</span>
-            <div class="tl-heading">Campeones mundiales — recuperamos el título</div>
-            <p class="tl-desc">
-              El equipo se coronó campeón nuevamente en el Solar Splash 2023 celebrado en
-              Springfield, Ohio.
-            </p>
-            <span class="tl-challenge">
-              <strong>El reto de ese año</strong>
-              ‹ Escribe aquí qué se complicó en 2023 y cómo lo resolvió el equipo ›
-            </span>
-          </div>
-          <div class="tl-photo">
-            <!-- <img src="fotos/historial-2023.jpg" alt="Campeones 2023"> -->
-            📷 Foto 2023
-          </div>
-        </div>
-
-        <!-- ── 2022 ── -->
-        <div class="tl-item reveal">
-          <div class="tl-body">
-            <span class="tl-year">2022</span>
-            <div class="tl-heading">Récord de velocidad: 23.86 segundos</div>
-            <p class="tl-desc">
-              Mejor marca del equipo en el sprint de 300m y bote más veloz de la competencia.
-            </p>
-            <span class="tl-challenge">
-              <strong>El reto de ese año</strong>
-              ‹ Escribe aquí qué se complicó en 2022 y cómo lo resolvió el equipo ›
-            </span>
-          </div>
-          <div class="tl-photo">
-            <!-- <img src="fotos/historial-2022.jpg" alt="Sprint 2022"> -->
-            📷 Foto 2022
-          </div>
-        </div>
-
-        <!-- ── 2021 ── -->
-        <div class="tl-item reveal">
-          <div class="tl-body">
-            <span class="tl-year">2021</span>
-            <div class="tl-heading">Primer campeonato mundial del equipo</div>
-            <p class="tl-desc">
-              El UPRM Solar Boat Team dominó el Solar Splash 2021 y se coronó campeón mundial
-              por primera vez en su historia.
-            </p>
-            <span class="tl-challenge">
-              <strong>El reto de ese año</strong>
-              ‹ Escribe aquí qué se complicó en 2021 y cómo lo resolvió el equipo ›
-            </span>
-          </div>
-          <div class="tl-photo">
-            <!-- <img src="fotos/historial-2021.jpg" alt="Campeones 2021"> -->
-            📷 Foto 2021
-          </div>
-        </div>
-
-        <!-- ── AÑADIR MÁS AÑOS: copia un bloque .tl-item completo ── -->
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================
-       NEWS
-  ================================================ -->
-  <section class="news" id="noticias" aria-label="Noticias">
-    <div class="container">
-      <div class="news-header reveal">
-        <div>
-          <span class="tag tag-green">Noticias</span>
-          <h2 class="section-heading">Lo más <em>reciente</em></h2>
-        </div>
-        <a href="#" class="news-view-all">Ver todas las noticias →</a>
-      </div>
-      <div class="news-grid">
-
-        <!-- ── NEWS CARD 1 — replace thumb with <img> ── -->
-        <article class="news-card reveal">
-          <div class="news-thumb" style="background:#e8f5ec;">
-            <!-- <img src="news-2024.jpg" alt="Solar Splash 2024"> -->
-            <svg width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
-              <ellipse cx="35" cy="42" rx="30" ry="8" fill="#29b6f6" opacity="0.3"/>
-              <path d="M5 28 Q35 12 65 28 L63 38 Q35 48 7 38Z" fill="#4a7c58"/>
-              <rect x="10" y="21" width="32" height="10" rx="3" fill="#2d5c3e"/>
-              <line x1="10" y1="26" x2="42" y2="26" stroke="#4ac26a" stroke-width="1.4"/>
-              <path d="M18 10 Q35 2 52 10 L50 22 H20Z" fill="#1a7c35"/>
-            </svg>
-          </div>
-          <div class="news-body">
-            <span class="news-pill pill-green">Sprint 2024</span>
-            <h3 class="news-title">Bote solar más rápido en Solar Splash 2024</h3>
-            <p class="news-date">14 de junio, 2024</p>
-            <p class="news-excerpt">
-              La embarcación del UPRM Solar Boat marcó 27.11 segundos en la categoría de 300m,
-              coronándose la más veloz de la competencia en Springfield, Ohio.
-            </p>
-          </div>
-        </article>
-
-        <!-- ── NEWS CARD 2 ── -->
-        <article class="news-card reveal" style="transition-delay:0.08s;">
-          <div class="news-thumb" style="background:#f1f8e9;">
-            <svg width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
-              <ellipse cx="35" cy="42" rx="30" ry="8" fill="#29b6f6" opacity="0.3"/>
-              <path d="M5 28 Q35 12 65 28 L63 38 Q35 48 7 38Z" fill="#5a7c65"/>
-              <rect x="10" y="21" width="32" height="10" rx="3" fill="#2d5c3e"/>
-            </svg>
-          </div>
-          <div class="news-body">
-            <span class="news-pill pill-green">Campeones 2023</span>
-            <h3 class="news-title">El Colegio recupera campeonato en Solar Splash 2023</h3>
-            <p class="news-date">23 de junio, 2023</p>
-            <p class="news-excerpt">
-              El equipo UPRM Solar Boat se coronó campeón nuevamente en la competencia
-              Solar Splash 2023 celebrada en Springfield, Ohio.
-            </p>
-          </div>
-        </article>
-
-        <!-- ── NEWS CARD 3 ── -->
-        <article class="news-card reveal" style="transition-delay:0.16s;">
-          <div class="news-thumb" style="background:#e8f0fb;">
-            <svg width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
-              <ellipse cx="35" cy="42" rx="30" ry="8" fill="#29b6f6" opacity="0.45"/>
-              <path d="M5 28 Q35 12 65 28 L63 38 Q35 48 7 38Z" fill="#4a5e7c"/>
-              <rect x="10" y="21" width="32" height="10" rx="3" fill="#2d3e5c"/>
-            </svg>
-          </div>
-          <div class="news-body">
-            <span class="news-pill pill-blue">Mundial 2021</span>
-            <h3 class="news-title">Primer campeonato mundial — Solar Splash 2021</h3>
-            <p class="news-date">18 de junio, 2021</p>
-            <p class="news-excerpt">
-              El UPRM Solar Boat Team dominó la competencia Solar Splash 2021 y se coronó
-              campeón mundial por primera vez en la historia del equipo.
-            </p>
-          </div>
-        </article>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================
-       TEAM
-  ================================================ -->
-  <section class="team" id="equipo" aria-label="Equipo">
-    <div class="container">
-      <div class="team-header reveal">
-        <span class="tag tag-green">Equipo</span>
-        <h2 class="section-heading">Las personas <em>detrás</em> del bote</h2>
-        <p class="section-lead">Estudiantes de ingeniería que combinan pasión, técnica y trabajo en equipo para competir al más alto nivel.</p>
-      </div>
-      <div class="team-grid">
-        <!-- ── EDIT name/role/initials or swap avatar div with <img> ── -->
-        <div class="member-card reveal">
-          <div class="member-avatar">AS</div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Team Captain</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.05s;">
-          <div class="member-avatar">BM</div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Mechanical Lead</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.10s;">
-          <div class="member-avatar">CL</div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Electrical Lead</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.15s;">
-          <div class="member-avatar">DR</div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Software Lead</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.20s;">
-          <div class="member-avatar">EM</div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Hull Design</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.25s;">
-          <div class="member-avatar">FV</div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Solar Systems</div>
-        </div>
-        <!-- ADD more .member-card blocks as needed -->
-      </div>
-    </div>
-  </section>
-
-
-  <!-- ================================================
-       EVENTS
-  ================================================ -->
-  <section class="events" id="eventos" aria-label="Eventos">
-    <div class="container">
-      <div class="events-header reveal">
-        <span class="tag tag-green">Eventos</span>
-        <h2 class="section-heading">Próximos <em>eventos</em></h2>
-        <p class="section-lead">Ventas de pizza, competencias, reuniones del equipo y fechas importantes.</p>
-      </div>
-      <div class="events-layout">
-        <div class="events-list">
-
-          <!-- FEATURED EVENT -->
-          <div class="event-card featured reveal">
-            <div class="event-date-block">
-              <div class="event-day">14</div>
-              <div class="event-month">Jun</div>
-            </div>
-            <div class="event-content">
-              <div class="event-pills">
-                <span class="event-pill pill-comp">🏆 Competencia</span>
-              </div>
-              <div class="event-title">Solar Splash 2025 — Springfield, OH</div>
-              <div class="event-desc">Competencia internacional de botes solares. El equipo UPRM estará representando a Puerto Rico en Springfield, Ohio. ¡Todos a apoyar!</div>
-              <div class="event-meta">
-                <span>📍 Springfield, Ohio</span>
-                <span>🕗 Toda la semana</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- PIZZA SALE 1 -->
-          <div class="event-card reveal" style="transition-delay:0.05s;">
-            <div class="event-date-block">
-              <div class="event-day">6</div>
-              <div class="event-month">Jun</div>
-            </div>
-            <div class="event-content">
-              <div class="event-pills">
-                <span class="event-pill pill-pizza">🍕 Venta de Pizza</span>
-              </div>
-              <div class="event-title">Venta de Pizza — Stefani's</div>
-              <div class="event-desc">Ven a apoyar el equipo comprando pizza en Stefani's. Cada pedido ayuda a financiar materiales y gastos de la competencia.</div>
-              <div class="event-meta">
-                <span>📍 Stefani's, Mayagüez</span>
-                <span>🕗 11am – 8pm</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- TEAM MEETING -->
-          <div class="event-card reveal" style="transition-delay:0.10s;">
-            <div class="event-date-block">
-              <div class="event-day">30</div>
-              <div class="event-month">May</div>
-            </div>
-            <div class="event-content">
-              <div class="event-pills">
-                <span class="event-pill pill-meeting">📅 Reunión</span>
-              </div>
-              <div class="event-title">Reunión general del equipo</div>
-              <div class="event-desc">Reunión de todos los subgrupos para repasar el status del bote, asignaciones finales y logística previo a la competencia.</div>
-              <div class="event-meta">
-                <span>📍 Stefani Building, UPRM</span>
-                <span>🕗 6:00pm</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- FUNDRAISER SALE -->
-          <div class="event-card reveal" style="transition-delay:0.15s;">
-            <div class="event-date-block">
-              <div class="event-day">20</div>
-              <div class="event-month">May</div>
-            </div>
-            <div class="event-content">
-              <div class="event-pills">
-                <span class="event-pill pill-sale">💰 Fundraiser</span>
-              </div>
-              <div class="event-title">Venta de camisetas del equipo</div>
-              <div class="event-desc">Edición limitada de camisetas Solar Boat UPRM. Disponibles en el patio del Colegio de Ingeniería. ¡No te quedes sin la tuya!</div>
-              <div class="event-meta">
-                <span>📍 Patio Colegio de Ingeniería, UPRM</span>
-                <span>🕗 9am – 3pm</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- PIZZA SALE 2 -->
-          <div class="event-card reveal" style="transition-delay:0.20s;">
-            <div class="event-date-block">
-              <div class="event-day">13</div>
-              <div class="event-month">May</div>
-            </div>
-            <div class="event-content">
-              <div class="event-pills">
-                <span class="event-pill pill-pizza">🍕 Venta de Pizza</span>
-              </div>
-              <div class="event-title">Venta de Pizza — Edificio Monzón</div>
-              <div class="event-desc">Venta de pizza en el edificio Monzón para recaudar fondos para los materiales de la competencia 2025.</div>
-              <div class="event-meta">
-                <span>📍 Edificio Monzón, UPRM</span>
-                <span>🕗 11am – 2pm</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- ADD MORE EVENT CARDS: copy .event-card block and fill in details -->
-
-        </div>
-
-        <!-- SIDEBAR -->
-        <div class="events-sidebar">
-          <div class="sidebar-card reveal">
-            <h4>📬 Notificaciones de eventos</h4>
-            <p>Déjanos tu correo y te avisamos de próximas ventas de pizza, fundraisers y fechas importantes.</p>
-            <div class="sidebar-notify-form">
-              <input type="text" placeholder="Tu nombre" />
-              <input type="email" placeholder="tu@correo.edu" />
-              <input type="text" class="hp-field notify-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-              <button class="btn btn-primary" style="font-size:13px;padding:11px;" onclick="handleNotify(this)">Notificarme</button>
-            </div>
-          </div>
-          <div class="sidebar-card reveal" style="transition-delay:0.1s;">
-            <h4>📅 Añade a tu calendario</h4>
-            <p>Descarga el archivo .ics con todos los eventos del Solar Boat UPRM para 2025.</p>
-            <a href="#" id="calendarDownload" class="btn btn-primary" style="width:100%;text-align:center;font-size:13px;padding:11px;display:block;">Descargar calendario</a>
-          </div>
-          <div class="sidebar-card reveal" style="transition-delay:0.2s;background:var(--green-pale);border-color:var(--green-mid);">
-            <h4 style="color:var(--green-dark);">🍕 ¿Quieres organizar una venta?</h4>
-            <p>Si tienes un lugar o quieres colaborar en un fundraiser, contáctanos.</p>
-            <a href="#contacto" class="btn btn-primary" style="width:100%;text-align:center;font-size:13px;padding:11px;display:block;">Contáctanos</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================
-       DONATIONS / SPONSORS
-  ================================================ -->
-  <section class="donations" id="donar" aria-label="Donaciones y patrocinadores">
-    <div class="container">
-      <div class="donations-header reveal">
-        <span class="tag tag-green">Apóyanos</span>
-        <h2 class="section-heading">Tu apoyo nos lleva a <em>ganar</em></h2>
-        <p class="section-lead">Cada contribución ayuda a costear materiales, viajes y la próxima campaña representando a Puerto Rico.</p>
-      </div>
-
-      <div class="donation-ways">
-        <!-- PayPal -->
-        <div class="donation-way reveal">
-          <div class="donation-way-icon">🅿️</div>
-          <h4>PayPal</h4>
-          <p>Donación rápida y segura vía PayPal. Cualquier cantidad suma.</p>
-          <!-- Replace href with your real PayPal.me link -->
-          <a href="https://paypal.me/UPRMSolarBoat" target="_blank" rel="noopener" class="btn-donate">Donar con PayPal</a>
-        </div>
-        <!-- Venmo -->
-        <div class="donation-way reveal" style="transition-delay:0.05s;">
-          <div class="donation-way-icon">💚</div>
-          <h4>Venmo</h4>
-          <p>Envía tu donación directamente por Venmo desde tu celular.</p>
-          <!-- Replace href with your real Venmo link -->
-          <a href="https://venmo.com/UPRMSolarBoat" target="_blank" rel="noopener" class="btn-donate">Donar con Venmo</a>
-        </div>
-        <!-- ATH Móvil -->
-        <div class="donation-way reveal" style="transition-delay:0.10s;">
-          <div class="donation-way-icon">🇵🇷</div>
-          <h4>ATH Móvil</h4>
-          <p>Si estás en Puerto Rico, puedes donarnos directamente por ATH Móvil Business.</p>
-          <!-- Replace with your actual ATH Móvil handle -->
-          <a href="#contacto" class="btn-donate">Ver número de teléfono</a>
-        </div>
-        <!-- Patrocinio empresarial -->
-        <div class="donation-way reveal" style="transition-delay:0.15s;">
-          <div class="donation-way-icon">🏢</div>
-          <h4>Patrocinio empresarial</h4>
-          <p>Tu empresa aparece en el bote y el sitio web. Distintos niveles disponibles.</p>
-          <a href="#contacto" class="btn-donate">Hablar con el equipo</a>
-        </div>
-      </div>
-
-
-    </div>
-  </section>
-
-  <!-- ================================================
-       RECRUITMENT
-  ================================================ -->
-  <section class="recruitment" id="reclutamiento" aria-label="Reclutamiento">
-    <div class="container">
-      <div class="recruitment-header reveal">
-        <span class="tag tag-green">Únete al equipo</span>
-        <h2 class="section-heading">¿Quieres <em>representar a P.R.</em>?</h2>
-        <p class="section-lead">Buscamos estudiantes apasionados de UPRM en todas las disciplinas de ingeniería. No necesitas experiencia previa — solo ganas de aprender y trabajar en equipo.</p>
-      </div>
-
-      <div class="recruitment-grid">
-        <div class="dept-card reveal">
-          <div class="dept-icon">⚙️</div>
-          <div class="dept-name">Ingeniería Mecánica</div>
-          <div class="dept-desc">Diseño y construcción del casco, análisis estructural, manufactura y ensamblaje del bote.</div>
-          <span class="dept-tag">Abierto</span>
-        </div>
-        <div class="dept-card reveal" style="transition-delay:0.05s;">
-          <div class="dept-icon">⚡</div>
-          <div class="dept-name">Ingeniería Eléctrica</div>
-          <div class="dept-desc">Sistema de propulsión, circuitos de potencia, paneles solares y gestión de baterías.</div>
-          <span class="dept-tag">Abierto</span>
-        </div>
-        <div class="dept-card reveal" style="transition-delay:0.10s;">
-          <div class="dept-icon">💻</div>
-          <div class="dept-name">Software & Computadoras</div>
-          <div class="dept-desc">Control de sistemas embebidos, telemetría, adquisición de datos y software de monitoreo.</div>
-          <span class="dept-tag">Abierto</span>
-        </div>
-        <div class="dept-card reveal" style="transition-delay:0.15s;">
-          <div class="dept-icon">🎨</div>
-          <div class="dept-name">Diseño & Medios</div>
-          <div class="dept-desc">Branding del equipo, redes sociales, fotografía, video y diseño de materiales de fundraising.</div>
-          <span class="dept-tag">Abierto</span>
-        </div>
-        <div class="dept-card reveal" style="transition-delay:0.20s;">
-          <div class="dept-icon">📊</div>
-          <div class="dept-name">Administración & Finanzas</div>
-          <div class="dept-desc">Gestión de presupuesto, solicitudes de fondos, logística de viajes y patrocinios.</div>
-          <span class="dept-tag">Abierto</span>
-        </div>
-        <div class="dept-card reveal" style="transition-delay:0.25s;">
-          <div class="dept-icon">🔬</div>
-          <div class="dept-name">Investigación & Desarrollo</div>
-          <div class="dept-desc">Optimización aerodinámica, simulaciones CFD y desarrollo de nuevas tecnologías para el bote.</div>
-          <span class="dept-tag">Abierto</span>
-        </div>
-      </div>
-
-      <div class="recruitment-cta reveal">
-        <h3>¿Listo para unirte? 🚀</h3>
-        <p>Déjanos tu correo y nos comunicamos contigo para contarte los próximos pasos del proceso de reclutamiento.</p>
-        <div class="recruitment-form">
-          <input type="email" id="recruitEmail" placeholder="tu@uprm.edu" />
-          <input type="text" id="recruitWebsite" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
-          <button class="btn btn-primary" onclick="handleRecruit(this)">Aplicar ahora</button>
-        </div>
-        <p style="margin-top:16px;font-size:12px;color:var(--text-muted);">También puedes escribirnos directamente a <a href="mailto:solarboat@uprm.edu" style="color:var(--green-mid);font-weight:600;">solarboat@uprm.edu</a></p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================
-       SUBSCRIBE / NOTIFICACIONES
-       Envía a POST /api/notify  {nombre, email, intereses[]}
-  ================================================ -->
-  <section class="subscribe" id="suscribete" aria-label="Suscripción a notificaciones">
-    <div class="container">
-      <div class="subscribe-inner">
-        <span class="tag tag-green">Notificaciones</span>
-        <h2 class="section-heading reveal">No te pierdas <em>nada</em></h2>
-        <p class="section-lead reveal">
-          Déjanos tu correo y te avisamos cuando abramos reclutamiento, cuando haya
-          ventas y fundraisers, o cuando el equipo compita. Sin spam — solo lo importante.
-        </p>
-
-        <form class="subscribe-card reveal" id="subscribeForm" novalidate>
-          <div class="subscribe-row">
-            <input type="text"  id="subNombre" name="nombre" placeholder="Tu nombre" autocomplete="name" />
-            <input type="email" id="subEmail"  name="email"  placeholder="tu@correo.edu" required autocomplete="email" />
-          </div>
-
-          <!-- honeypot — solo lo llenan los bots -->
-          <input type="text" id="subWebsite" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
-
-          <p class="interest-legend">¿Sobre qué quieres que te avisemos?</p>
-          <div class="interest-list">
-            <label class="interest">
-              <input type="checkbox" name="intereses" value="Reclutamiento" checked />
-              <span>
-                <span class="interest-label">Reclutamiento</span>
-                <span class="interest-desc">Te escribimos cuando abramos convocatoria para nuevos miembros.</span>
-              </span>
-            </label>
-            <label class="interest">
-              <input type="checkbox" name="intereses" value="Eventos y fundraisers" checked />
-              <span>
-                <span class="interest-label">Eventos y fundraisers</span>
-                <span class="interest-desc">Ventas de pizza, camisetas, actividades y fechas importantes del equipo.</span>
-              </span>
-            </label>
-            <label class="interest">
-              <input type="checkbox" name="intereses" value="Competencias y noticias" />
-              <span>
-                <span class="interest-label">Competencias y noticias</span>
-                <span class="interest-desc">Cómo nos va en el Solar Splash y otras novedades del equipo.</span>
-              </span>
-            </label>
-          </div>
-
-          <button type="submit" class="btn btn-primary">Suscribirme</button>
-          <p class="subscribe-error" id="subscribeError"></p>
-          <p class="subscribe-note">
-            Puedes darte de baja cuando quieras escribiéndonos a
-            <a href="mailto:solarboat@uprm.edu" style="color:var(--green-mid);font-weight:600;">solarboat@uprm.edu</a>.
-          </p>
-        </form>
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================
-       GALLERY / IMAGES
-  ================================================ -->
-  <section class="gallery" id="fotos" aria-label="Galería de imágenes">
-    <div class="container">
-      <div class="gallery-header reveal">
+      <div class="home-photos-header reveal">
         <div>
           <span class="tag tag-green">Galería</span>
-          <h2 class="section-heading">Momentos <em>épicos</em></h2>
-          <p class="section-lead">Competencias, construcción, pruebas en el agua y mucho más.</p>
+          <h2 class="section-heading">El equipo <em>en acción</em></h2>
         </div>
-        <div class="gallery-filter">
-          <button class="filter-btn active" data-filter="all">Todo</button>
-          <button class="filter-btn" data-filter="competencia">Competencia</button>
-          <button class="filter-btn" data-filter="construccion">Construcción</button>
-          <button class="filter-btn" data-filter="equipo">Equipo</button>
-        </div>
+        <a href="fotos.html" class="home-photos-link">Ver todas las fotos →</a>
       </div>
-      <div class="gallery-masonry">
 
-        <!-- Item 1 -->
-        <div class="gallery-item reveal" data-cat="competencia" onclick="openGallery('Solar Splash 2024 — Sprint','Springfield, Ohio · Junio 2024')">
-          <div class="gallery-placeholder" style="height:200px;">
+      <div class="photo-grid">
+        <a class="photo-card reveal" href="fotos.html">
+          <div class="photo-frame">
+            <!-- ── PON LA FOTO AQUÍ: borra el <svg> y descomenta la línea de abajo ── -->
             <!-- <img src="fotos/solar-splash-2024.jpg" alt="Solar Splash 2024"> -->
-            <svg width="90" height="65" viewBox="0 0 90 65" fill="none" aria-hidden="true">
+            <svg width="100" height="72" viewBox="0 0 90 65" fill="none" aria-hidden="true">
               <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
               <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
               <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
@@ -824,130 +170,66 @@
               <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
             </svg>
           </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">Solar Splash 2024 — Sprint</div>
-            <div class="gallery-caption-sub">Springfield, Ohio · Junio 2024</div>
+          <div class="photo-caption">
+            <div class="photo-caption-title">Solar Splash 2024 — Sprint</div>
+            <div class="photo-caption-sub">Springfield, Ohio · Junio 2024</div>
           </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="gallery-item reveal" style="transition-delay:0.05s;" data-cat="equipo" onclick="openGallery('El equipo campeón 2023','Foto grupal después del título mundial')">
-          <div class="gallery-placeholder" style="height:240px;">
-            <!-- <img src="fotos/equipo-2023.jpg" alt="Equipo 2023"> -->
-            <svg width="100" height="80" viewBox="0 0 100 80" fill="none" aria-hidden="true">
-              <circle cx="20" cy="40" r="12" fill="#e8f5ec"/>
-              <circle cx="20" cy="28" r="8" fill="#4a7c58"/>
-              <circle cx="50" cy="40" r="12" fill="#e8f5ec"/>
-              <circle cx="50" cy="27" r="9" fill="#1a7c35"/>
-              <circle cx="80" cy="40" r="12" fill="#e8f5ec"/>
-              <circle cx="80" cy="28" r="8" fill="#4a7c58"/>
-              <text x="50" y="68" text-anchor="middle" fill="#4ac26a" font-size="11" font-weight="bold">¡Campeones!</text>
+        </a>
+        <a class="photo-card reveal" style="transition-delay:0.05s;" href="fotos.html">
+          <div class="photo-frame">
+            <!-- ── PON LA FOTO AQUÍ: borra el <svg> y descomenta la línea de abajo ── -->
+            <!-- <img src="fotos/equipo-2023.jpg" alt="El equipo campeón 2023"> -->
+            <svg width="100" height="72" viewBox="0 0 90 65" fill="none" aria-hidden="true">
+              <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
+              <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
+              <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
+              <line x1="14" y1="34" x2="56" y2="34" stroke="#4ac26a" stroke-width="1.6"/>
+              <path d="M22 12 Q45 2 68 12 L65 28 H25Z" fill="#1a7c35"/>
+              <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
             </svg>
           </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">El equipo campeón 2023</div>
-            <div class="gallery-caption-sub">Foto grupal · Solar Splash 2023</div>
+          <div class="photo-caption">
+            <div class="photo-caption-title">El equipo campeón 2023</div>
+            <div class="photo-caption-sub">Foto grupal · Solar Splash 2023</div>
           </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="gallery-item reveal" style="transition-delay:0.10s;" data-cat="construccion" onclick="openGallery('Construcción del casco','Taller de ingeniería · UPRM')">
-          <div class="gallery-placeholder" style="height:180px;">
-            <!-- <img src="fotos/construccion.jpg" alt="Construcción"> -->
-            <svg width="90" height="60" viewBox="0 0 90 60" fill="none" aria-hidden="true">
-              <rect x="10" y="20" width="70" height="28" rx="6" fill="#e8f5ec"/>
-              <rect x="20" y="25" width="50" height="14" rx="3" fill="#4a7c58"/>
-              <line x1="20" y1="31" x2="70" y2="31" stroke="#4ac26a" stroke-width="1.5"/>
-              <line x1="20" y1="35" x2="70" y2="35" stroke="#4ac26a" stroke-width="1.5"/>
-              <circle cx="15" cy="8" r="5" fill="#1a7c35"/>
-              <circle cx="75" cy="8" r="5" fill="#1a7c35"/>
+        </a>
+        <a class="photo-card reveal" style="transition-delay:0.10s;" href="fotos.html">
+          <div class="photo-frame">
+            <!-- ── PON LA FOTO AQUÍ: borra el <svg> y descomenta la línea de abajo ── -->
+            <!-- <img src="fotos/construccion.jpg" alt="Construcción del casco"> -->
+            <svg width="100" height="72" viewBox="0 0 90 65" fill="none" aria-hidden="true">
+              <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
+              <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
+              <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
+              <line x1="14" y1="34" x2="56" y2="34" stroke="#4ac26a" stroke-width="1.6"/>
+              <path d="M22 12 Q45 2 68 12 L65 28 H25Z" fill="#1a7c35"/>
+              <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
             </svg>
           </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">Construcción del casco</div>
-            <div class="gallery-caption-sub">Taller de ingeniería · UPRM</div>
+          <div class="photo-caption">
+            <div class="photo-caption-title">Construcción del casco</div>
+            <div class="photo-caption-sub">Taller de ingeniería · UPRM</div>
           </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="gallery-item reveal" style="transition-delay:0.15s;" data-cat="competencia" onclick="openGallery('Pruebas en el agua','Lago local · Mayagüez, PR')">
-          <div class="gallery-placeholder" style="height:220px;">
+        </a>
+        <a class="photo-card reveal" style="transition-delay:0.15s;" href="fotos.html">
+          <div class="photo-frame">
+            <!-- ── PON LA FOTO AQUÍ: borra el <svg> y descomenta la línea de abajo ── -->
             <!-- <img src="fotos/pruebas-agua.jpg" alt="Pruebas en el agua"> -->
-            <svg width="100" height="70" viewBox="0 0 100 70" fill="none" aria-hidden="true">
-              <ellipse cx="50" cy="58" rx="42" ry="12" fill="#1a57c2" opacity="0.2"/>
-              <path d="M8 40 Q50 24 92 40 L89 52 Q50 64 11 52Z" fill="#4a7c58"/>
-              <path d="M8 40 Q50 27 92 40" stroke="#4ac26a" stroke-width="1.8" fill="none"/>
-              <rect x="14" y="31" width="48" height="12" rx="3" fill="#2d5c3e"/>
-              <path d="M26 14 Q50 4 74 14 L71 30 H29Z" fill="#1a7c35"/>
-              <path d="M33 14 Q50 7 67 14 L64 27 H36Z" fill="#22a045"/>
+            <svg width="100" height="72" viewBox="0 0 90 65" fill="none" aria-hidden="true">
+              <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
+              <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
+              <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
+              <line x1="14" y1="34" x2="56" y2="34" stroke="#4ac26a" stroke-width="1.6"/>
+              <path d="M22 12 Q45 2 68 12 L65 28 H25Z" fill="#1a7c35"/>
+              <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
             </svg>
           </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">Pruebas en el agua</div>
-            <div class="gallery-caption-sub">Lago local · Mayagüez, PR</div>
+          <div class="photo-caption">
+            <div class="photo-caption-title">Pruebas en el agua</div>
+            <div class="photo-caption-sub">Lago local · Mayagüez, PR</div>
           </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="gallery-item reveal" style="transition-delay:0.20s;" data-cat="competencia" onclick="openGallery('Ceremonia de premios 2021','Primer campeonato mundial del equipo')">
-          <div class="gallery-placeholder" style="height:190px;">
-            <!-- <img src="fotos/premios-2021.jpg" alt="Premios 2021"> -->
-            <svg width="80" height="60" viewBox="0 0 80 60" fill="none" aria-hidden="true">
-              <text x="40" y="38" text-anchor="middle" font-size="36" fill="#f0b429">🏆</text>
-            </svg>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">Ceremonia de premios 2021</div>
-            <div class="gallery-caption-sub">Primer campeonato mundial</div>
-          </div>
-        </div>
-
-        <!-- Item 6 -->
-        <div class="gallery-item reveal" style="transition-delay:0.25s;" data-cat="construccion" onclick="openGallery('Sistema de paneles solares','Instalación y calibración')">
-          <div class="gallery-placeholder" style="height:200px;">
-            <!-- <img src="fotos/paneles-solares.jpg" alt="Paneles Solares"> -->
-            <svg width="90" height="65" viewBox="0 0 90 65" fill="none" aria-hidden="true">
-              <rect x="10" y="8" width="70" height="42" rx="6" fill="#e8f5ec"/>
-              <rect x="14" y="12" width="29" height="18" rx="2" fill="#1a7c35" opacity="0.7"/>
-              <rect x="47" y="12" width="29" height="18" rx="2" fill="#1a7c35" opacity="0.7"/>
-              <rect x="14" y="34" width="29" height="11" rx="2" fill="#22a045" opacity="0.7"/>
-              <rect x="47" y="34" width="29" height="11" rx="2" fill="#22a045" opacity="0.7"/>
-              <line x1="29" y1="12" x2="29" y2="30" stroke="#4ac26a" stroke-width="1.2"/>
-              <line x1="62" y1="12" x2="62" y2="30" stroke="#4ac26a" stroke-width="1.2"/>
-              <line x1="14" y1="21" x2="43" y2="21" stroke="#4ac26a" stroke-width="1.2"/>
-              <line x1="47" y1="21" x2="76" y2="21" stroke="#4ac26a" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">Sistema de paneles solares</div>
-            <div class="gallery-caption-sub">Instalación y calibración</div>
-          </div>
-        </div>
-
-        <!-- ADD MORE: copy a .gallery-item block and set data-cat + replace the placeholder comment with your <img> -->
-
+        </a>
       </div>
-
-      <div style="text-align:center;margin-top:40px;" class="reveal">
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">
-          ¿Tienes fotos del equipo? Envíalas a <a href="mailto:solarboat@uprm.edu" style="color:var(--green-mid);font-weight:600;">solarboat@uprm.edu</a>
-        </p>
-        <a href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener" class="btn btn-primary">Ver más en Instagram →</a>
-      </div>
-    </div>
-
-    <!-- Lightbox overlay -->
-    <div class="gallery-overlay" id="galleryOverlay" onclick="closeGallery(event)">
-      <div class="gallery-overlay-inner">
-        <div class="gallery-overlay-img" id="galleryOverlayImg">
-          <!-- image renders here -->
-        </div>
-        <div class="gallery-overlay-body">
-          <h3 id="galleryOverlayTitle"></h3>
-          <p id="galleryOverlayDesc"></p>
-        </div>
-      </div>
-      <button class="gallery-overlay-close" onclick="closeGallery()">✕</button>
     </div>
   </section>
 
@@ -981,101 +263,10 @@
     </div>
   </section>
 
-  <!-- ================================================
-       CONTACT
-  ================================================ -->
-  <section class="contact" id="contacto" aria-label="Contacto">
-    <div class="container">
-      <h2 class="section-heading reveal">¿Quieres <em>saber más</em>?</h2>
-      <p class="reveal">Contáctanos para colaboraciones, patrocinios, prensa o simplemente para saber más sobre el equipo.</p>
-      <form class="contact-form reveal" id="contactForm" novalidate>
-        <div class="contact-row">
-          <input type="text"  name="nombre"  placeholder="Tu nombre"  required autocomplete="name" />
-          <input type="email" name="email"   placeholder="Tu correo"  required autocomplete="email" />
-        </div>
-        <input type="text" name="asunto" placeholder="Asunto" />
-        <input type="text" name="website" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
-        <textarea name="mensaje" placeholder="Tu mensaje..." required></textarea>
-        <!-- ── Wire up your backend/EmailJS/Formspree here ── -->
-        <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-      </form>
+  </main>
 
-      <!-- ── Redes sociales — añade LinkedIn aquí cuando exista la cuenta ── -->
-      <div class="contact-social reveal">
-        <a href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="none" stroke="#e1a3c9" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.5" fill="#e1a3c9"/>
-          </svg>
-          Instagram
-        </a>
-        <a href="https://www.facebook.com/UPRMSolarBoat/" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="#7eb3ff" aria-hidden="true">
-            <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/>
-          </svg>
-          Facebook
-        </a>
-        <!-- <a href="https://www.linkedin.com/company/TU-PAGINA" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="#7eb3ff" aria-hidden="true">
-            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/>
-          </svg>
-          LinkedIn
-        </a> -->
-      </div>
-    </div>
-  </section>
-
-  <!-- ================================================
-       FOOTER
-  ================================================ -->
-  <footer role="contentinfo">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div>
-          <div class="footer-brand">Solar<span>Boat</span> UPRM</div>
-          <p class="footer-tagline">
-            Universidad de Puerto Rico · Recinto de Mayagüez<br>
-            Colegio de Ingeniería
-          </p>
-        </div>
-        <div class="footer-col">
-          <h4>Navegación</h4>
-          <ul>
-            <li><a href="#inicio">Inicio</a></li>
-            <li><a href="#sobre">Sobre nosotros</a></li>
-            <li><a href="#logros">Logros</a></li>
-            <li><a href="#noticias">Noticias</a></li>
-            <li><a href="#eventos">Eventos</a></li>
-            <li><a href="#donar">Donar</a></li>
-            <li><a href="#reclutamiento">Únete</a></li>
-            <li><a href="#suscribete">Avísame</a></li>
-            <li><a href="#fotos">Fotos</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Redes sociales</h4>
-          <ul>
-            <li><a href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://www.facebook.com/UPRMSolarBoat/" target="_blank" rel="noopener">Facebook</a></li>
-            <!-- ADD more ── -->
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contacto</h4>
-          <ul>
-            <!-- ── EDIT email ── -->
-            <li><a href="mailto:solarboat@uprm.edu">solarboat@uprm.edu</a></li>
-            <li><a href="https://www.uprm.edu" target="_blank" rel="noopener">uprm.edu</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>© 2024 UPRM Solar Boat Team · Todos los derechos reservados</p>
-        <a href="#inicio">Volver arriba ↑</a>
-      </div>
-    </div>
-  </footer>
+  <!-- Pie de página: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="footer"></script>
 
   <!-- ================================================
        SCRIPTS
@@ -1084,11 +275,8 @@
        funciones que llaman los onclick del HTML siguen siendo
        accesibles. api.js va primero porque los demás lo usan.
   ================================================ -->
-  <script src="js/api.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/reveal.js"></script>
-  <script src="js/gallery.js"></script>
-  <script src="js/forms.js"></script>
 
 </body>
 </html>

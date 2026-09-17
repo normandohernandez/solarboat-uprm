@@ -50,7 +50,9 @@
 ## ⏸️ Diferido a propósito
 
 - [ ] **Eventos** — se dejó tal cual por ahora. Pendiente decidir entre (a) mantenerlo y añadir soporte de imagen a cada tarjeta, o (b) eliminarlo y mover los avisos a Instagram/Noticias.
-- [ ] **Donar** — la implementación se trabaja más tarde. Los links de PayPal / Venmo / ATH Móvil son placeholders (`paypal.me/UPRMSolarBoat`, `venmo.com/UPRMSolarBoat`) y hay que sustituirlos por los reales.
+- [ ] **Fotos reales** — todas las fotos del sitio son dibujos de relleno. Faltan las cuatro del inicio (`index.html`, sección Fotos clave) y las seis de `fotos.html`; van en `web/frontend/fotos/` (ver su README).
+  El diseño de "El equipo en acción" (una grande + tres pequeñas) queda pendiente de decidir: se acomoda cuando se tengan las fotos reales y se vea qué forma traen.
+- [ ] **Donar** — la implementación se trabaja más tarde. PayPal y Venmo se quitaron del sitio (2026-09-15); quedan ATH Móvil (falta el número real) y Patrocinio empresarial.
 - [ ] **Equipo → actualizar seguido** — mantenimiento continuo, no un cambio puntual.
 
 ---

@@ -1,0 +1,66 @@
+/* Sección que solo sale en el inicio: fotos clave
+   Solar Boat UPRM — css/sections/home.css */
+
+/* ── FOTOS CLAVE ── */
+.home-photos { padding: var(--section-pad); background: var(--off-white); }
+.home-photos-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+.home-photos-link {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--green-mid);
+  border-bottom: 2px solid var(--green-mid);
+  padding-bottom: 4px;
+  white-space: nowrap;
+}
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+/* La primera foto manda: ocupa el doble de ancho y alto */
+.photo-card:first-child { grid-column: span 2; grid-row: span 2; }
+.photo-card {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: var(--white);
+  color: inherit;
+}
+.photo-frame {
+  aspect-ratio: 4 / 3;
+  background: var(--green-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.photo-card:first-child .photo-frame { aspect-ratio: 16 / 11; }
+.photo-frame svg { opacity: 0.4; }
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+.photo-caption { padding: 14px 16px; }
+.photo-caption-title {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-dark);
+}
+.photo-caption-sub {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 3px;
+}
+
+@media (max-width: 768px) {
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  .photo-card:first-child { grid-column: span 2; grid-row: auto; }
+}
+@media (max-width: 500px) {
+  .photo-grid { grid-template-columns: 1fr; }
+  .photo-card:first-child { grid-column: auto; }
+}

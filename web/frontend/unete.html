@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Únete al equipo — UPRM Solar Boat Team</title>
+  <meta name="description" content="Buscamos estudiantes de UPRM en todas las disciplinas de ingeniería. No necesitas experiencia previa." />
+
+  <!-- ================================================
+       TIPOGRAFÍA — cámbiala aquí
+  ================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ================================================
+       ESTILOS
+       El orden importa: primero las variables, luego lo
+       base y compartido, después cada sección, y al final
+       los @media, que tienen que poder pisar lo anterior.
+  ================================================ -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/utilities.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <link rel="stylesheet" href="css/sections/hero.css" />
+  <link rel="stylesheet" href="css/sections/stats.css" />
+  <link rel="stylesheet" href="css/sections/about.css" />
+  <link rel="stylesheet" href="css/sections/achievements.css" />
+  <link rel="stylesheet" href="css/sections/news.css" />
+  <link rel="stylesheet" href="css/sections/team.css" />
+  <link rel="stylesheet" href="css/sections/events.css" />
+  <link rel="stylesheet" href="css/sections/donations.css" />
+  <link rel="stylesheet" href="css/sections/recruitment.css" />
+  <link rel="stylesheet" href="css/sections/subscribe.css" />
+  <link rel="stylesheet" href="css/sections/gallery.css" />
+  <link rel="stylesheet" href="css/sections/social.css" />
+  <link rel="stylesheet" href="css/sections/contact.css" />
+  <link rel="stylesheet" href="css/sections/home.css" />
+
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/redesign.css" />
+</head>
+<body>
+
+  <!-- Menú de navegación: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="header"></script>
+
+  <main>
+
+  <!-- ================================================
+       RECRUITMENT
+  ================================================ -->
+  <section class="recruitment" id="reclutamiento" aria-label="Reclutamiento">
+    <div class="container">
+      <div class="recruitment-header reveal">
+        <span class="tag tag-green">Únete al equipo</span>
+        <h1 class="section-heading">¿Quieres <em>representar a P.R.</em>?</h1>
+        <p class="section-lead">Buscamos estudiantes apasionados de UPRM en todas las disciplinas de ingeniería. No necesitas experiencia previa — solo ganas de aprender y trabajar en equipo.</p>
+      </div>
+
+      <div class="recruitment-grid">
+        <div class="dept-card reveal">
+          <div class="dept-icon">⚙️</div>
+          <div class="dept-name">Ingeniería Mecánica</div>
+          <div class="dept-desc">Diseño y construcción del casco, análisis estructural, manufactura y ensamblaje del bote.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.05s;">
+          <div class="dept-icon">⚡</div>
+          <div class="dept-name">Ingeniería Eléctrica</div>
+          <div class="dept-desc">Sistema de propulsión, circuitos de potencia, paneles solares y gestión de baterías.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.10s;">
+          <div class="dept-icon">💻</div>
+          <div class="dept-name">Software & Computadoras</div>
+          <div class="dept-desc">Control de sistemas embebidos, telemetría, adquisición de datos y software de monitoreo.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.15s;">
+          <div class="dept-icon">🎨</div>
+          <div class="dept-name">Diseño & Medios</div>
+          <div class="dept-desc">Branding del equipo, redes sociales, fotografía, video y diseño de materiales de fundraising.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.20s;">
+          <div class="dept-icon">📊</div>
+          <div class="dept-name">Administración & Finanzas</div>
+          <div class="dept-desc">Gestión de presupuesto, solicitudes de fondos, logística de viajes y patrocinios.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+        <div class="dept-card reveal" style="transition-delay:0.25s;">
+          <div class="dept-icon">🔬</div>
+          <div class="dept-name">Investigación & Desarrollo</div>
+          <div class="dept-desc">Optimización aerodinámica, simulaciones CFD y desarrollo de nuevas tecnologías para el bote.</div>
+          <span class="dept-tag">Abierto</span>
+        </div>
+      </div>
+
+      <div class="recruitment-cta reveal">
+        <h3>¿Listo para unirte? 🚀</h3>
+        <p>Déjanos tu correo y nos comunicamos contigo para contarte los próximos pasos del proceso de reclutamiento.</p>
+        <div class="recruitment-form">
+          <input type="email" id="recruitEmail" placeholder="tu@uprm.edu" />
+          <input type="text" id="recruitWebsite" class="hp-field" tabindex="-1" autocomplete="off" aria-hidden="true" />
+          <button class="btn btn-primary" onclick="handleRecruit(this)">Aplicar ahora</button>
+        </div>
+        <p style="margin-top:16px;font-size:12px;color:var(--text-muted);">También puedes escribirnos directamente a <a href="mailto:solarboat@uprm.edu" style="color:var(--green-mid);font-weight:600;">solarboat@uprm.edu</a></p>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Pie de página: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="footer"></script>
+
+  <!-- ================================================
+       SCRIPTS
+       Son <script> normales (no módulos) a propósito: así la
+       página también funciona abriéndola con doble clic, y las
+       funciones que llaman los onclick del HTML siguen siendo
+       accesibles. api.js va primero porque los demás lo usan.
+  ================================================ -->
+  <script src="js/api.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/forms.js"></script>
+
+</body>
+</html>

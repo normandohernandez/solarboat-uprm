@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Donar — UPRM Solar Boat Team</title>
+  <meta name="description" content="Apoya al UPRM Solar Boat Team: cada contribución ayuda a costear materiales, viajes y la próxima competencia." />
+
+  <!-- ================================================
+       TIPOGRAFÍA — cámbiala aquí
+  ================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ================================================
+       ESTILOS
+       El orden importa: primero las variables, luego lo
+       base y compartido, después cada sección, y al final
+       los @media, que tienen que poder pisar lo anterior.
+  ================================================ -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/utilities.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <link rel="stylesheet" href="css/sections/hero.css" />
+  <link rel="stylesheet" href="css/sections/stats.css" />
+  <link rel="stylesheet" href="css/sections/about.css" />
+  <link rel="stylesheet" href="css/sections/achievements.css" />
+  <link rel="stylesheet" href="css/sections/news.css" />
+  <link rel="stylesheet" href="css/sections/team.css" />
+  <link rel="stylesheet" href="css/sections/events.css" />
+  <link rel="stylesheet" href="css/sections/donations.css" />
+  <link rel="stylesheet" href="css/sections/recruitment.css" />
+  <link rel="stylesheet" href="css/sections/subscribe.css" />
+  <link rel="stylesheet" href="css/sections/gallery.css" />
+  <link rel="stylesheet" href="css/sections/social.css" />
+  <link rel="stylesheet" href="css/sections/contact.css" />
+  <link rel="stylesheet" href="css/sections/home.css" />
+
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/redesign.css" />
+</head>
+<body>
+
+  <!-- Menú de navegación: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="header"></script>
+
+  <main>
+
+  <!-- ================================================
+       DONATIONS / SPONSORS
+  ================================================ -->
+  <section class="donations" id="donar" aria-label="Donaciones y patrocinadores">
+    <div class="container">
+      <div class="donations-header reveal">
+        <span class="tag tag-green">Apóyanos</span>
+        <h1 class="section-heading">Tu apoyo nos lleva a <em>ganar</em></h1>
+        <p class="section-lead">Cada contribución ayuda a costear materiales, viajes y la próxima campaña representando a Puerto Rico.</p>
+      </div>
+
+      <div class="donation-ways">
+        <!-- ATH Móvil -->
+        <div class="donation-way reveal">
+          <div class="donation-way-icon">🇵🇷</div>
+          <h4>ATH Móvil</h4>
+          <p>Si estás en Puerto Rico, puedes donarnos directamente por ATH Móvil Business.</p>
+          <!-- Replace with your actual ATH Móvil handle -->
+          <a href="contacto.html" class="btn-donate">Ver número de teléfono</a>
+        </div>
+        <!-- Patrocinio empresarial -->
+        <div class="donation-way reveal" style="transition-delay:0.05s;">
+          <div class="donation-way-icon">🏢</div>
+          <h4>Patrocinio empresarial</h4>
+          <p>Tu empresa aparece en el bote y el sitio web. Distintos niveles disponibles.</p>
+          <a href="contacto.html" class="btn-donate">Hablar con el equipo</a>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Pie de página: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="footer"></script>
+
+  <!-- ================================================
+       SCRIPTS
+       Son <script> normales (no módulos) a propósito: así la
+       página también funciona abriéndola con doble clic, y las
+       funciones que llaman los onclick del HTML siguen siendo
+       accesibles. api.js va primero porque los demás lo usan.
+  ================================================ -->
+  <script src="js/nav.js"></script>
+  <script src="js/reveal.js"></script>
+
+</body>
+</html>

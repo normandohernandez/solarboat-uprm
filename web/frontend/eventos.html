@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eventos — UPRM Solar Boat Team</title>
+  <meta name="description" content="Próximos eventos del UPRM Solar Boat Team: ventas, competencias, reuniones y fechas importantes." />
+
+  <!-- ================================================
+       TIPOGRAFÍA — cámbiala aquí
+  ================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ================================================
+       ESTILOS
+       El orden importa: primero las variables, luego lo
+       base y compartido, después cada sección, y al final
+       los @media, que tienen que poder pisar lo anterior.
+  ================================================ -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/utilities.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <link rel="stylesheet" href="css/sections/hero.css" />
+  <link rel="stylesheet" href="css/sections/stats.css" />
+  <link rel="stylesheet" href="css/sections/about.css" />
+  <link rel="stylesheet" href="css/sections/achievements.css" />
+  <link rel="stylesheet" href="css/sections/news.css" />
+  <link rel="stylesheet" href="css/sections/team.css" />
+  <link rel="stylesheet" href="css/sections/events.css" />
+  <link rel="stylesheet" href="css/sections/donations.css" />
+  <link rel="stylesheet" href="css/sections/recruitment.css" />
+  <link rel="stylesheet" href="css/sections/subscribe.css" />
+  <link rel="stylesheet" href="css/sections/gallery.css" />
+  <link rel="stylesheet" href="css/sections/social.css" />
+  <link rel="stylesheet" href="css/sections/contact.css" />
+  <link rel="stylesheet" href="css/sections/home.css" />
+
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/redesign.css" />
+</head>
+<body>
+
+  <!-- Menú de navegación: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="header"></script>
+
+  <main>
+
+  <!-- ================================================
+       EVENTS
+  ================================================ -->
+  <section class="events" id="eventos" aria-label="Eventos">
+    <div class="container">
+      <div class="events-header reveal">
+        <span class="tag tag-green">Eventos</span>
+        <h1 class="section-heading">Próximos <em>eventos</em></h1>
+        <p class="section-lead">Ventas de pizza, competencias, reuniones del equipo y fechas importantes.</p>
+      </div>
+      <div class="events-layout">
+        <div class="events-list">
+
+          <!-- FEATURED EVENT -->
+          <div class="event-card featured reveal">
+            <div class="event-date-block">
+              <div class="event-day">14</div>
+              <div class="event-month">Jun</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-comp">🏆 Competencia</span>
+              </div>
+              <div class="event-title">Solar Splash 2025 — Springfield, OH</div>
+              <div class="event-desc">Competencia internacional de botes solares. El equipo UPRM estará representando a Puerto Rico en Springfield, Ohio. ¡Todos a apoyar!</div>
+              <div class="event-meta">
+                <span>📍 Springfield, Ohio</span>
+                <span>🕗 Toda la semana</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA SALE 1 -->
+          <div class="event-card reveal" style="transition-delay:0.05s;">
+            <div class="event-date-block">
+              <div class="event-day">6</div>
+              <div class="event-month">Jun</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-pizza">🍕 Venta de Pizza</span>
+              </div>
+              <div class="event-title">Venta de Pizza — Stefani's</div>
+              <div class="event-desc">Ven a apoyar el equipo comprando pizza en Stefani's. Cada pedido ayuda a financiar materiales y gastos de la competencia.</div>
+              <div class="event-meta">
+                <span>📍 Stefani's, Mayagüez</span>
+                <span>🕗 11am – 8pm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- TEAM MEETING -->
+          <div class="event-card reveal" style="transition-delay:0.10s;">
+            <div class="event-date-block">
+              <div class="event-day">30</div>
+              <div class="event-month">May</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-meeting">📅 Reunión</span>
+              </div>
+              <div class="event-title">Reunión general del equipo</div>
+              <div class="event-desc">Reunión de todos los subgrupos para repasar el status del bote, asignaciones finales y logística previo a la competencia.</div>
+              <div class="event-meta">
+                <span>📍 Stefani Building, UPRM</span>
+                <span>🕗 6:00pm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- FUNDRAISER SALE -->
+          <div class="event-card reveal" style="transition-delay:0.15s;">
+            <div class="event-date-block">
+              <div class="event-day">20</div>
+              <div class="event-month">May</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-sale">💰 Fundraiser</span>
+              </div>
+              <div class="event-title">Venta de camisetas del equipo</div>
+              <div class="event-desc">Edición limitada de camisetas Solar Boat UPRM. Disponibles en el patio del Colegio de Ingeniería. ¡No te quedes sin la tuya!</div>
+              <div class="event-meta">
+                <span>📍 Patio Colegio de Ingeniería, UPRM</span>
+                <span>🕗 9am – 3pm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- PIZZA SALE 2 -->
+          <div class="event-card reveal" style="transition-delay:0.20s;">
+            <div class="event-date-block">
+              <div class="event-day">13</div>
+              <div class="event-month">May</div>
+            </div>
+            <div class="event-content">
+              <div class="event-pills">
+                <span class="event-pill pill-pizza">🍕 Venta de Pizza</span>
+              </div>
+              <div class="event-title">Venta de Pizza — Edificio Monzón</div>
+              <div class="event-desc">Venta de pizza en el edificio Monzón para recaudar fondos para los materiales de la competencia 2025.</div>
+              <div class="event-meta">
+                <span>📍 Edificio Monzón, UPRM</span>
+                <span>🕗 11am – 2pm</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- ADD MORE EVENT CARDS: copy .event-card block and fill in details -->
+
+        </div>
+
+        <!-- SIDEBAR -->
+        <div class="events-sidebar">
+          <div class="sidebar-card reveal">
+            <h4>📬 Notificaciones de eventos</h4>
+            <p>Déjanos tu correo y te avisamos de próximas ventas de pizza, fundraisers y fechas importantes.</p>
+            <div class="sidebar-notify-form">
+              <input type="text" placeholder="Tu nombre" />
+              <input type="email" placeholder="tu@correo.edu" />
+              <input type="text" class="hp-field notify-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+              <button class="btn btn-primary" style="font-size:13px;padding:11px;" onclick="handleNotify(this)">Notificarme</button>
+            </div>
+          </div>
+          <div class="sidebar-card reveal" style="transition-delay:0.1s;">
+            <h4>📅 Añade a tu calendario</h4>
+            <p>Descarga el archivo .ics con todos los eventos del Solar Boat UPRM para 2025.</p>
+            <a href="#" id="calendarDownload" class="btn btn-primary" style="width:100%;text-align:center;font-size:13px;padding:11px;display:block;">Descargar calendario</a>
+          </div>
+          <div class="sidebar-card reveal" style="transition-delay:0.2s;background:var(--green-pale);border-color:var(--green-mid);">
+            <h4 style="color:var(--green-dark);">🍕 ¿Quieres organizar una venta?</h4>
+            <p>Si tienes un lugar o quieres colaborar en un fundraiser, contáctanos.</p>
+            <a href="contacto.html" class="btn btn-primary" style="width:100%;text-align:center;font-size:13px;padding:11px;display:block;">Contáctanos</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Pie de página: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="footer"></script>
+
+  <!-- ================================================
+       SCRIPTS
+       Son <script> normales (no módulos) a propósito: así la
+       página también funciona abriéndola con doble clic, y las
+       funciones que llaman los onclick del HTML siguen siendo
+       accesibles. api.js va primero porque los demás lo usan.
+  ================================================ -->
+  <script src="js/api.js"></script>
+  <script src="js/nav.js"></script>
+  <script src="js/reveal.js"></script>
+  <script src="js/forms.js"></script>
+
+</body>
+</html>

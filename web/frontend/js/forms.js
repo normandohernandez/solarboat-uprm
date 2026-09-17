@@ -1,4 +1,5 @@
 // Los cuatro formularios: reclutamiento, avisos de eventos, suscripción y contacto
+// Cada uno vive en su propia página, así que se comprueba que exista antes de usarlo.
 // Solar Boat UPRM — js/forms.js
 
 // ── Recruitment form ──
@@ -50,7 +51,7 @@ async function handleNotify(btn) {
 }
 
 // ── Subscribe / notificaciones form ──
-document.getElementById('subscribeForm').addEventListener('submit', async function (e) {
+document.getElementById('subscribeForm')?.addEventListener('submit', async function (e) {
   e.preventDefault();
   const btn      = this.querySelector('button[type="submit"]');
   const emailEl  = document.getElementById('subEmail');
@@ -93,7 +94,7 @@ document.getElementById('subscribeForm').addEventListener('submit', async functi
 });
 
 // ── Contact form ──
-document.getElementById('contactForm').addEventListener('submit', async function(e) {
+document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
   e.preventDefault();
   const btn = this.querySelector('button[type="submit"]');
   const original = btn.textContent;

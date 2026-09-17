@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noticias — UPRM Solar Boat Team</title>
+  <meta name="description" content="Noticias y novedades del UPRM Solar Boat Team." />
+
+  <!-- ================================================
+       TIPOGRAFÍA — cámbiala aquí
+  ================================================ -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- ================================================
+       ESTILOS
+       El orden importa: primero las variables, luego lo
+       base y compartido, después cada sección, y al final
+       los @media, que tienen que poder pisar lo anterior.
+  ================================================ -->
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/utilities.css" />
+  <link rel="stylesheet" href="css/nav.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+
+  <link rel="stylesheet" href="css/sections/hero.css" />
+  <link rel="stylesheet" href="css/sections/stats.css" />
+  <link rel="stylesheet" href="css/sections/about.css" />
+  <link rel="stylesheet" href="css/sections/achievements.css" />
+  <link rel="stylesheet" href="css/sections/news.css" />
+  <link rel="stylesheet" href="css/sections/team.css" />
+  <link rel="stylesheet" href="css/sections/events.css" />
+  <link rel="stylesheet" href="css/sections/donations.css" />
+  <link rel="stylesheet" href="css/sections/recruitment.css" />
+  <link rel="stylesheet" href="css/sections/subscribe.css" />
+  <link rel="stylesheet" href="css/sections/gallery.css" />
+  <link rel="stylesheet" href="css/sections/social.css" />
+  <link rel="stylesheet" href="css/sections/contact.css" />
+  <link rel="stylesheet" href="css/sections/home.css" />
+
+  <link rel="stylesheet" href="css/responsive.css" />
+  <link rel="stylesheet" href="css/redesign.css" />
+</head>
+<body>
+
+  <!-- Menú de navegación: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="header"></script>
+
+  <main>
+
+  <!-- ================================================
+       NEWS
+  ================================================ -->
+  <section class="news" id="noticias" aria-label="Noticias">
+    <div class="container">
+      <div class="news-header reveal">
+        <div>
+          <span class="tag tag-green">Noticias</span>
+          <h1 class="section-heading">Lo más <em>reciente</em></h1>
+        </div>
+        <a href="#" class="news-view-all">Ver todas las noticias →</a>
+      </div>
+      <div class="news-grid">
+
+        <!-- ── NEWS CARD 1 — replace thumb with <img> ── -->
+        <article class="news-card reveal">
+          <div class="news-thumb" style="background:#e8f5ec;">
+            <!-- <img src="news-2024.jpg" alt="Solar Splash 2024"> -->
+            <svg width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
+              <ellipse cx="35" cy="42" rx="30" ry="8" fill="#29b6f6" opacity="0.3"/>
+              <path d="M5 28 Q35 12 65 28 L63 38 Q35 48 7 38Z" fill="#4a7c58"/>
+              <rect x="10" y="21" width="32" height="10" rx="3" fill="#2d5c3e"/>
+              <line x1="10" y1="26" x2="42" y2="26" stroke="#4ac26a" stroke-width="1.4"/>
+              <path d="M18 10 Q35 2 52 10 L50 22 H20Z" fill="#1a7c35"/>
+            </svg>
+          </div>
+          <div class="news-body">
+            <span class="news-pill pill-green">Sprint 2024</span>
+            <h3 class="news-title">Bote solar más rápido en Solar Splash 2024</h3>
+            <p class="news-date">14 de junio, 2024</p>
+            <p class="news-excerpt">
+              La embarcación del UPRM Solar Boat marcó 27.11 segundos en la categoría de 300m,
+              coronándose la más veloz de la competencia en Springfield, Ohio.
+            </p>
+          </div>
+        </article>
+
+        <!-- ── NEWS CARD 2 ── -->
+        <article class="news-card reveal" style="transition-delay:0.08s;">
+          <div class="news-thumb" style="background:#f1f8e9;">
+            <svg width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
+              <ellipse cx="35" cy="42" rx="30" ry="8" fill="#29b6f6" opacity="0.3"/>
+              <path d="M5 28 Q35 12 65 28 L63 38 Q35 48 7 38Z" fill="#5a7c65"/>
+              <rect x="10" y="21" width="32" height="10" rx="3" fill="#2d5c3e"/>
+            </svg>
+          </div>
+          <div class="news-body">
+            <span class="news-pill pill-green">Campeones 2023</span>
+            <h3 class="news-title">El Colegio recupera campeonato en Solar Splash 2023</h3>
+            <p class="news-date">23 de junio, 2023</p>
+            <p class="news-excerpt">
+              El equipo UPRM Solar Boat se coronó campeón nuevamente en la competencia
+              Solar Splash 2023 celebrada en Springfield, Ohio.
+            </p>
+          </div>
+        </article>
+
+        <!-- ── NEWS CARD 3 ── -->
+        <article class="news-card reveal" style="transition-delay:0.16s;">
+          <div class="news-thumb" style="background:#e8f0fb;">
+            <svg width="70" height="50" viewBox="0 0 70 50" fill="none" aria-hidden="true">
+              <ellipse cx="35" cy="42" rx="30" ry="8" fill="#29b6f6" opacity="0.45"/>
+              <path d="M5 28 Q35 12 65 28 L63 38 Q35 48 7 38Z" fill="#4a5e7c"/>
+              <rect x="10" y="21" width="32" height="10" rx="3" fill="#2d3e5c"/>
+            </svg>
+          </div>
+          <div class="news-body">
+            <span class="news-pill pill-blue">Mundial 2021</span>
+            <h3 class="news-title">Primer campeonato mundial — Solar Splash 2021</h3>
+            <p class="news-date">18 de junio, 2021</p>
+            <p class="news-excerpt">
+              El UPRM Solar Boat Team dominó la competencia Solar Splash 2021 y se coronó
+              campeón mundial por primera vez en la historia del equipo.
+            </p>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- Pie de página: se genera desde js/layout.js (edítalo allí) -->
+  <script src="js/layout.js" data-part="footer"></script>
+
+  <!-- ================================================
+       SCRIPTS
+       Son <script> normales (no módulos) a propósito: así la
+       página también funciona abriéndola con doble clic, y las
+       funciones que llaman los onclick del HTML siguen siendo
+       accesibles. api.js va primero porque los demás lo usan.
+  ================================================ -->
+  <script src="js/nav.js"></script>
+  <script src="js/reveal.js"></script>
+
+</body>
+</html>
