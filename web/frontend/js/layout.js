@@ -18,7 +18,6 @@
     { href: 'eventos.html',  label: 'Eventos' },
     { href: 'donar.html',    label: 'Donar' },
     { href: 'unete.html',    label: 'Únete', mobileLabel: 'Únete al equipo' },
-    { href: 'avisame.html',  label: 'Avísame' },
     { href: 'fotos.html',    label: 'Fotos' },
   ];
   const CONTACT = { href: 'contacto.html', label: 'Contacto' };

@@ -13,7 +13,6 @@ web/frontend/
   eventos.html        Eventos
   donar.html          Donar
   unete.html          Únete al equipo
-  avisame.html        Avísame (suscripción)
   fotos.html          Galería
   contacto.html       Contacto
   fotos/              Las fotos reales van aquí (lee fotos/README.md)
@@ -32,7 +31,7 @@ web/frontend/
     nav.js            Menú móvil
     reveal.js         Animación de scroll
     gallery.js        Filtros y visor de fotos
-    forms.js          Los cuatro formularios
+    forms.js          Formularios de reclutamiento, eventos y contacto
 ```
 
 ## Cómo editar

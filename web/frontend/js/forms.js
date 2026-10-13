@@ -1,5 +1,5 @@
-// Los cuatro formularios: reclutamiento, avisos de eventos, suscripción y contacto
-// Cada uno vive en su propia página, así que se comprueba que exista antes de usarlo.
+// Los tres formularios: reclutamiento, avisos de eventos y contacto.
+// Se comprueba que cada formulario exista en la página antes de inicializarlo.
 // Solar Boat UPRM — js/forms.js
 
 // ── Recruitment form ──
@@ -49,49 +49,6 @@ async function handleNotify(btn) {
     setTimeout(() => { btn.textContent = original; }, 2500);
   }
 }
-
-// ── Subscribe / notificaciones form ──
-document.getElementById('subscribeForm')?.addEventListener('submit', async function (e) {
-  e.preventDefault();
-  const btn      = this.querySelector('button[type="submit"]');
-  const emailEl  = document.getElementById('subEmail');
-  const errorEl  = document.getElementById('subscribeError');
-  const email    = emailEl.value.trim();
-  const intereses = [...this.querySelectorAll('input[name="intereses"]:checked')]
-    .map(cb => cb.value);
-
-  const fail = (msg, el) => {
-    errorEl.textContent = msg;
-    errorEl.classList.add('show');
-    if (el) el.style.borderColor = '#c53030';
-  };
-  errorEl.classList.remove('show');
-  emailEl.style.borderColor = '';
-
-  if (!email || !email.includes('@')) {
-    return fail('Escribe un correo válido.', emailEl);
-  }
-  if (intereses.length === 0) {
-    return fail('Marca al menos una cosa sobre la que quieras que te avisemos.');
-  }
-
-  const original = btn.textContent;
-  btn.textContent = 'Enviando…';
-  btn.disabled = true;
-  try {
-    await postForm('/api/notify', {
-      nombre:  document.getElementById('subNombre').value.trim(),
-      email,
-      intereses,
-      website: document.getElementById('subWebsite').value,
-    });
-    btn.textContent = '¡Listo! Te avisaremos ✓';
-  } catch (err) {
-    btn.textContent = original;
-    btn.disabled = false;
-    fail('No se pudo enviar. Intenta de nuevo en un momento.');
-  }
-});
 
 // ── Contact form ──
 document.getElementById('contactForm')?.addEventListener('submit', async function(e) {

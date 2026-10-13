@@ -12,12 +12,9 @@
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: flex; }
 
-  .about-grid   { grid-template-columns: 1fr; gap: 40px; }
-  .about-visual { aspect-ratio: 16/9; }
+  .about-grid   { grid-template-columns: 1fr; }
 
   .contact-row    { grid-template-columns: 1fr; }
-  .subscribe-row  { grid-template-columns: 1fr; }
-  .subscribe-card { padding: 24px 20px; }
 
   .strip-item      { padding: 8px 20px; }
   .footer-top      { flex-direction: column; }

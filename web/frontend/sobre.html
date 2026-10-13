@@ -35,7 +35,6 @@
   <link rel="stylesheet" href="css/sections/events.css" />
   <link rel="stylesheet" href="css/sections/donations.css" />
   <link rel="stylesheet" href="css/sections/recruitment.css" />
-  <link rel="stylesheet" href="css/sections/subscribe.css" />
   <link rel="stylesheet" href="css/sections/gallery.css" />
   <link rel="stylesheet" href="css/sections/social.css" />
   <link rel="stylesheet" href="css/sections/contact.css" />
@@ -54,8 +53,38 @@
   <!-- ================================================
        ABOUT
   ================================================ -->
-  <section class="about" id="sobre" aria-label="Sobre nosotros">
-    <div class="container">
+  <section class="about about-slideshow" id="sobre" aria-label="Sobre nosotros"
+           role="region" aria-roledescription="carrusel">
+    <div class="about-slides">
+      <img class="about-slide is-active" src="public/images/team/equipo-con-barco-monaco.jpg" alt="Equipo Solar Boat UPRM junto a su embarcación solar en Mónaco" style="--slide-position: center 58%;" aria-hidden="false" />
+      <img class="about-slide" src="public/images/team/equipo-bandera-puerto-rico-monaco.jpg" alt="Integrantes de Solar Boat UPRM con la bandera de Puerto Rico en la competencia de Mónaco" style="--slide-position: center 42%;" aria-hidden="true" loading="lazy" />
+      <img class="about-slide" src="public/images/team/equipo-oficial-monaco.jpg" alt="Foto oficial del equipo Solar Boat UPRM en el Monaco Energy Boat Challenge" style="--slide-position: center 46%;" aria-hidden="true" loading="lazy" />
+      <img class="about-slide" src="public/images/team/equipo-en-muelle-monaco.jpg" alt="Equipo Solar Boat UPRM reunido en el muelle durante la competencia en Mónaco" style="--slide-position: center 62%;" aria-hidden="true" loading="lazy" />
+    </div>
+
+    <div class="about-overlay" aria-hidden="true"></div>
+    <button class="about-slide-arrow about-slide-prev" type="button" aria-label="Ver foto anterior">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6.5 9 12l5.5 5.5" /></svg>
+    </button>
+    <button class="about-slide-arrow about-slide-next" type="button" aria-label="Ver foto siguiente">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6.5 5.5 5.5-5.5 5.5" /></svg>
+    </button>
+    <div class="about-slide-dots" aria-label="Seleccionar foto del equipo"></div>
+
+    <div class="about-visual-placeholder about-slide-fallback" hidden>
+      <svg width="120" height="90" viewBox="0 0 120 90" fill="none" aria-hidden="true">
+        <ellipse cx="60" cy="78" rx="52" ry="12" fill="#29b6f6" opacity="0.2"/>
+        <path d="M12 58 Q60 30 108 58 L105 72 Q60 84 15 72Z" fill="#4a7c58"/>
+        <rect x="18" y="48" width="54" height="14" rx="4" fill="#2d5c3e"/>
+        <line x1="18" y1="54" x2="72" y2="54" stroke="#4ac26a" stroke-width="1.6"/>
+        <line x1="18" y1="59" x2="72" y2="59" stroke="#4ac26a" stroke-width="1.6"/>
+        <path d="M28 28 Q60 8 92 28 L88 48 H32Z" fill="#1a7c35"/>
+        <path d="M36 28 Q60 14 84 28 L80 42 H40Z" fill="#22a045"/>
+      </svg>
+      <p style="margin-top:12px;">Equipo Solar Boat UPRM</p>
+    </div>
+
+    <div class="container about-content">
       <div class="about-grid">
         <div class="about-text reveal">
           <span class="tag tag-green">Quiénes somos</span>
@@ -73,22 +102,6 @@
             <a href="logros.html" class="btn btn-primary">Ver nuestros logros</a>
           </div>
         </div>
-        <div class="about-visual reveal" style="transition-delay:0.15s;">
-          <!-- ── REPLACE with <img src="team-photo.jpg" alt="Equipo Solar Boat UPRM"> ── -->
-          <div class="about-visual-placeholder">
-            <svg width="120" height="90" viewBox="0 0 120 90" fill="none" aria-hidden="true">
-              <ellipse cx="60" cy="78" rx="52" ry="12" fill="#29b6f6" opacity="0.2"/>
-              <path d="M12 58 Q60 30 108 58 L105 72 Q60 84 15 72Z" fill="#4a7c58"/>
-              <rect x="18" y="48" width="54" height="14" rx="4" fill="#2d5c3e"/>
-              <line x1="18" y1="54" x2="72" y2="54" stroke="#4ac26a" stroke-width="1.6"/>
-              <line x1="18" y1="59" x2="72" y2="59" stroke="#4ac26a" stroke-width="1.6"/>
-              <path d="M28 28 Q60 8 92 28 L88 48 H32Z" fill="#1a7c35"/>
-              <path d="M36 28 Q60 14 84 28 L80 42 H40Z" fill="#22a045"/>
-            </svg>
-            <p style="margin-top:12px;">Foto del equipo</p>
-            <p style="font-size:11px;color:var(--text-muted);margin-top:4px;">Reemplaza con tu imagen</p>
-          </div>
-        </div>
       </div>
     </div>
   </section>
@@ -104,34 +117,34 @@
         <p class="section-lead">Estudiantes de ingeniería que combinan pasión, técnica y trabajo en equipo para competir al más alto nivel.</p>
       </div>
       <div class="team-grid">
-        <!-- ── EDIT name/role/initials or swap avatar div with <img> ── -->
+        <!-- Sustituye el bulldog por la foto de cada integrante cuando esté disponible. -->
         <div class="member-card reveal">
-          <div class="member-avatar">AS</div>
+          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
           <div class="member-name">Nombre Apellido</div>
           <div class="member-role">Team Captain</div>
         </div>
         <div class="member-card reveal" style="transition-delay:0.05s;">
-          <div class="member-avatar">BM</div>
+          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
           <div class="member-name">Nombre Apellido</div>
           <div class="member-role">Mechanical Lead</div>
         </div>
         <div class="member-card reveal" style="transition-delay:0.10s;">
-          <div class="member-avatar">CL</div>
+          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
           <div class="member-name">Nombre Apellido</div>
           <div class="member-role">Electrical Lead</div>
         </div>
         <div class="member-card reveal" style="transition-delay:0.15s;">
-          <div class="member-avatar">DR</div>
+          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
           <div class="member-name">Nombre Apellido</div>
           <div class="member-role">Software Lead</div>
         </div>
         <div class="member-card reveal" style="transition-delay:0.20s;">
-          <div class="member-avatar">EM</div>
+          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
           <div class="member-name">Nombre Apellido</div>
           <div class="member-role">Hull Design</div>
         </div>
         <div class="member-card reveal" style="transition-delay:0.25s;">
-          <div class="member-avatar">FV</div>
+          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
           <div class="member-name">Nombre Apellido</div>
           <div class="member-role">Solar Systems</div>
         </div>
@@ -154,6 +167,7 @@
   ================================================ -->
   <script src="js/nav.js"></script>
   <script src="js/reveal.js"></script>
+  <script src="js/team-slideshow.js"></script>
 
 </body>
 </html>

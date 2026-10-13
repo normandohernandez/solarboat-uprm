@@ -1,17 +1,23 @@
 # Fotos del sitio
 
-Pon aquí las fotos reales (`.jpg` o `.webp`, idealmente menos de 500 KB cada una).
+Las imágenes están preparadas para la web en formato `.jpg`, con nombres
+descriptivos en minúsculas y sin espacios:
 
-Los dibujos verdes que se ven ahora son marcadores de posición. Para poner una foto
-de verdad, en `index.html` (fotos clave) o en `fotos.html` (galería) busca el bloque
-de esa foto, borra el `<svg>` y descomenta la línea de al lado:
+- `barco-solar-monaco-puerto.jpg`
+- `barco-solar-vista-lateral-monaco.jpg`
+- `emblema-bulldog-equipo.jpg`
+- `equipo-bandera-puerto-rico-monaco.jpg`
+- `equipo-con-barco-monaco.jpg`
+- `equipo-en-muelle-monaco.jpg`
+- `equipo-evento-nocturno-monaco.jpg`
+- `equipo-oficial-monaco.jpg`
+- `participantes-internacionales-monaco.jpg`
+
+Para usarlas en una página:
 
 ```html
-<img src="fotos/solar-splash-2024.jpg" alt="Solar Splash 2024">
+<img src="fotos/equipo-con-barco-monaco.jpg"
+     alt="Equipo de Solar Boat UPRM junto al bote en Mónaco">
 ```
 
-Nombres que el sitio ya espera:
-`solar-splash-2024.jpg`, `equipo-2023.jpg`, `construccion.jpg`, `pruebas-agua.jpg`,
-`premios-2021.jpg`, `paneles-solares.jpg`.
-
-El texto del `alt` describe la foto para quien no puede verla — escríbelo siempre.
+El texto del `alt` debe describir cada foto para las personas que no pueden verla.

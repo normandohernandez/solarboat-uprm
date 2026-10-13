@@ -16,7 +16,6 @@
 - [x] **Equipo fuera de los tabs** — link quitado del nav de escritorio, menú móvil y footer. La sección sigue en la página (se llega bajando), pero ya no aparece en la navegación.
 - [x] **Fuera "campeones mundiales" como lema** — cambiado por "Representando a P.R." en el `<title>`, la meta description, el encabezado de Sobre nosotros, el de Reclutamiento, el texto de Donar y la descripción del Solar Splash 2025.
 - [x] **Sitio dividido en archivos** — `index.html` pasó de 2,700 líneas a `web/frontend/` con 20 archivos CSS, 5 de JS y un `index.html` de 1,088 líneas (solo contenido).
-- [x] **Suscripción a notificaciones** — sección nueva "Avísame" (`#suscribete`) entre "Únete" y "Fotos", con nombre, correo y tres casillas: Reclutamiento / Eventos y fundraisers / Competencias y noticias. Guarda en el backend qué marcó cada persona.
 
 ---
 
