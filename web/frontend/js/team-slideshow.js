@@ -14,6 +14,7 @@
   let current = 0;
   let timer = null;
   let pointerStart = null;
+  let isAnimating = false;
 
   if (originals.length > 1) {
     const firstClone = originals[0].cloneNode(true);
@@ -25,7 +26,9 @@
   }
 
   const updateTrack = animate => {
-    track.classList.toggle('is-jumping', !animate || reducedMotion.matches);
+    const shouldAnimate = animate && !reducedMotion.matches;
+    isAnimating = shouldAnimate;
+    track.classList.toggle('is-jumping', !shouldAnimate);
     track.style.transform = `translate3d(-${position * 100}%, 0, 0)`;
   };
 
@@ -50,6 +53,7 @@
   };
 
   const next = () => {
+    if (isAnimating) return;
     position += 1;
     current = (current + 1) % originals.length;
     updateTrack(true);
@@ -57,6 +61,7 @@
   };
 
   const previous = () => {
+    if (isAnimating) return;
     position -= 1;
     current = (current - 1 + originals.length) % originals.length;
     updateTrack(true);
@@ -106,6 +111,8 @@
     } else if (position === 0) {
       position = originals.length;
       updateTrack(false);
+    } else {
+      isAnimating = false;
     }
   });
 
