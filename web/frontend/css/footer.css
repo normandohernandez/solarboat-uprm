@@ -55,6 +55,91 @@ footer {
   transition: color 0.15s;
 }
 .footer-col ul a:hover { color: var(--green-light); }
+
+/* Redes y contacto: controles compactos con iconografía propia. */
+.footer-modern { min-width: 190px; }
+.footer-modern h4 {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  color: rgba(255,255,255,0.88);
+  font-size: 13px;
+  letter-spacing: 1.2px;
+}
+.footer-col .footer-social-list {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+}
+.footer-social-link,
+.footer-contact-icon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  place-items: center;
+  border-radius: 12px;
+  background: rgba(15,77,34,0.68);
+  color: rgba(255,255,255,0.88);
+}
+.footer-social-link {
+  transition: background-color 260ms ease, color 260ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.footer-social-link:hover,
+.footer-social-link:focus-visible {
+  color: var(--white);
+  background: rgba(34,105,53,0.82);
+  transform: translateY(-1px);
+}
+.footer-social-link:focus-visible,
+.footer-contact-link:focus-visible {
+  outline: 2px solid var(--green-light);
+  outline-offset: 3px;
+}
+.footer-social-link svg,
+.footer-contact-icon svg {
+  width: 24px;
+  height: 24px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.footer-social-link svg .icon-fill { fill: currentColor; stroke: none; }
+.footer-col .footer-contact-list { gap: 14px; }
+.footer-contact-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+  border-radius: 12px;
+  transition: color 260ms ease, transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.footer-contact-link:hover { transform: translateX(1px); }
+.footer-contact-link:hover .footer-contact-icon {
+  background: rgba(34,105,53,0.82);
+  color: var(--white);
+}
+.footer-contact-icon {
+  transition: background-color 260ms ease, color 260ms ease;
+}
+.footer-contact-copy {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 3px;
+}
+.footer-contact-copy strong {
+  color: rgba(255,255,255,0.92);
+  font-size: 13px;
+  font-weight: 600;
+}
+.footer-contact-copy > span {
+  color: rgba(255,255,255,0.52);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
 /* ── PATROCINADORES (última columna del pie) ──
    Tarjetas en cuadrícula de 2; el nombre sale al pasar el mouse. */
 .footer-sponsors { width: 288px; max-width: 100%; }

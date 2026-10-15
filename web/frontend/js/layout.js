@@ -97,20 +97,36 @@
             ${PAGES.map(p => `<li><a href="${p.href}">${p.label}</a></li>`).join('\n            ')}
           </ul>
         </div>
-        <div class="footer-col">
+        <div class="footer-col footer-modern footer-social">
           <h4>Redes sociales</h4>
-          <ul>
-            <li><a href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://www.facebook.com/UPRMSolarBoat/" target="_blank" rel="noopener">Facebook</a></li>
-            <!-- ADD more ── -->
+          <ul class="footer-social-list">
+            <li>
+              <a class="footer-social-link" href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de SolarBoat UPRM">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="icon-fill" cx="17.4" cy="6.7" r="1.15"/></svg>
+              </a>
+            </li>
+            <li>
+              <a class="footer-social-link" href="https://www.facebook.com/UPRMSolarBoat/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de SolarBoat UPRM">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path class="icon-fill" d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.7-.1-1.5-.2-2.4-.2-2.4 0-4 1.5-4 4.1v2.4H8V13h2.6v8h3.1Z"/></svg>
+              </a>
+            </li>
           </ul>
         </div>
-        <div class="footer-col">
+        <div class="footer-col footer-modern footer-contact">
           <h4>Contacto</h4>
-          <ul>
-            <!-- ── EDIT email ── -->
-            <li><a href="mailto:solarboat@uprm.edu">solarboat@uprm.edu</a></li>
-            <li><a href="https://www.uprm.edu" target="_blank" rel="noopener">uprm.edu</a></li>
+          <ul class="footer-contact-list">
+            <li>
+              <a class="footer-contact-link" href="mailto:solarboat@uprm.edu">
+                <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
+                <span class="footer-contact-copy"><strong>Email</strong><span>solarboat@uprm.edu</span></span>
+              </a>
+            </li>
+            <li>
+              <a class="footer-contact-link" href="https://www.uprm.edu/" target="_blank" rel="noopener noreferrer">
+                <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21c-2.3-2.5-3.5-5.5-3.5-9S9.7 5.5 12 3Z"/></svg></span>
+                <span class="footer-contact-copy"><strong>Website</strong><span>uprm.edu</span></span>
+              </a>
+            </li>
           </ul>
         </div>
         ${SPONSORS.length ? `<div class="footer-col footer-sponsors">
