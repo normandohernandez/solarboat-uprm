@@ -26,7 +26,7 @@ web/frontend/
     sections/         Un archivo por sección (home.css = fotos clave del inicio)
     responsive.css    Todos los @media juntos
   js/
-    layout.js         Menú y pie de página de TODAS las páginas (un solo lugar)
+    layout.js         Menú, patrocinadores y pie de página de TODAS las páginas
     api.js            Contacto con el backend. Aquí está API_BASE.
     nav.js            Menú móvil
     reveal.js         Animación de scroll
@@ -40,6 +40,7 @@ web/frontend/
 - **Cambiar cómo se ve una sección** → `css/sections/<sección>.css`
 - **Cambiar el texto o añadir tarjetas** → el `.html` de esa página
 - **Cambiar el menú o el pie de página** → `js/layout.js` (se aplica a todas las páginas)
+- **Añadir o quitar un patrocinador** → la lista `SPONSORS` en `js/layout.js`; los logos van en `fotos/sponsors/`
 - **Poner fotos de verdad** → `fotos/README.md` explica cómo cambiar un dibujo por una foto
 - **Añadir un tab nuevo** → copia una página parecida (p. ej. `donar.html`), cambia su
   `<title>` y su contenido dentro de `<main>`, y añádela a la lista `PAGES` de `js/layout.js`

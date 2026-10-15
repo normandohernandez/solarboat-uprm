@@ -22,6 +22,20 @@
   ];
   const CONTACT = { href: 'contacto.html', label: 'Contacto' };
 
+  // ================================================
+  //  PATROCINADORES — sale en el pie de página de todo el sitio
+  //  Añade, quita o cambia lo de abajo. De cada uno:
+  //    name  — cómo se llama (obligatorio; es lo que se lee si no hay logo)
+  //    url   — su página web ('' si no tiene: se muestra sin enlace)
+  //    logo  — imagen en fotos/sponsors/ ('' si no hay: se muestra el nombre)
+  // ================================================
+  const SPONSORS = [
+    { name: 'Nombre del patrocinador 1', url: '', logo: '' },
+    { name: 'Nombre del patrocinador 2', url: '', logo: '' },
+    { name: 'Nombre del patrocinador 3', url: '', logo: '' },
+    { name: 'Nombre del patrocinador 4', url: '', logo: '' },
+  ];
+
   const current = location.pathname.split('/').pop() || 'index.html';
 
   // Marca el tab de la página abierta
@@ -91,6 +105,22 @@
             <li><a href="https://www.uprm.edu" target="_blank" rel="noopener">uprm.edu</a></li>
           </ul>
         </div>
+        ${SPONSORS.length ? `<div class="footer-col footer-sponsors">
+          <h4>Patrocinadores</h4>
+          <div class="footer-sponsor-grid">
+            ${SPONSORS.map(sp => {
+              const inner = `
+              <div class="footer-sponsor-logo">${sp.logo
+                ? `<img src="${sp.logo}" alt="Logo ${sp.name}" loading="lazy">`
+                : `<span class="footer-sponsor-text">${sp.name}</span>`}</div>
+              <p class="footer-sponsor-name">${sp.logo ? sp.name : ''}</p>`;
+              return sp.url
+                ? `<a class="footer-sponsor-card" href="${sp.url}" target="_blank" rel="noopener noreferrer">${inner}</a>`
+                : `<div class="footer-sponsor-card">${inner}</div>`;
+            }).join('\n            ')}
+          </div>
+          <a href="donar.html" class="footer-sponsor-cta">Sé patrocinador →</a>
+        </div>` : ''}
       </div>
       <div class="footer-bottom">
         <p>© 2024 UPRM Solar Boat Team · Todos los derechos reservados</p>
