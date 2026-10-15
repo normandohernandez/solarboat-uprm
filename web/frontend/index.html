@@ -3,6 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <!-- El sitio abre en "Sobre nosotros". Para volver a usar esta página como
+       inicio, borra estas dos líneas. -->
+  <meta http-equiv="refresh" content="0; url=sobre.html" />
+  <script>location.replace('sobre.html' + location.hash);</script>
   <title>UPRM Solar Boat Team — Representando a P.R.</title>
   <meta name="description" content="Equipo estudiantil de botes solares de la Universidad de Puerto Rico Mayagüez. Representando a Puerto Rico en el Solar Splash." />
 

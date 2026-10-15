@@ -46,7 +46,7 @@
   <header>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="container">
-        <a href="index.html" class="nav-logo" aria-label="Inicio">
+        <div class="nav-logo">
           <!-- ── SWAP with your real logo image ── -->
           <div class="nav-logo-img">
             <svg width="22" height="18" viewBox="0 0 22 18" fill="none">
@@ -55,7 +55,7 @@
             </svg>
           </div>
           <span class="nav-brand">Solar<span>Boat</span> UPRM</span>
-        </a>
+        </div>
         <div class="nav-links" role="list">
           ${PAGES.map(p => `<a href="${p.href}" role="listitem"${activeAttrs(p.href)}>${p.label}</a>`).join('\n          ')}
         </div>
