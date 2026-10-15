@@ -64,6 +64,14 @@
           <span></span><span></span><span></span>
         </div>
       </div>
+      <div class="nav-waves" aria-hidden="true">
+        <svg class="nav-wave nav-wave-back" viewBox="0 0 200 8" preserveAspectRatio="none" focusable="false">
+          <path d="M0 5 C3 1.2 9.5 1.2 12.5 5 S22 8.8 25 5 S34.5 1.2 37.5 5 S47 8.8 50 5 S59.5 1.2 62.5 5 S72 8.8 75 5 S84.5 1.2 87.5 5 S97 8.8 100 5 S109.5 1.2 112.5 5 S122 8.8 125 5 S134.5 1.2 137.5 5 S147 8.8 150 5 S159.5 1.2 162.5 5 S172 8.8 175 5 S184.5 1.2 187.5 5 S197 8.8 200 5 L200 8 L0 8 Z" />
+        </svg>
+        <svg class="nav-wave nav-wave-front" viewBox="0 0 200 8" preserveAspectRatio="none" focusable="false">
+          <path d="M0 4 C5 0.8 15 0.8 20 4 S35 7.2 40 4 S55 0.8 60 4 S75 7.2 80 4 S95 0.8 100 4 S115 7.2 120 4 S135 0.8 140 4 S155 7.2 160 4 S175 0.8 180 4 S195 7.2 200 4 L200 8 L0 8 Z" />
+        </svg>
+      </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu" role="menu">
       <a href="index.html" role="menuitem"${activeAttrs('index.html')}>Inicio</a>
