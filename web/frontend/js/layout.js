@@ -11,14 +11,32 @@
   // ================================================
   //  TABS — el orden aquí es el orden en el menú
   // ================================================
+  const TEAM_DIVISIONS = [
+    { href: 'team.html', label: 'All Divisions' },
+    { href: 'team-icom-inso.html', label: 'ICOM / INSO' },
+    { href: 'team-operations-logistics.html', label: 'Operations & Logistics' },
+    { href: 'team-inme.html', label: 'INME' },
+    { href: 'team-inel.html', label: 'INEL' },
+  ];
+
   const PAGES = [
     { href: 'sobre.html',    label: 'Sobre nosotros' },
     { href: 'logros.html',   label: 'Logros' },
-    { href: 'noticias.html', label: 'Noticias' },
+    { label: 'Team', divisions: TEAM_DIVISIONS },
     { href: 'eventos.html',  label: 'Eventos' },
     { href: 'donar.html',    label: 'Donar' },
     { href: 'unete.html',    label: 'Únete', mobileLabel: 'Únete al equipo' },
     { href: 'fotos.html',    label: 'Fotos' },
+  ];
+  // Keep the existing News page available from the footer.
+  const FOOTER_PAGES = [
+    { href: 'sobre.html', label: 'Sobre nosotros' },
+    { href: 'logros.html', label: 'Logros' },
+    { href: 'noticias.html', label: 'Noticias' },
+    { href: 'eventos.html', label: 'Eventos' },
+    { href: 'donar.html', label: 'Donar' },
+    { href: 'unete.html', label: 'Únete' },
+    { href: 'fotos.html', label: 'Fotos' },
   ];
   const CONTACT = { href: 'contacto.html', label: 'Contacto' };
 
@@ -42,6 +60,36 @@
   const activeAttrs = href =>
     href === current ? ' class="active" aria-current="page"' : '';
 
+  const teamIsActive = TEAM_DIVISIONS.some(item => item.href === current);
+  const teamLinkAttrs = href =>
+    href === current ? ' class="active" aria-current="page"' : '';
+
+  const desktopNavItem = item => {
+    if (!item.divisions) return `<a href="${item.href}" role="listitem"${activeAttrs(item.href)}>${item.label}</a>`;
+    return `<div class="nav-dropdown${teamIsActive ? ' active' : ''}" role="listitem" data-nav-dropdown>
+            <button class="nav-dropdown-toggle" type="button" aria-expanded="false" aria-controls="teamDropdownMenu">
+              <span>${item.label}</span>
+              <svg class="nav-dropdown-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5" /></svg>
+            </button>
+            <div class="nav-dropdown-menu" id="teamDropdownMenu" role="menu">
+              ${item.divisions.map(division => `<a href="${division.href}" role="menuitem"${teamLinkAttrs(division.href)}>${division.label}</a>`).join('\n              ')}
+            </div>
+          </div>`;
+  };
+
+  const mobileNavItem = item => {
+    if (!item.divisions) return `<a href="${item.href}" role="menuitem"${activeAttrs(item.href)}>${item.mobileLabel || item.label}</a>`;
+    return `<div class="mobile-team-dropdown" data-mobile-team-dropdown role="none">
+        <button class="mobile-team-toggle" type="button" aria-expanded="false" aria-controls="mobileTeamMenu">
+          <span>${item.label}</span>
+          <svg class="nav-dropdown-chevron" viewBox="0 0 12 8" aria-hidden="true"><path d="m1 1.5 5 5 5-5" /></svg>
+        </button>
+        <div class="mobile-team-menu" id="mobileTeamMenu" role="menu" hidden>
+          ${item.divisions.map(division => `<a href="${division.href}" role="menuitem"${teamLinkAttrs(division.href)}>${division.label}</a>`).join('\n          ')}
+        </div>
+      </div>`;
+  };
+
   const header = `
   <header>
     <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -57,25 +105,50 @@
           <span class="nav-brand">Solar<span>Boat</span> UPRM</span>
         </div>
         <div class="nav-links" role="list">
-          ${PAGES.map(p => `<a href="${p.href}" role="listitem"${activeAttrs(p.href)}>${p.label}</a>`).join('\n          ')}
+          ${PAGES.map(desktopNavItem).join('\n          ')}
         </div>
         <a href="${CONTACT.href}" class="nav-cta"${CONTACT.href === current ? ' aria-current="page"' : ''}>${CONTACT.label}</a>
-        <div class="nav-toggle" id="navToggle" aria-label="Abrir menú" role="button" tabindex="0">
+        <div class="nav-toggle" id="navToggle" aria-label="Open menu" role="button" tabindex="0">
           <span></span><span></span><span></span>
         </div>
       </div>
       <div class="nav-waves" aria-hidden="true">
-        <svg class="nav-wave nav-wave-back" viewBox="0 0 200 8" preserveAspectRatio="none" focusable="false">
-          <path d="M0 5 C3 1.2 9.5 1.2 12.5 5 S22 8.8 25 5 S34.5 1.2 37.5 5 S47 8.8 50 5 S59.5 1.2 62.5 5 S72 8.8 75 5 S84.5 1.2 87.5 5 S97 8.8 100 5 S109.5 1.2 112.5 5 S122 8.8 125 5 S134.5 1.2 137.5 5 S147 8.8 150 5 S159.5 1.2 162.5 5 S172 8.8 175 5 S184.5 1.2 187.5 5 S197 8.8 200 5 L200 8 L0 8 Z" />
+        <svg class="nav-wave nav-wave-back" viewBox="0 0 240 16" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <linearGradient id="navWaveBackGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#4ca9e8" />
+              <stop offset="50%" stop-color="#66c6ee" />
+              <stop offset="100%" stop-color="#48b4df" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#navWaveBackGradient)" d="M0 7 C18 .5 42 .5 60 7 C78 12.5 102 12.5 120 7 C138 1.5 162 1.5 180 7 C198 12.5 222 12.5 240 7 L240 16 L0 16 Z" />
         </svg>
-        <svg class="nav-wave nav-wave-front" viewBox="0 0 200 8" preserveAspectRatio="none" focusable="false">
-          <path d="M0 4 C5 0.8 15 0.8 20 4 S35 7.2 40 4 S55 0.8 60 4 S75 7.2 80 4 S95 0.8 100 4 S115 7.2 120 4 S135 0.8 140 4 S155 7.2 160 4 S175 0.8 180 4 S195 7.2 200 4 L200 8 L0 8 Z" />
+        <svg class="nav-wave nav-wave-middle" viewBox="0 0 240 16" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <linearGradient id="navWaveMiddleGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#62d2eb" />
+              <stop offset="50%" stop-color="#3dbce8" />
+              <stop offset="100%" stop-color="#66d7e4" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#navWaveMiddleGradient)" d="M0 9 C20 14.5 40 14.5 60 9 C80 2.5 100 2.5 120 9 C140 14.5 160 14.5 180 9 C200 3.5 220 3.5 240 9 L240 16 L0 16 Z" />
+        </svg>
+        <svg class="nav-wave nav-wave-front" viewBox="0 0 240 16" preserveAspectRatio="none" focusable="false">
+          <defs>
+            <linearGradient id="navWaveFrontGradient" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="#47c8d8" />
+              <stop offset="50%" stop-color="#5edbe0" />
+              <stop offset="100%" stop-color="#42bddd" />
+            </linearGradient>
+          </defs>
+          <path fill="url(#navWaveFrontGradient)" d="M0 10 C20 4 40 4 60 10 C80 15 100 15 120 10 C140 5 160 5 180 10 C200 15 220 15 240 10 L240 16 L0 16 Z" />
         </svg>
       </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu" role="menu">
       <a href="index.html" role="menuitem"${activeAttrs('index.html')}>Inicio</a>
-      ${[...PAGES, CONTACT].map(p => `<a href="${p.href}" role="menuitem"${activeAttrs(p.href)}>${p.mobileLabel || p.label}</a>`).join('\n      ')}
+      ${PAGES.map(mobileNavItem).join('\n      ')}
+      <a href="${CONTACT.href}" role="menuitem"${activeAttrs(CONTACT.href)}>${CONTACT.label}</a>
     </div>
   </header>`;
 
@@ -94,7 +167,7 @@
           <h4>Navegación</h4>
           <ul>
             <li><a href="index.html">Inicio</a></li>
-            ${PAGES.map(p => `<li><a href="${p.href}">${p.label}</a></li>`).join('\n            ')}
+            ${FOOTER_PAGES.map(p => `<li><a href="${p.href}">${p.label}</a></li>`).join('\n            ')}
           </ul>
         </div>
         <div class="footer-col footer-modern footer-social">

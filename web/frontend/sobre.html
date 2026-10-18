@@ -42,6 +42,7 @@
 
   <link rel="stylesheet" href="css/responsive.css" />
   <link rel="stylesheet" href="css/redesign.css" />
+  <link rel="stylesheet" href="css/event-popup.css" />
 </head>
 <body>
 
@@ -107,49 +108,24 @@
   </section>
 
   <!-- ================================================
-       TEAM
+       TEAM DIRECTORY LINK
   ================================================ -->
-  <section class="team" id="equipo" aria-label="Equipo">
+  <section class="about-team-directory" id="team-directory" aria-labelledby="about-team-directory-title">
     <div class="container">
-      <div class="team-header reveal">
-        <span class="tag tag-green">Equipo</span>
-        <h2 class="section-heading">Las personas <em>detrás</em> del bote</h2>
-        <p class="section-lead">Estudiantes de ingeniería que combinan pasión, técnica y trabajo en equipo para competir al más alto nivel.</p>
-      </div>
-      <div class="team-grid">
-        <!-- Sustituye el bulldog por la foto de cada integrante cuando esté disponible. -->
-        <div class="member-card reveal">
-          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Team Captain</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.05s;">
-          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Mechanical Lead</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.10s;">
-          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Electrical Lead</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.15s;">
-          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Software Lead</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.20s;">
-          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Hull Design</div>
-        </div>
-        <div class="member-card reveal" style="transition-delay:0.25s;">
-          <div class="member-avatar"><img src="fotos/emblema-bulldog-equipo.jpg" alt="" /></div>
-          <div class="member-name">Nombre Apellido</div>
-          <div class="member-role">Solar Systems</div>
-        </div>
-        <!-- ADD more .member-card blocks as needed -->
-      </div>
+      <a class="about-team-directory-card reveal" href="team.html" aria-label="Explore the Solar Boat UPRM Team Directory">
+        <img
+          class="about-team-directory-image"
+          src="public/images/team/equipo-oficial-monaco.jpg"
+          alt="Solar Boat UPRM team at the Monaco Energy Boat Challenge"
+          loading="lazy"
+        />
+        <span class="about-team-directory-overlay" aria-hidden="true"></span>
+        <span class="about-team-directory-content">
+          <span class="about-team-directory-kicker">MEET OUR TEAM</span>
+          <span class="about-team-directory-title" id="about-team-directory-title">Discover the people behind Solar Boat UPRM.</span>
+          <span class="about-team-directory-action">Explore Our Team <span aria-hidden="true">→</span></span>
+        </span>
+      </a>
     </div>
   </section>
 
@@ -168,6 +144,9 @@
   <script src="js/nav.js"></script>
   <script src="js/reveal.js"></script>
   <script src="js/team-slideshow.js"></script>
+  <script src="js/events-config.js"></script>
+  <script src="js/event-system.js"></script>
+  <script src="js/event-popup.js" data-auto-open="true"></script>
 
 </body>
 </html>

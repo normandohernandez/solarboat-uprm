@@ -1,20 +1,86 @@
-// Menú móvil: abrir, cerrar al tocar un enlace y cerrar al tocar fuera
+// Shared desktop dropdown and mobile navigation behavior.
 // Solar Boat UPRM — js/nav.js
+(function () {
+  'use strict';
 
-// ── Mobile nav toggle ──
-const toggle   = document.getElementById('navToggle');
-const mobileMenu = document.getElementById('mobileMenu');
-toggle.addEventListener('click', () => {
-  mobileMenu.classList.toggle('open');
-});
-// close when a link is tapped
-mobileMenu.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => mobileMenu.classList.remove('open'));
-});
+  const toggle = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  const desktopDropdown = document.querySelector('[data-nav-dropdown]');
+  const desktopTeamToggle = desktopDropdown && desktopDropdown.querySelector('.nav-dropdown-toggle');
+  const mobileDropdown = document.querySelector('[data-mobile-team-dropdown]');
+  const mobileTeamToggle = mobileDropdown && mobileDropdown.querySelector('.mobile-team-toggle');
+  const mobileTeamMenu = mobileDropdown && mobileDropdown.querySelector('.mobile-team-menu');
 
-// ── Smooth close mobile menu on outside click ──
-document.addEventListener('click', (e) => {
-  if (!toggle.contains(e.target) && !mobileMenu.contains(e.target)) {
-    mobileMenu.classList.remove('open');
+  const setDesktopDropdown = open => {
+    if (!desktopDropdown || !desktopTeamToggle) return;
+    desktopDropdown.classList.toggle('is-open', open);
+    desktopTeamToggle.setAttribute('aria-expanded', String(open));
+  };
+
+  const setMobileDropdown = open => {
+    if (!mobileDropdown || !mobileTeamToggle || !mobileTeamMenu) return;
+    mobileDropdown.classList.toggle('is-open', open);
+    mobileTeamMenu.hidden = !open;
+    mobileTeamToggle.setAttribute('aria-expanded', String(open));
+  };
+
+  const setMobileMenu = open => {
+    if (!toggle || !mobileMenu) return;
+    mobileMenu.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', String(open));
+    if (!open) setMobileDropdown(false);
+  };
+
+  if (toggle && mobileMenu) {
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.setAttribute('aria-controls', 'mobileMenu');
+    toggle.addEventListener('click', () => setMobileMenu(!mobileMenu.classList.contains('open')));
+    toggle.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        setMobileMenu(!mobileMenu.classList.contains('open'));
+      }
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => setMobileMenu(false));
+    });
   }
-});
+
+  if (desktopDropdown && desktopTeamToggle) {
+    desktopTeamToggle.addEventListener('click', () => {
+      setDesktopDropdown(!desktopDropdown.classList.contains('is-open'));
+    });
+    desktopDropdown.addEventListener('mouseenter', () => setDesktopDropdown(true));
+    desktopDropdown.addEventListener('mouseleave', () => setDesktopDropdown(false));
+    desktopDropdown.addEventListener('focusout', event => {
+      if (!desktopDropdown.contains(event.relatedTarget)) setDesktopDropdown(false);
+    });
+  }
+
+  if (mobileDropdown && mobileTeamToggle) {
+    mobileTeamToggle.addEventListener('click', () => {
+      setMobileDropdown(!mobileDropdown.classList.contains('is-open'));
+    });
+  }
+
+  document.addEventListener('click', event => {
+    if (desktopDropdown && !desktopDropdown.contains(event.target)) setDesktopDropdown(false);
+    if (toggle && mobileMenu && !toggle.contains(event.target) && !mobileMenu.contains(event.target)) setMobileMenu(false);
+  });
+
+  document.addEventListener('keydown', event => {
+    if (event.key !== 'Escape') return;
+    const desktopWasOpen = desktopDropdown && desktopDropdown.classList.contains('is-open');
+    const mobileDropdownWasOpen = mobileDropdown && mobileDropdown.classList.contains('is-open');
+    if (desktopWasOpen) {
+      setDesktopDropdown(false);
+      desktopTeamToggle.focus();
+    } else if (mobileDropdownWasOpen) {
+      setMobileDropdown(false);
+      mobileTeamToggle.focus();
+    } else if (mobileMenu && mobileMenu.classList.contains('open')) {
+      setMobileMenu(false);
+      toggle.focus();
+    }
+  });
+})();
