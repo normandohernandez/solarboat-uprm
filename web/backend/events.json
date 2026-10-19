@@ -2,31 +2,31 @@
   {
     "date": "2025-06-14",
     "title": "Solar Splash 2025 — Springfield, OH",
-    "description": "Competencia internacional de botes solares. El equipo UPRM defenderá su título mundial en Springfield, Ohio. ¡Todos a apoyar!",
+    "description": "An international solar boat competition where the UPRM team will defend its world title in Springfield, Ohio. Come support us!",
     "location": "Springfield, Ohio"
   },
   {
     "date": "2025-06-06",
-    "title": "Venta de Pizza — Stefani's",
-    "description": "Ven a apoyar el equipo comprando pizza en Stefani's. Cada pedido ayuda a financiar materiales y gastos de la competencia.",
+    "title": "Pizza Fundraiser — Stefani's",
+    "description": "Support the team by purchasing pizza at Stefani's. Every order helps fund materials and competition expenses.",
     "location": "Stefani's, Mayagüez"
   },
   {
     "date": "2025-05-30",
-    "title": "Reunión general del equipo",
-    "description": "Reunión de todos los subgrupos para repasar el status del bote, asignaciones finales y logística previo a la competencia.",
+    "title": "General Team Meeting",
+    "description": "A meeting for all subgroups to review the boat's status, final assignments, and pre-competition logistics.",
     "location": "Stefani Building, UPRM"
   },
   {
     "date": "2025-05-20",
-    "title": "Venta de camisetas del equipo",
-    "description": "Edición limitada de camisetas Solar Boat UPRM. Disponibles en el patio del Colegio de Ingeniería.",
-    "location": "Patio Colegio de Ingeniería, UPRM"
+    "title": "Team T-Shirt Sale",
+    "description": "Limited-edition Solar Boat UPRM shirts, available in the College of Engineering courtyard.",
+    "location": "College of Engineering Courtyard, UPRM"
   },
   {
     "date": "2025-05-13",
-    "title": "Venta de Pizza — Edificio Monzón",
-    "description": "Venta de pizza en el edificio Monzón para recaudar fondos para los materiales de la competencia 2025.",
-    "location": "Edificio Monzón, UPRM"
+    "title": "Pizza Fundraiser — Monzón Building",
+    "description": "A pizza fundraiser at the Monzón Building to help cover materials for the 2025 competition.",
+    "location": "Monzón Building, UPRM"
   }
 ]

@@ -1,35 +1,21 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <!-- El sitio abre en "Sobre nosotros". Para volver a usar esta página como
-       inicio, borra estas dos líneas. -->
-  <meta http-equiv="refresh" content="0; url=sobre.html" />
-  <script>location.replace('sobre.html' + location.hash);</script>
-  <title>UPRM Solar Boat Team — Representando a P.R.</title>
-  <meta name="description" content="Equipo estudiantil de botes solares de la Universidad de Puerto Rico Mayagüez. Representando a Puerto Rico en el Solar Splash." />
+  <title>Solar Boat UPRM — Engineering on the Water</title>
+  <meta name="description" content="Meet the UPRM engineering students who design, build, and race solar-powered boats while representing Puerto Rico." />
 
-  <!-- ================================================
-       TIPOGRAFÍA — cámbiala aquí
-  ================================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
-  <!-- ================================================
-       ESTILOS
-       El orden importa: primero las variables, luego lo
-       base y compartido, después cada sección, y al final
-       los @media, que tienen que poder pisar lo anterior.
-  ================================================ -->
   <link rel="stylesheet" href="css/tokens.css" />
   <link rel="stylesheet" href="css/base.css" />
   <link rel="stylesheet" href="css/utilities.css" />
   <link rel="stylesheet" href="css/nav.css" />
   <link rel="stylesheet" href="css/footer.css" />
   <link rel="stylesheet" href="css/animations.css" />
-
   <link rel="stylesheet" href="css/sections/hero.css" />
   <link rel="stylesheet" href="css/sections/stats.css" />
   <link rel="stylesheet" href="css/sections/about.css" />
@@ -43,246 +29,101 @@
   <link rel="stylesheet" href="css/sections/social.css" />
   <link rel="stylesheet" href="css/sections/contact.css" />
   <link rel="stylesheet" href="css/sections/home.css" />
-
+  <link rel="stylesheet" href="css/sections/featured-announcements.css" />
   <link rel="stylesheet" href="css/responsive.css" />
   <link rel="stylesheet" href="css/redesign.css" />
   <link rel="stylesheet" href="css/event-popup.css" />
 </head>
 <body>
 
-  <!-- Menú de navegación: se genera desde js/layout.js (edítalo allí) -->
   <script src="js/layout.js" data-part="header"></script>
 
   <main>
+    <section class="about about-slideshow" id="about" aria-label="About Us"
+             role="region" aria-roledescription="carousel">
+      <div class="about-slides">
+        <img class="about-slide is-active" src="public/images/team/equipo-con-barco-monaco.jpg" alt="Solar Boat UPRM team with its solar-powered boat in Monaco" style="--slide-position: center 58%;" aria-hidden="false" />
+        <img class="about-slide" src="public/images/team/equipo-bandera-puerto-rico-monaco.jpg" alt="Solar Boat UPRM members with the Puerto Rico flag at the Monaco competition" style="--slide-position: center 42%;" aria-hidden="true" loading="lazy" />
+        <img class="about-slide" src="public/images/team/equipo-oficial-monaco.jpg" alt="Official Solar Boat UPRM team photo at the Monaco Energy Boat Challenge" style="--slide-position: center 46%;" aria-hidden="true" loading="lazy" />
+        <img class="about-slide" src="public/images/team/equipo-en-muelle-monaco.jpg" alt="Solar Boat UPRM team gathered at the dock during the Monaco competition" style="--slide-position: center 62%;" aria-hidden="true" loading="lazy" />
+      </div>
 
-  <!-- ================================================
-       HERO
-  ================================================ -->
-  <section class="hero" id="inicio">
-    <div class="container">
-      <div class="hero-copy">
-        <div class="hero-eyebrow">UPR Mayagüez / Colegio de Ingeniería</div>
-        <h1>
-          Ingeniería boricua<br>sobre el agua.
-        </h1>
-        <p class="hero-sub">
-          Diseñamos y construimos embarcaciones solares para competir con las mejores
-          universidades del mundo.
-        </p>
-        <div class="hero-btns">
-          <a href="logros.html" class="btn btn-primary">Explora el historial</a>
-          <a href="unete.html" class="btn btn-ghost">Únete al equipo</a>
+      <div class="about-overlay" aria-hidden="true"></div>
+      <button class="about-slide-arrow about-slide-prev" type="button" aria-label="View previous photo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 6.5 9 12l5.5 5.5" /></svg>
+      </button>
+      <button class="about-slide-arrow about-slide-next" type="button" aria-label="View next photo">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9.5 6.5 5.5 5.5-5.5 5.5" /></svg>
+      </button>
+      <div class="about-slide-dots" aria-label="Select a team photo"></div>
+
+      <div class="about-visual-placeholder about-slide-fallback" hidden>
+        <svg width="120" height="90" viewBox="0 0 120 90" fill="none" aria-hidden="true">
+          <ellipse cx="60" cy="78" rx="52" ry="12" fill="#29b6f6" opacity="0.2"/>
+          <path d="M12 58 Q60 30 108 58 L105 72 Q60 84 15 72Z" fill="#4a7c58"/>
+          <rect x="18" y="48" width="54" height="14" rx="4" fill="#2d5c3e"/>
+          <line x1="18" y1="54" x2="72" y2="54" stroke="#4ac26a" stroke-width="1.6"/>
+          <line x1="18" y1="59" x2="72" y2="59" stroke="#4ac26a" stroke-width="1.6"/>
+          <path d="M28 28 Q60 8 92 28 L88 48 H32Z" fill="#1a7c35"/>
+          <path d="M36 28 Q60 14 84 28 L80 42 H40Z" fill="#22a045"/>
+        </svg>
+        <p style="margin-top:12px;">Solar Boat UPRM Team</p>
+      </div>
+
+      <div class="container about-content">
+        <div class="about-grid">
+          <div class="about-text reveal">
+            <span class="tag tag-green">Who We Are</span>
+            <h1 class="section-heading">Engineering students.<br><em>Representing</em> Puerto Rico.</h1>
+            <p class="section-lead">
+              We are a student team from the College of Engineering at the University of Puerto Rico,
+              Mayagüez Campus (UPRM). We design, build, and race solar-powered boats.
+            </p>
+            <p class="section-lead" style="margin-top:16px;">
+              We compete in international solar boat competitions, proudly representing
+              Puerto Rico on the world stage through innovation and teamwork.
+            </p>
+            <div style="margin-top:32px;">
+              <a href="logros.html" class="btn btn-primary">View Our Achievements</a>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="hero-meta" aria-label="Datos destacados">
-        <span><strong>4+</strong> campeonatos</span>
-        <span><strong>23.86 s</strong> récord 300 m</span>
-        <span><strong>PR</strong> en competencia mundial</span>
-      </div>
-    </div>
+    </section>
 
-    <!-- ── SWAP this SVG with <img class="hero-visual" src="hero-boat.jpg" alt="Solar Boat UPRM"> ── -->
-    <svg class="hero-visual" viewBox="0 0 700 220" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <defs>
-        <linearGradient id="waterGrad" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#1a57c2" stop-opacity="0.5"/>
-          <stop offset="100%" stop-color="#0d1f0f" stop-opacity="0"/>
-        </linearGradient>
-      </defs>
-      <!-- water shimmer lines -->
-      <path d="M30 180 Q200 165 350 170 Q500 175 670 178" stroke="#1a57c2" stroke-width="2.5" fill="none" opacity="0.35"/>
-      <path d="M10 192 Q200 178 350 183 Q500 188 690 190" stroke="#1a57c2" stroke-width="3.5" fill="none" opacity="0.22"/>
-      <path d="M0  202 Q200 190 350 194 Q500 198 700 200" stroke="#1565c0" stroke-width="5" fill="none" opacity="0.14"/>
-      <!-- hull -->
-      <path d="M100 152 Q250 110 420 120 Q540 128 610 152 L592 176 Q350 194 118 176Z" fill="#1e3d28"/>
-      <path d="M118 152 Q250 120 420 130 Q520 138 590 152" stroke="#2a5c38" stroke-width="1.8" fill="none"/>
-      <!-- deck panels -->
-      <rect x="148" y="132" width="220" height="24" rx="5" fill="#142b1c"/>
-      <line x1="148" y1="140" x2="368" y2="140" stroke="#4ac26a" stroke-width="1.4" opacity="0.55"/>
-      <line x1="148" y1="146" x2="368" y2="146" stroke="#4ac26a" stroke-width="1.4" opacity="0.55"/>
-      <line x1="148" y1="152" x2="368" y2="152" stroke="#4ac26a" stroke-width="1.4" opacity="0.3"/>
-      <!-- solar sail / panel -->
-      <path d="M190 56 Q310 8 430 36 L416 132 H204Z" fill="#1a7c35" opacity="0.92"/>
-      <path d="M210 56 Q310 22 410 44 L398 100 H222Z" fill="#22a045" opacity="0.85"/>
-      <!-- solar panel grid lines -->
-      <line x1="260" y1="30" x2="250" y2="96" stroke="rgba(74,194,106,0.4)" stroke-width="1"/>
-      <line x1="310" y1="18" x2="300" y2="95" stroke="rgba(74,194,106,0.4)" stroke-width="1"/>
-      <line x1="360" y1="25" x2="350" y2="95" stroke="rgba(74,194,106,0.4)" stroke-width="1"/>
-      <line x1="215" y1="65" x2="410" y2="65" stroke="rgba(74,194,106,0.35)" stroke-width="1"/>
-      <line x1="208" y1="85" x2="412" y2="85" stroke="rgba(74,194,106,0.35)" stroke-width="1"/>
-      <!-- paw / logo mark on sail -->
-      <circle cx="330" cy="52" r="14" fill="#0f4d22" opacity="0.8"/>
-      <circle cx="326" cy="48" r="4" fill="#4ac26a" opacity="0.9"/>
-      <circle cx="334" cy="48" r="4" fill="#4ac26a" opacity="0.9"/>
-      <path d="M323 53 Q330 62 337 53 Q330 58 323 53Z" fill="#4ac26a" opacity="0.9"/>
-      <!-- flag -->
-      <line x1="490" y1="70" x2="490" y2="132" stroke="#4ac26a" stroke-width="2"/>
-      <path d="M490 70 L520 80 L490 90Z" fill="#4ac26a" opacity="0.8"/>
-    </svg>
-  </section>
-
-  <!-- ================================================
-       STATS STRIP
-  ================================================ -->
-  <div class="strip" aria-label="Estadísticas del equipo">
-    <div class="container">
-      <div class="strip-item">
-        <div class="strip-num">4+</div>
-        <div class="strip-label">Campeonatos mundiales</div>
-      </div>
-      <div class="strip-item">
-        <div class="strip-num">2021</div>
-        <div class="strip-label">Primer título mundial</div>
-      </div>
-      <div class="strip-item">
-        <div class="strip-num">23.86s</div>
-        <div class="strip-label">Récord sprint 300m</div>
-      </div>
-      <div class="strip-item">
-        <div class="strip-num">UPRM</div>
-        <div class="strip-label">Colegio de Ingeniería</div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ================================================
-       FOTOS CLAVE
-       Cuatro fotos que resumen el equipo. Las fotos completas
-       viven en fotos.html — aquí van solo las mejores.
-  ================================================ -->
-  <section class="home-photos" id="fotos-clave" aria-label="Fotos del equipo">
-    <div class="container">
-      <div class="home-photos-header reveal">
-        <div>
-          <span class="tag tag-green">Galería</span>
-          <h2 class="section-heading">El equipo <em>en acción</em></h2>
-        </div>
-        <a href="fotos.html" class="home-photos-link">Ver todas las fotos →</a>
-      </div>
-
-      <div class="photo-grid">
-        <a class="photo-card reveal" href="fotos.html">
-          <div class="photo-frame">
-            <!-- ── PON LA FOTO AQUÍ: borra el <svg> y descomenta la línea de abajo ── -->
-            <!-- <img src="fotos/solar-splash-2024.jpg" alt="Solar Splash 2024"> -->
-            <svg width="100" height="72" viewBox="0 0 90 65" fill="none" aria-hidden="true">
-              <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
-              <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
-              <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
-              <line x1="14" y1="34" x2="56" y2="34" stroke="#4ac26a" stroke-width="1.6"/>
-              <path d="M22 12 Q45 2 68 12 L65 28 H25Z" fill="#1a7c35"/>
-              <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
-            </svg>
-          </div>
-          <div class="photo-caption">
-            <div class="photo-caption-title">Solar Splash 2024 — Sprint</div>
-            <div class="photo-caption-sub">Springfield, Ohio · Junio 2024</div>
-          </div>
-        </a>
-        <a class="photo-card reveal" style="transition-delay:0.05s;" href="fotos.html">
-          <div class="photo-frame">
-            <!-- ── PON LA FOTO AQUÍ: borra el <svg> y descomenta la línea de abajo ── -->
-            <!-- <img src="fotos/equipo-2023.jpg" alt="El equipo campeón 2023"> -->
-            <svg width="100" height="72" viewBox="0 0 90 65" fill="none" aria-hidden="true">
-              <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
-              <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
-              <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
-              <line x1="14" y1="34" x2="56" y2="34" stroke="#4ac26a" stroke-width="1.6"/>
-              <path d="M22 12 Q45 2 68 12 L65 28 H25Z" fill="#1a7c35"/>
-              <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
-            </svg>
-          </div>
-          <div class="photo-caption">
-            <div class="photo-caption-title">El equipo campeón 2023</div>
-            <div class="photo-caption-sub">Foto grupal · Solar Splash 2023</div>
-          </div>
-        </a>
-        <a class="photo-card reveal" style="transition-delay:0.10s;" href="fotos.html">
-          <div class="photo-frame">
-            <!-- ── PON LA FOTO AQUÍ: borra el <svg> y descomenta la línea de abajo ── -->
-            <!-- <img src="fotos/construccion.jpg" alt="Construcción del casco"> -->
-            <svg width="100" height="72" viewBox="0 0 90 65" fill="none" aria-hidden="true">
-              <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
-              <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
-              <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
-              <line x1="14" y1="34" x2="56" y2="34" stroke="#4ac26a" stroke-width="1.6"/>
-              <path d="M22 12 Q45 2 68 12 L65 28 H25Z" fill="#1a7c35"/>
-              <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
-            </svg>
-          </div>
-          <div class="photo-caption">
-            <div class="photo-caption-title">Construcción del casco</div>
-            <div class="photo-caption-sub">Taller de ingeniería · UPRM</div>
-          </div>
-        </a>
-        <a class="photo-card reveal" style="transition-delay:0.15s;" href="fotos.html">
-          <div class="photo-frame">
-            <!-- ── PON LA FOTO AQUÍ: borra el <svg> y descomenta la línea de abajo ── -->
-            <!-- <img src="fotos/pruebas-agua.jpg" alt="Pruebas en el agua"> -->
-            <svg width="100" height="72" viewBox="0 0 90 65" fill="none" aria-hidden="true">
-              <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
-              <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
-              <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
-              <line x1="14" y1="34" x2="56" y2="34" stroke="#4ac26a" stroke-width="1.6"/>
-              <path d="M22 12 Q45 2 68 12 L65 28 H25Z" fill="#1a7c35"/>
-              <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
-            </svg>
-          </div>
-          <div class="photo-caption">
-            <div class="photo-caption-title">Pruebas en el agua</div>
-            <div class="photo-caption-sub">Lago local · Mayagüez, PR</div>
-          </div>
+    <section class="about-team-directory" id="team-directory" aria-labelledby="about-team-directory-title">
+      <div class="container">
+        <a class="about-team-directory-card reveal" href="team.html" aria-label="Explore the Solar Boat UPRM Team Directory">
+          <img class="about-team-directory-image" src="public/images/team/equipo-oficial-monaco.jpg" alt="Solar Boat UPRM team at the Monaco Energy Boat Challenge" loading="lazy" />
+          <span class="about-team-directory-overlay" aria-hidden="true"></span>
+          <span class="about-team-directory-content">
+            <span class="about-team-directory-kicker">MEET OUR TEAM</span>
+            <span class="about-team-directory-title" id="about-team-directory-title">Discover the people behind Solar Boat UPRM.</span>
+            <span class="about-team-directory-action">Explore Our Team <span aria-hidden="true">→</span></span>
+          </span>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ================================================
-       SOCIAL
-  ================================================ -->
-  <section class="social-section" id="redes" aria-label="Redes sociales">
-    <div class="container">
-      <span class="tag tag-green">Síguenos</span>
-      <h2 class="section-heading reveal">Únete a <em>nuestra comunidad</em></h2>
-      <p class="section-lead reveal">Mira el día a día del equipo, fotos de competencia, detrás de cámaras y más.</p>
-      <div class="social-row reveal">
-        <!-- ── Instagram ── -->
-        <a class="social-card" href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener">
-          <svg class="social-icon" viewBox="0 0 24 24" fill="none" stroke="#c13584" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
-            <circle cx="12" cy="12" r="4"/>
-            <circle cx="17.5" cy="6.5" r="0.5" fill="#c13584"/>
-          </svg>
-          <span>@uprm_solar_boat</span>
-        </a>
-        <!-- ── Facebook ── -->
-        <a class="social-card" href="https://www.facebook.com/UPRMSolarBoat/" target="_blank" rel="noopener">
-          <svg class="social-icon" viewBox="0 0 24 24" fill="#1877f2" aria-hidden="true">
-            <path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.1 10.13 24v-8.44H7.08v-3.49h3.04V9.41c0-3.02 1.8-4.7 4.54-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.5c-1.5 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.1 24 18.1 24 12.07z"/>
-          </svg>
-          <span>UPRMSolarBoat</span>
-        </a>
-        <!-- ── ADD more social links here (YouTube, LinkedIn, etc.) ── -->
+    <section class="featured-announcements" aria-labelledby="featured-announcements-title">
+      <div class="container">
+        <header class="featured-announcements-header reveal">
+          <span class="tag tag-green">Latest Updates</span>
+          <h2 class="section-heading" id="featured-announcements-title">FEATURED ANNOUNCEMENTS</h2>
+          <p class="section-lead">Stay up to date with our latest events, competitions, and team news.</p>
+        </header>
+        <div class="featured-announcements-grid" data-featured-announcements aria-live="polite"></div>
       </div>
-    </div>
-  </section>
-
+    </section>
   </main>
 
-  <!-- Pie de página: se genera desde js/layout.js (edítalo allí) -->
   <script src="js/layout.js" data-part="footer"></script>
-
-  <!-- ================================================
-       SCRIPTS
-       Son <script> normales (no módulos) a propósito: así la
-       página también funciona abriéndola con doble clic, y las
-       funciones que llaman los onclick del HTML siguen siendo
-       accesibles. api.js va primero porque los demás lo usan.
-  ================================================ -->
   <script src="js/nav.js"></script>
-  <script src="js/reveal.js"></script>
+  <script src="js/team-slideshow.js"></script>
   <script src="js/events-config.js"></script>
   <script src="js/event-system.js"></script>
+  <script src="js/featured-announcements.js"></script>
+  <script src="js/reveal.js"></script>
   <script src="js/event-popup.js" data-auto-open="true"></script>
 
 </body>

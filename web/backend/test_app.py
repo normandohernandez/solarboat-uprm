@@ -194,7 +194,7 @@ def test_admin_returns_submissions(client):
 def test_admin_page_is_served(client):
     res = client.get("/admin")
     assert res.status_code == 200
-    assert b"Panel de administraci" in res.data
+    assert b"Administration Panel" in res.data
 
 
 # -------------------------------------------------------------- calendar ----

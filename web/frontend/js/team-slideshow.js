@@ -84,7 +84,7 @@
     const dot = document.createElement('button');
     dot.type = 'button';
     dot.className = 'about-slide-dot';
-    dot.setAttribute('aria-label', `Mostrar foto ${index + 1} de ${originals.length}`);
+    dot.setAttribute('aria-label', `Show photo ${index + 1} of ${originals.length}`);
     dot.addEventListener('click', () => {
       goTo(index);
       startAutoplay();

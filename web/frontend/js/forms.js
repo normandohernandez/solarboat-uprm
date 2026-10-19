@@ -12,14 +12,14 @@ async function handleRecruit(btn) {
   }
   input.style.borderColor = '';
   const original = btn.textContent;
-  btn.textContent = 'Enviando…';
+  btn.textContent = 'Sending…';
   btn.disabled = true;
   try {
     const website = document.getElementById('recruitWebsite').value;
     await postForm('/api/recruit', { email, website });
-    btn.textContent = '¡Recibido! ✓';
+    btn.textContent = 'Received! ✓';
   } catch (err) {
-    btn.textContent = 'Error — reintenta';
+    btn.textContent = 'Error — try again';
     btn.disabled = false;
     setTimeout(() => { btn.textContent = original; }, 2500);
   }
@@ -38,13 +38,13 @@ async function handleNotify(btn) {
   }
   emailInput.style.borderColor = '';
   const original = btn.textContent;
-  btn.textContent = 'Enviando…';
+  btn.textContent = 'Sending…';
   btn.disabled = true;
   try {
-    await postForm('/api/notify', { nombre, email, website, intereses: ['Eventos y fundraisers'] });
-    btn.textContent = '¡Listo! ✓';
+    await postForm('/api/notify', { nombre, email, website, intereses: ['Events and fundraisers'] });
+    btn.textContent = 'Done! ✓';
   } catch (err) {
-    btn.textContent = 'Error — reintenta';
+    btn.textContent = 'Error — try again';
     btn.disabled = false;
     setTimeout(() => { btn.textContent = original; }, 2500);
   }
@@ -55,16 +55,16 @@ document.getElementById('contactForm')?.addEventListener('submit', async functio
   e.preventDefault();
   const btn = this.querySelector('button[type="submit"]');
   const original = btn.textContent;
-  btn.textContent = 'Enviando…';
+  btn.textContent = 'Sending…';
   btn.disabled = true;
 
   const data = Object.fromEntries(new FormData(this));
   try {
     await postForm('/api/contact', data);
-    btn.textContent = '¡Mensaje enviado! ✓';
+    btn.textContent = 'Message sent! ✓';
     this.reset();
   } catch (err) {
-    btn.textContent = 'Error — intenta de nuevo';
+    btn.textContent = 'Error — try again';
     btn.disabled = false;
     setTimeout(() => { btn.textContent = original; }, 2500);
   }

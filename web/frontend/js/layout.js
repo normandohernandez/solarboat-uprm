@@ -20,25 +20,24 @@
   ];
 
   const PAGES = [
-    { href: 'sobre.html',    label: 'Sobre nosotros' },
-    { href: 'logros.html',   label: 'Logros' },
+    { href: 'index.html',    label: 'Home' },
+    { href: 'logros.html',   label: 'Achievements' },
     { label: 'Team', divisions: TEAM_DIVISIONS },
-    { href: 'eventos.html',  label: 'Eventos' },
-    { href: 'donar.html',    label: 'Donar' },
-    { href: 'unete.html',    label: 'Únete', mobileLabel: 'Únete al equipo' },
-    { href: 'fotos.html',    label: 'Fotos' },
+    { href: 'eventos.html',  label: 'Events' },
+    { href: 'donar.html',    label: 'Donate' },
+    { href: 'unete.html',    label: 'Join Us', mobileLabel: 'Join the Team' },
+    { href: 'fotos.html',    label: 'Photos' },
   ];
-  // Keep the existing News page available from the footer.
+  // Footer navigation — kept separate from the main navigation order.
   const FOOTER_PAGES = [
-    { href: 'sobre.html', label: 'Sobre nosotros' },
-    { href: 'logros.html', label: 'Logros' },
-    { href: 'noticias.html', label: 'Noticias' },
-    { href: 'eventos.html', label: 'Eventos' },
-    { href: 'donar.html', label: 'Donar' },
-    { href: 'unete.html', label: 'Únete' },
-    { href: 'fotos.html', label: 'Fotos' },
+    { href: 'team.html', label: 'Our Team' },
+    { href: 'logros.html', label: 'Achievements' },
+    { href: 'eventos.html', label: 'Events' },
+    { href: 'donar.html', label: 'Donate' },
+    { href: 'unete.html', label: 'Join Us' },
+    { href: 'fotos.html', label: 'Photos' },
   ];
-  const CONTACT = { href: 'contacto.html', label: 'Contacto' };
+  const CONTACT = { href: 'contacto.html', label: 'Contact' };
 
   // ================================================
   //  PATROCINADORES — sale en el pie de página de todo el sitio
@@ -48,10 +47,10 @@
   //    logo  — imagen en fotos/sponsors/ ('' si no hay: se muestra el nombre)
   // ================================================
   const SPONSORS = [
-    { name: 'Nombre del patrocinador 1', url: '', logo: '' },
-    { name: 'Nombre del patrocinador 2', url: '', logo: '' },
-    { name: 'Nombre del patrocinador 3', url: '', logo: '' },
-    { name: 'Nombre del patrocinador 4', url: '', logo: '' },
+    { name: 'Sponsor name 1', url: '', logo: '' },
+    { name: 'Sponsor name 2', url: '', logo: '' },
+    { name: 'Sponsor name 3', url: '', logo: '' },
+    { name: 'Sponsor name 4', url: '', logo: '' },
   ];
 
   const current = location.pathname.split('/').pop() || 'index.html';
@@ -107,46 +106,24 @@
         <div class="nav-links" role="list">
           ${PAGES.map(desktopNavItem).join('\n          ')}
         </div>
-        <a href="${CONTACT.href}" class="nav-cta"${CONTACT.href === current ? ' aria-current="page"' : ''}>${CONTACT.label}</a>
+        <a href="${CONTACT.href}" class="nav-cta"${CONTACT.href === current ? ' aria-current="page"' : ''}>
+          <span>${CONTACT.label}</span>
+          <span class="nav-cta-arrow" aria-hidden="true">↗</span>
+        </a>
         <div class="nav-toggle" id="navToggle" aria-label="Open menu" role="button" tabindex="0">
           <span></span><span></span><span></span>
         </div>
       </div>
       <div class="nav-waves" aria-hidden="true">
-        <svg class="nav-wave nav-wave-back" viewBox="0 0 240 16" preserveAspectRatio="none" focusable="false">
-          <defs>
-            <linearGradient id="navWaveBackGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#4ca9e8" />
-              <stop offset="50%" stop-color="#66c6ee" />
-              <stop offset="100%" stop-color="#48b4df" />
-            </linearGradient>
-          </defs>
-          <path fill="url(#navWaveBackGradient)" d="M0 7 C18 .5 42 .5 60 7 C78 12.5 102 12.5 120 7 C138 1.5 162 1.5 180 7 C198 12.5 222 12.5 240 7 L240 16 L0 16 Z" />
+        <svg class="nav-wave nav-wave-back" viewBox="0 0 640 52" preserveAspectRatio="none" focusable="false">
+          <path fill="#3AA7B8" d="M0 25 C40 5 80 5 120 25 S200 45 240 25 S280 5 320 25 S400 45 440 25 S520 5 560 25 S600 45 640 25 L640 52 L0 52 Z" />
         </svg>
-        <svg class="nav-wave nav-wave-middle" viewBox="0 0 240 16" preserveAspectRatio="none" focusable="false">
-          <defs>
-            <linearGradient id="navWaveMiddleGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#62d2eb" />
-              <stop offset="50%" stop-color="#3dbce8" />
-              <stop offset="100%" stop-color="#66d7e4" />
-            </linearGradient>
-          </defs>
-          <path fill="url(#navWaveMiddleGradient)" d="M0 9 C20 14.5 40 14.5 60 9 C80 2.5 100 2.5 120 9 C140 14.5 160 14.5 180 9 C200 3.5 220 3.5 240 9 L240 16 L0 16 Z" />
-        </svg>
-        <svg class="nav-wave nav-wave-front" viewBox="0 0 240 16" preserveAspectRatio="none" focusable="false">
-          <defs>
-            <linearGradient id="navWaveFrontGradient" x1="0" y1="0" x2="1" y2="0">
-              <stop offset="0%" stop-color="#47c8d8" />
-              <stop offset="50%" stop-color="#5edbe0" />
-              <stop offset="100%" stop-color="#42bddd" />
-            </linearGradient>
-          </defs>
-          <path fill="url(#navWaveFrontGradient)" d="M0 10 C20 4 40 4 60 10 C80 15 100 15 120 10 C140 5 160 5 180 10 C200 15 220 15 240 10 L240 16 L0 16 Z" />
+        <svg class="nav-wave nav-wave-front" viewBox="0 0 640 52" preserveAspectRatio="none" focusable="false">
+          <path fill="#79D3DF" d="M0 36 C40 50 80 50 120 36 S200 18 240 36 S280 50 320 36 S400 18 440 36 S520 50 560 36 S600 18 640 36 L640 52 L0 52 Z" />
         </svg>
       </div>
     </nav>
     <div class="mobile-menu" id="mobileMenu" role="menu">
-      <a href="index.html" role="menuitem"${activeAttrs('index.html')}>Inicio</a>
       ${PAGES.map(mobileNavItem).join('\n      ')}
       <a href="${CONTACT.href}" role="menuitem"${activeAttrs(CONTACT.href)}>${CONTACT.label}</a>
     </div>
@@ -159,34 +136,34 @@
         <div>
           <div class="footer-brand">Solar<span>Boat</span> UPRM</div>
           <p class="footer-tagline">
-            Universidad de Puerto Rico · Recinto de Mayagüez<br>
-            Colegio de Ingeniería
+            University of Puerto Rico · Mayagüez Campus<br>
+            College of Engineering
           </p>
         </div>
         <div class="footer-col">
-          <h4>Navegación</h4>
+          <h4>Navigation</h4>
           <ul>
-            <li><a href="index.html">Inicio</a></li>
+            <li><a href="index.html">Home</a></li>
             ${FOOTER_PAGES.map(p => `<li><a href="${p.href}">${p.label}</a></li>`).join('\n            ')}
           </ul>
         </div>
         <div class="footer-col footer-modern footer-social">
-          <h4>Redes sociales</h4>
+          <h4>Social Media</h4>
           <ul class="footer-social-list">
             <li>
-              <a class="footer-social-link" href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de SolarBoat UPRM">
+              <a class="footer-social-link" href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener noreferrer" aria-label="SolarBoat UPRM on Instagram">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle class="icon-fill" cx="17.4" cy="6.7" r="1.15"/></svg>
               </a>
             </li>
             <li>
-              <a class="footer-social-link" href="https://www.facebook.com/UPRMSolarBoat/" target="_blank" rel="noopener noreferrer" aria-label="Facebook de SolarBoat UPRM">
+              <a class="footer-social-link" href="https://www.facebook.com/UPRMSolarBoat/" target="_blank" rel="noopener noreferrer" aria-label="SolarBoat UPRM on Facebook">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path class="icon-fill" d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.7-.1-1.5-.2-2.4-.2-2.4 0-4 1.5-4 4.1v2.4H8V13h2.6v8h3.1Z"/></svg>
               </a>
             </li>
           </ul>
         </div>
         <div class="footer-col footer-modern footer-contact">
-          <h4>Contacto</h4>
+          <h4>Contact</h4>
           <ul class="footer-contact-list">
             <li>
               <a class="footer-contact-link" href="mailto:solarboat@uprm.edu">
@@ -203,12 +180,12 @@
           </ul>
         </div>
         ${SPONSORS.length ? `<div class="footer-col footer-sponsors">
-          <h4>Patrocinadores</h4>
+          <h4>Sponsors</h4>
           <div class="footer-sponsor-grid">
             ${SPONSORS.map(sp => {
               const inner = `
               <div class="footer-sponsor-logo">${sp.logo
-                ? `<img src="${sp.logo}" alt="Logo ${sp.name}" loading="lazy">`
+                ? `<img src="${sp.logo}" alt="${sp.name} logo" loading="lazy">`
                 : `<span class="footer-sponsor-text">${sp.name}</span>`}</div>
               <p class="footer-sponsor-name">${sp.logo ? sp.name : ''}</p>`;
               return sp.url
@@ -216,12 +193,12 @@
                 : `<div class="footer-sponsor-card">${inner}</div>`;
             }).join('\n            ')}
           </div>
-          <a href="donar.html" class="footer-sponsor-cta">Sé patrocinador →</a>
+          <a href="donar.html" class="footer-sponsor-cta">Become a Sponsor →</a>
         </div>` : ''}
       </div>
       <div class="footer-bottom">
-        <p>© 2024 UPRM Solar Boat Team · Todos los derechos reservados</p>
-        <a href="#">Volver arriba ↑</a>
+        <p>© 2024 UPRM Solar Boat Team · All rights reserved</p>
+        <a href="#">Back to top ↑</a>
       </div>
     </div>
   </footer>`;

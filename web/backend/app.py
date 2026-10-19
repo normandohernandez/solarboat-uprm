@@ -117,7 +117,7 @@ def health():
 def contact():
     data = _payload()
     if _is_bot(data):
-        return jsonify(ok=True, message="¡Mensaje enviado!")
+        return jsonify(ok=True, message="Message sent!")
 
     nombre = _clean(data.get("nombre"))
     email = _clean(data.get("email"))
@@ -125,21 +125,21 @@ def contact():
     mensaje = _clean(data.get("mensaje"))
 
     if not nombre or not mensaje:
-        return jsonify(ok=False, error="Nombre y mensaje son requeridos."), 400
+        return jsonify(ok=False, error="Name and message are required."), 400
     if not _valid_email(email):
-        return jsonify(ok=False, error="Correo inválido."), 400
+        return jsonify(ok=False, error="Invalid email address."), 400
 
     db.add_contact(nombre, email, asunto, mensaje, ip=_client_ip())
     emailer.send_notification(
-        subject=f"[Solar Boat] Nuevo contacto: {asunto or '(sin asunto)'}",
+        subject=f"[Solar Boat] New contact: {asunto or '(no subject)'}",
         body=(
-            f"Nombre:  {nombre}\n"
-            f"Correo:  {email}\n"
-            f"Asunto:  {asunto or '(sin asunto)'}\n\n"
-            f"Mensaje:\n{mensaje}\n"
+            f"Name:     {nombre}\n"
+            f"Email:    {email}\n"
+            f"Subject:  {asunto or '(no subject)'}\n\n"
+            f"Message:\n{mensaje}\n"
         ),
     )
-    return jsonify(ok=True, message="¡Mensaje enviado!")
+    return jsonify(ok=True, message="Message sent!")
 
 
 @app.post("/api/recruit")
@@ -147,21 +147,21 @@ def contact():
 def recruit():
     data = _payload()
     if _is_bot(data):
-        return jsonify(ok=True, message="¡Recibido! Nos comunicamos contigo pronto.")
+        return jsonify(ok=True, message="Received! We will contact you soon.")
 
     email = _clean(data.get("email"))
 
     if not _valid_email(email):
-        return jsonify(ok=False, error="Correo inválido."), 400
+        return jsonify(ok=False, error="Invalid email address."), 400
 
     new_id = db.add_recruit(email, ip=_client_ip())
     if new_id:
         emailer.send_notification(
-            subject="[Solar Boat] Nueva solicitud de reclutamiento",
-            body=f"Alguien quiere unirse al equipo.\n\nCorreo: {email}\n",
+            subject="[Solar Boat] New recruitment application",
+            body=f"Someone wants to join the team.\n\nEmail: {email}\n",
         )
     # Whether new or duplicate, respond success so the UI stays friendly.
-    return jsonify(ok=True, message="¡Recibido! Nos comunicamos contigo pronto.")
+    return jsonify(ok=True, message="Received! We will contact you soon.")
 
 
 @app.post("/api/notify")
@@ -169,26 +169,26 @@ def recruit():
 def notify():
     data = _payload()
     if _is_bot(data):
-        return jsonify(ok=True, message="¡Listo! Te avisaremos de próximos eventos.")
+        return jsonify(ok=True, message="Done! We will notify you about upcoming events.")
 
     nombre = _clean(data.get("nombre"))
     email = _clean(data.get("email"))
     intereses = _clean_intereses(data.get("intereses"))
 
     if not _valid_email(email):
-        return jsonify(ok=False, error="Correo inválido."), 400
+        return jsonify(ok=False, error="Invalid email address."), 400
 
     new_id = db.add_subscriber(nombre, email, intereses, ip=_client_ip())
     if new_id:
         emailer.send_notification(
-            subject="[Solar Boat] Nueva suscripción a notificaciones",
+            subject="[Solar Boat] New notification subscription",
             body=(
-                f"Nombre:     {nombre or '(no dio nombre)'}\n"
-                f"Correo:     {email}\n"
-                f"Le interesa: {intereses or '(no especificó)'}\n"
+                f"Name:      {nombre or '(no name provided)'}\n"
+                f"Email:     {email}\n"
+                f"Interests: {intereses or '(not specified)'}\n"
             ),
         )
-    return jsonify(ok=True, message="¡Listo! Te avisaremos.")
+    return jsonify(ok=True, message="Done! We will keep you updated.")
 
 
 # ----------------------------------------------------------------------------
@@ -267,11 +267,11 @@ def events_ics():
 @rate_limit(max_requests=20, per_seconds=300)
 def admin_submissions():
     if not ADMIN_TOKEN:
-        return jsonify(ok=False, error="ADMIN_TOKEN no configurado en el servidor."), 503
+        return jsonify(ok=False, error="ADMIN_TOKEN is not configured on the server."), 503
     # compare_digest instead of != so the comparison takes the same time
     # whether the token is wrong on the first character or the last one.
     if not hmac.compare_digest(request.headers.get("X-Admin-Token", ""), ADMIN_TOKEN):
-        return jsonify(ok=False, error="No autorizado."), 401
+        return jsonify(ok=False, error="Unauthorized."), 401
 
     return jsonify(
         ok=True,

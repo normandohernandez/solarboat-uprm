@@ -54,7 +54,7 @@ def rate_limit(max_requests, per_seconds):
                     retry_in = int(per_seconds - (now - dq[0])) + 1
                     response = jsonify(
                         ok=False,
-                        error="Demasiadas solicitudes. Intenta de nuevo en un momento.",
+                        error="Too many requests. Please try again in a moment.",
                     )
                     response.status_code = 429
                     response.headers["Retry-After"] = str(retry_in)

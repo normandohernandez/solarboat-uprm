@@ -16,7 +16,7 @@ async function postForm(path, data) {
   });
   const body = await res.json().catch(() => ({}));
   if (!res.ok || !body.ok) {
-    throw new Error(body.error || 'Error de servidor');
+    throw new Error(body.error || 'Server error');
   }
   return body;
 }

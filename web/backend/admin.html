@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -87,36 +87,36 @@
 </head>
 <body>
   <div class="wrap">
-    <h1>Solar<span>Boat</span> UPRM — Panel de administración</h1>
-    <p class="sub">Mensajes de contacto, solicitudes de reclutamiento y suscriptores de eventos.</p>
+    <h1>Solar<span>Boat</span> UPRM — Administration Panel</h1>
+    <p class="sub">Contact messages, recruitment applications, and event subscribers.</p>
 
     <div class="login" id="loginRow">
       <input type="password" id="token" placeholder="Admin token"
              onkeydown="if(event.key==='Enter')load()" autocomplete="current-password" />
-      <button onclick="load()">Entrar</button>
+      <button onclick="load()">Sign In</button>
     </div>
     <p class="error" id="error"></p>
 
     <section id="sec-contacts">
       <div class="sec-head">
-        <h2>📬 Mensajes de contacto<span class="count" id="n-contacts"></span></h2>
-        <button class="ghost" onclick="csv('contacts')">Descargar CSV</button>
+        <h2>📬 Contact Messages<span class="count" id="n-contacts"></span></h2>
+        <button class="ghost" onclick="csv('contacts')">Download CSV</button>
       </div>
       <div id="t-contacts"></div>
     </section>
 
     <section id="sec-recruits">
       <div class="sec-head">
-        <h2>🚀 Reclutamiento<span class="count" id="n-recruits"></span></h2>
-        <button class="ghost" onclick="csv('recruits')">Descargar CSV</button>
+        <h2>🚀 Recruitment<span class="count" id="n-recruits"></span></h2>
+        <button class="ghost" onclick="csv('recruits')">Download CSV</button>
       </div>
       <div id="t-recruits"></div>
     </section>
 
     <section id="sec-subscribers">
       <div class="sec-head">
-        <h2>🔔 Suscriptores a notificaciones<span class="count" id="n-subscribers"></span></h2>
-        <button class="ghost" onclick="csv('subscribers')">Descargar CSV</button>
+        <h2>🔔 Notification Subscribers<span class="count" id="n-subscribers"></span></h2>
+        <button class="ghost" onclick="csv('subscribers')">Download CSV</button>
       </div>
       <div id="t-subscribers"></div>
     </section>
@@ -131,6 +131,10 @@
       contacts:    ['created', 'nombre', 'email', 'asunto', 'mensaje'],
       recruits:    ['created', 'email'],
       subscribers: ['created', 'nombre', 'email', 'intereses'],
+    };
+    const LABELS = {
+      created: 'Date', nombre: 'Name', email: 'Email', asunto: 'Subject',
+      mensaje: 'Message', intereses: 'Interests',
     };
 
     async function load() {
@@ -148,8 +152,8 @@
         DATA = body;
         render();
       } catch (e) {
-        err.textContent = e.message === 'No autorizado.'
-          ? 'Token incorrecto.'
+        err.textContent = e.message === 'Unauthorized.'
+          ? 'Incorrect token.'
           : 'Error: ' + e.message;
         err.style.display = 'block';
       }
@@ -164,7 +168,7 @@
     function fmtDate(iso) {
       if (!iso) return '';
       const d = new Date(iso);
-      return isNaN(d) ? iso : d.toLocaleString('es-PR', {
+      return isNaN(d) ? iso : d.toLocaleString('en-US', {
         day: '2-digit', month: 'short', year: 'numeric',
         hour: '2-digit', minute: '2-digit',
       });
@@ -178,13 +182,13 @@
         const host = document.getElementById('t-' + key);
 
         if (rows.length === 0) {
-          host.innerHTML = '<div class="empty">Nada todavía.</div>';
+          host.innerHTML = '<div class="empty">Nothing yet.</div>';
           continue;
         }
 
         const cols = COLS[key];
         let html = '<table><tr>' +
-          cols.map(c => '<th>' + esc(c) + '</th>').join('') + '</tr>';
+          cols.map(c => '<th>' + esc(LABELS[c] || c) + '</th>').join('') + '</tr>';
         for (const row of rows) {
           html += '<tr>' + cols.map(c => {
             const val = c === 'created' ? fmtDate(row[c]) : row[c];
