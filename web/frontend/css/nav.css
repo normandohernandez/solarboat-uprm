@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,700;1,800;1,900&display=swap');
+
 /* Barra de navegación y menú móvil
    Solar Boat UPRM — css/nav.css */
 
@@ -17,9 +19,9 @@
 .nav .container {
   position: relative;
   z-index: 2;
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(190px, 1fr) auto minmax(190px, 1fr);
   align-items: center;
-  justify-content: space-between;
   height: 72px;
 }
 .nav-waves {
@@ -62,37 +64,55 @@
 .nav-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  justify-self: start;
+  gap: 12px;
   min-width: max-content;
+  border-radius: 8px;
+  color: var(--white);
+  text-decoration: none;
 }
-/* ── LOGO IMAGE: swap src to your real logo ── */
 .nav-logo-img {
-  width: 36px;
-  height: 36px;
-  border-radius: 50%;
-  object-fit: cover;
-  background: var(--green-pale);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+  display: block;
+  width: 58px;
+  height: auto;
+  max-height: 58px;
+  flex: 0 0 auto;
+  object-fit: contain;
 }
 .nav-brand {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 800;
-  color: var(--white);
-  letter-spacing: -0.2px;
+  font-family: 'Exo 2', var(--font-body);
+  font-size: 18px;
+  line-height: 1;
+  letter-spacing: .01em;
+  white-space: nowrap;
 }
-.nav-brand span { color: #a7e4b4; }
+.nav-brand-solar {
+  color: #009fe8;
+  font-style: italic;
+  font-weight: 900;
+}
+.nav-brand-boat {
+  color: #80c832;
+  font-style: italic;
+  font-weight: 900;
+}
+.nav-brand-uprm {
+  margin-left: .4em;
+  color: #b9c2bc;
+  font-size: .72em;
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: .045em;
+}
 .nav-links {
   display: flex;
   align-items: center;
+  justify-self: center;
   gap: 32px;
 }
 .nav-links > a {
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 600;
   color: rgba(255, 255, 255, .82);
   transition: color 0.15s;
 }
@@ -112,7 +132,7 @@
   border: 0;
   background: transparent;
   color: rgba(255, 255, 255, .82);
-  font: 500 14px var(--font-body);
+  font: 600 14px var(--font-body);
   cursor: pointer;
 }
 .nav-dropdown-toggle { height: 100%; }
@@ -174,6 +194,7 @@
 .nav-cta {
   display: inline-flex;
   align-items: center;
+  justify-self: end;
   gap: 12px;
   min-height: 45px;
   padding: 4px 5px 4px 16px;
@@ -211,6 +232,7 @@
 .nav-cta:focus-visible { outline-color: #79d3df; }
 .nav-toggle {
   display: none;
+  justify-self: end;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
@@ -292,11 +314,21 @@
 
 @media (max-width: 768px) {
   .nav { height: 108px; padding-bottom: 44px; }
-  .nav .container { height: 64px; }
+  .nav .container { grid-template-columns: minmax(0, 1fr) auto; height: 64px; }
   .nav-waves, .nav-wave { height: 48px; }
+  .nav-logo { gap: 10px; }
+  .nav-logo-img { width: 48px; max-height: 48px; }
+  .nav-brand { font-size: 16px; }
 }
 
-@media (min-width: 769px) and (max-width: 900px) {
+@media (min-width: 769px) and (max-width: 980px) {
+  .nav .container { grid-template-columns: minmax(0, 1fr) auto; }
   .nav-links, .nav-cta { display: none; }
   .nav-toggle { display: flex; }
+}
+
+@media (max-width: 360px) {
+  .nav-logo { gap: 8px; }
+  .nav-logo-img { width: 44px; max-height: 44px; }
+  .nav-brand { font-size: 14px; letter-spacing: 0; }
 }

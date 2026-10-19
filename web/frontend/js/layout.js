@@ -93,16 +93,10 @@
   <header>
     <nav class="nav" role="navigation" aria-label="Main navigation">
       <div class="container">
-        <div class="nav-logo">
-          <!-- ── SWAP with your real logo image ── -->
-          <div class="nav-logo-img">
-            <svg width="22" height="18" viewBox="0 0 22 18" fill="none">
-              <path d="M1 12 Q11 5 21 12 L21 15 Q11 19 1 15Z" fill="#1a7c35"/>
-              <path d="M4 8 Q11 2 18 8 L17 12 H5Z" fill="#4ac26a" opacity="0.9"/>
-            </svg>
-          </div>
-          <span class="nav-brand">Solar<span>Boat</span> UPRM</span>
-        </div>
+        <a class="nav-logo" href="index.html" aria-label="Solar Boat UPRM — Home">
+          <img class="nav-logo-img" src="fotos/solarboat-logo.png" alt="Solar Boat UPRM" />
+          <span class="nav-brand"><span class="nav-brand-solar">Solar</span><span class="nav-brand-boat">Boat</span><span class="nav-brand-uprm">UPRM</span></span>
+        </a>
         <div class="nav-links" role="list">
           ${PAGES.map(desktopNavItem).join('\n          ')}
         </div>
@@ -169,12 +163,6 @@
               <a class="footer-contact-link" href="mailto:solarboat@uprm.edu">
                 <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg></span>
                 <span class="footer-contact-copy"><strong>Email</strong><span>solarboat@uprm.edu</span></span>
-              </a>
-            </li>
-            <li>
-              <a class="footer-contact-link" href="https://www.uprm.edu/" target="_blank" rel="noopener noreferrer">
-                <span class="footer-contact-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.3 2.5 3.5 5.5 3.5 9S14.3 18.5 12 21c-2.3-2.5-3.5-5.5-3.5-9S9.7 5.5 12 3Z"/></svg></span>
-                <span class="footer-contact-copy"><strong>Website</strong><span>uprm.edu</span></span>
               </a>
             </li>
           </ul>
