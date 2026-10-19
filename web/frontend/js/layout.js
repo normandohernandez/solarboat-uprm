@@ -127,11 +127,16 @@
   <footer role="contentinfo">
     <div class="footer-inner">
       <div class="footer-top">
-        <div>
-          <div class="footer-brand">Solar<span>Boat</span> UPRM</div>
-          <p class="footer-tagline">
-            University of Puerto Rico · Mayagüez Campus<br>
-            College of Engineering
+        <div class="footer-branding">
+          <a class="footer-brand-lockup" href="index.html" aria-label="Solar Boat UPRM — Home">
+            <img class="footer-brand-logo" src="fotos/solarboat-logo.png" alt="" />
+            <span class="footer-brand" aria-hidden="true">
+              <span class="footer-brand-solar">Solar</span><span class="footer-brand-boat">Boat</span><span class="footer-brand-uprm">UPRM</span>
+            </span>
+          </a>
+          <p class="footer-university">
+            <span>University of Puerto Rico at Mayagüez</span>
+            <span>College of Engineering</span>
           </p>
         </div>
         <div class="footer-col">
@@ -185,7 +190,7 @@
         </div>` : ''}
       </div>
       <div class="footer-bottom">
-        <p>© 2024 UPRM Solar Boat Team · All rights reserved</p>
+        <p>© 2026 UPRM Solar Boat Team · All rights reserved</p>
         <a href="#">Back to top ↑</a>
       </div>
     </div>
