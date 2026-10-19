@@ -51,9 +51,9 @@ body { font-size: 15px; letter-spacing: -0.01em; }
 .nav-logo-img { width: 38px; height: 30px; border-radius: 0; background: transparent; }
 .nav-brand { font-family: var(--font-display); font-size: 20px; font-weight: 700; letter-spacing: -.02em; }
 .nav-links { gap: 28px; }
-.nav-links a { font-size: 13px; }
+.nav-links > a { font-size: 13px; }
 .nav-links .nav-dropdown-toggle { font-size: 13px; }
-.nav-links a:hover { color: var(--white); }
+.nav-links > a:hover { color: var(--white); }
 
 /* Hero: asymmetrical like a race program, with the boat as the visual anchor. */
 .hero { min-height: calc(100svh - 72px); padding: 84px 0 0; background: var(--green-dark); }

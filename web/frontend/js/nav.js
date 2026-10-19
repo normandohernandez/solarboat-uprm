@@ -50,8 +50,6 @@
     desktopTeamToggle.addEventListener('click', () => {
       setDesktopDropdown(!desktopDropdown.classList.contains('is-open'));
     });
-    desktopDropdown.addEventListener('mouseenter', () => setDesktopDropdown(true));
-    desktopDropdown.addEventListener('mouseleave', () => setDesktopDropdown(false));
     desktopDropdown.addEventListener('focusout', event => {
       if (!desktopDropdown.contains(event.relatedTarget)) setDesktopDropdown(false);
     });
