@@ -159,6 +159,11 @@
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path class="icon-fill" d="M13.7 21v-8h2.7l.4-3.1h-3.1v-2c0-.9.3-1.5 1.6-1.5H17V3.6c-.7-.1-1.5-.2-2.4-.2-2.4 0-4 1.5-4 4.1v2.4H8V13h2.6v8h3.1Z"/></svg>
               </a>
             </li>
+            <li>
+              <a class="footer-social-link" href="https://linktr.ee/UPRMSOLARBOAT?utm_source=linktree_profile_share&amp;ltsid=f8b7265f-a554-430c-aa32-084c4331a951" target="_blank" rel="noopener noreferrer" aria-label="SolarBoat UPRM on Linktree">
+                <img class="footer-linktree-logo" src="fotos/linktree-logo.png" alt="" aria-hidden="true" />
+              </a>
+            </li>
           </ul>
         </div>
         <div class="footer-col footer-modern footer-contact">

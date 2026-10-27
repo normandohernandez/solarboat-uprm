@@ -157,14 +157,22 @@ footer {
   outline-offset: 3px;
 }
 .footer-social-link svg,
+.footer-social-link .footer-linktree-logo,
 .footer-contact-icon svg {
   width: 24px;
   height: 24px;
+}
+.footer-social-link svg,
+.footer-contact-icon svg {
   fill: none;
   stroke: currentColor;
   stroke-width: 1.7;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+.footer-linktree-logo {
+  object-fit: contain;
+  filter: invert(1);
 }
 .footer-social-link svg .icon-fill { fill: currentColor; stroke: none; }
 .footer-col .footer-contact-list { gap: 14px; }
