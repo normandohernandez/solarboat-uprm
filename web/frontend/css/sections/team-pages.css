@@ -139,7 +139,12 @@
 .division-card-action { position: relative; z-index: 1; width: fit-content; margin-top: auto; padding-top: 28px; color: var(--green-mid); font-size: 13px; font-weight: 800; }
 
 .leadership-spotlight { background: var(--off-white); }
-.leadership-grid,
+.leadership-grid { display: grid; gap: 24px; }
+.leadership-apex { display: flex; justify-content: center; }
+.leadership-apex .team-profile-card { width: min(100%, 230px); }
+.leadership-division-row { display: grid; grid-template-columns: repeat(4, minmax(0, 230px)); justify-content: center; gap: 18px; }
+.leadership-spotlight .team-profile-body { padding: 17px 18px 19px; }
+.leadership-spotlight .team-profile-name { font-size: 19px; }
 .division-members-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
 .team-profile-card { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--white); transition: border-color 180ms ease, transform 180ms ease; }
 .team-profile-card:hover { border-color: var(--green-mid); transform: translateY(-2px); }
@@ -177,6 +182,8 @@
   .team-section-header { display: block; }
   .team-section-copy { margin-top: 18px; }
   .division-overview-grid { grid-template-columns: 1fr; }
+  .leadership-apex .team-profile-card { width: min(100%, 230px); }
+  .leadership-division-row { grid-template-columns: repeat(2, minmax(0, 230px)); }
   .division-page-header { grid-template-columns: 1fr; gap: 24px; }
   .division-member-count { width: fit-content; }
 }
@@ -196,6 +203,8 @@
   .division-overview-card { min-height: 290px; padding: 24px; }
   .division-card-title { margin-top: 38px; font-size: 36px; }
   .leadership-grid, .division-members-grid { grid-template-columns: 1fr; }
+  .leadership-apex .team-profile-card { width: min(100%, 230px); }
+  .leadership-division-row { grid-template-columns: minmax(0, 230px); justify-content: center; }
   .division-page-title { font-size: 54px; }
 }
 

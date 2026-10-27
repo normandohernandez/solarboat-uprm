@@ -51,7 +51,17 @@
       division: 'operations-logistics',
       role: 'Team Captain',
       isLeader: true,
+      leadershipTier: 'captain',
       leadershipOrder: 1
+    },
+    {
+      id: 'operations-logistics-lead-placeholder',
+      name: 'Name Surname',
+      image: 'fotos/emblema-bulldog-equipo.jpg',
+      division: 'operations-logistics',
+      role: 'Operations & Logistics Lead',
+      isLeader: true,
+      leadershipOrder: 3
     },
     {
       id: 'mechanical-lead-placeholder',
@@ -60,7 +70,7 @@
       division: 'inme',
       role: 'Mechanical Lead',
       isLeader: true,
-      leadershipOrder: 3
+      leadershipOrder: 4
     },
     {
       id: 'hull-design-placeholder',
@@ -77,7 +87,7 @@
       division: 'inel',
       role: 'Electrical Lead',
       isLeader: true,
-      leadershipOrder: 4
+      leadershipOrder: 5
     },
     {
       id: 'solar-systems-placeholder',

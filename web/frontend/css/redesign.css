@@ -140,9 +140,8 @@ body { font-size: 15px; letter-spacing: -0.01em; }
 .recruitment-cta { border-radius: 2px; box-shadow: 12px 12px 0 var(--green-mid); }
 
 .gallery-masonry { columns: 3 290px; gap: 10px; }
-.gallery-item { border-radius: 2px; margin-bottom: 10px; transition: opacity 180ms ease; }
-.gallery-item:hover { transform: none; box-shadow: none; opacity: .82; }
-.filter-btn { border-radius: 2px; transition: color 160ms ease, background-color 160ms ease; }
+.gallery .gallery-item { border-radius: 10px; }
+.gallery .filter-btn { border-radius: var(--radius-sm); }
 .social-section { text-align: left; }
 .social-section .section-heading, .social-section .section-lead { margin-left: 0; text-align: left; }
 .social-row { justify-content: flex-start; }

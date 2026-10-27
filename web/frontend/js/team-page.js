@@ -19,8 +19,8 @@
       return String(left.name).localeCompare(String(right.name)) || String(left.id).localeCompare(String(right.id));
     });
 
-  const buildMemberCard = member => {
-    const card = create('article', 'team-profile-card reveal');
+  const buildMemberCard = (member, modifier = '') => {
+    const card = create('article', `team-profile-card reveal${modifier ? ` ${modifier}` : ''}`);
     const photo = create('div', 'team-profile-photo');
     const image = create('img');
     image.src = member.image || placeholderImage;
@@ -72,7 +72,20 @@
       if (leadershipSection) leadershipSection.hidden = true;
       return;
     }
-    leaders.forEach(member => leadershipGrid.appendChild(buildMemberCard(member)));
+    const captain = leaders.find(member => member.leadershipTier === 'captain' || member.role === 'Team Captain');
+    const divisionLeaders = leaders.filter(member => member !== captain);
+
+    if (captain) {
+      const apex = create('div', 'leadership-apex');
+      apex.appendChild(buildMemberCard(captain, 'leadership-card--captain'));
+      leadershipGrid.appendChild(apex);
+    }
+
+    if (divisionLeaders.length) {
+      const divisionRow = create('div', 'leadership-division-row');
+      divisionLeaders.forEach(member => divisionRow.appendChild(buildMemberCard(member, 'leadership-card--division')));
+      leadershipGrid.appendChild(divisionRow);
+    }
   };
 
   const renderDivision = page => {

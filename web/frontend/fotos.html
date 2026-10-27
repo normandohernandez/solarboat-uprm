@@ -54,159 +54,71 @@
        GALLERY / IMAGES
   ================================================ -->
   <section class="gallery" id="fotos" aria-label="Photo gallery">
-    <div class="container">
+    <div class="container gallery-shell">
       <div class="gallery-header reveal">
-        <div>
-          <span class="tag tag-green">Gallery</span>
-          <h1 class="section-heading">Epic <em>moments</em></h1>
-          <p class="section-lead">Competitions, construction, water testing, and much more.</p>
+        <div class="gallery-heading-group">
+          <span class="gallery-kicker">Competition archive</span>
+          <h1 class="section-heading">MONACO GALLERY 2024</h1>
+          <p class="section-lead">Moments from the Monaco Energy Boat Challenge.</p>
         </div>
-        <div class="gallery-filter">
+        <div class="gallery-filter" aria-label="Filter gallery">
           <button class="filter-btn active" data-filter="all">All</button>
           <button class="filter-btn" data-filter="competencia">Competition</button>
-          <button class="filter-btn" data-filter="construccion">Construction</button>
           <button class="filter-btn" data-filter="equipo">Team</button>
+          <button class="filter-btn" data-filter="barco">Boat</button>
         </div>
       </div>
-      <div class="gallery-masonry">
-
-        <!-- Item 1 -->
-        <div class="gallery-item reveal" data-cat="competencia" onclick="openGallery('Solar Splash 2024 — Sprint','Springfield, Ohio · June 2024')">
-          <div class="gallery-placeholder" style="height:200px;">
-            <!-- <img src="fotos/solar-splash-2024.jpg" alt="Solar Splash 2024"> -->
-            <svg width="90" height="65" viewBox="0 0 90 65" fill="none" aria-hidden="true">
-              <ellipse cx="45" cy="55" rx="38" ry="10" fill="#29b6f6" opacity="0.25"/>
-              <path d="M7 36 Q45 18 83 36 L80 48 Q45 60 10 48Z" fill="#4a7c58"/>
-              <rect x="14" y="28" width="42" height="12" rx="4" fill="#2d5c3e"/>
-              <line x1="14" y1="34" x2="56" y2="34" stroke="#4ac26a" stroke-width="1.6"/>
-              <path d="M22 12 Q45 2 68 12 L65 28 H25Z" fill="#1a7c35"/>
-              <path d="M30 12 Q45 5 60 12 L57 24 H33Z" fill="#22a045"/>
-            </svg>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">Solar Splash 2024 — Sprint</div>
-            <div class="gallery-caption-sub">Springfield, Ohio · June 2024</div>
-          </div>
-        </div>
-
-        <!-- Item 2 -->
-        <div class="gallery-item reveal" style="transition-delay:0.05s;" data-cat="equipo" onclick="openGallery('The 2023 Championship Team','Team photo after winning the world title')">
-          <div class="gallery-placeholder" style="height:240px;">
-            <!-- <img src="fotos/equipo-2023.jpg" alt="Equipo 2023"> -->
-            <svg width="100" height="80" viewBox="0 0 100 80" fill="none" aria-hidden="true">
-              <circle cx="20" cy="40" r="12" fill="#e8f5ec"/>
-              <circle cx="20" cy="28" r="8" fill="#4a7c58"/>
-              <circle cx="50" cy="40" r="12" fill="#e8f5ec"/>
-              <circle cx="50" cy="27" r="9" fill="#1a7c35"/>
-              <circle cx="80" cy="40" r="12" fill="#e8f5ec"/>
-              <circle cx="80" cy="28" r="8" fill="#4a7c58"/>
-              <text x="50" y="68" text-anchor="middle" fill="#4ac26a" font-size="11" font-weight="bold">Champions!</text>
-            </svg>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">The 2023 Championship Team</div>
-            <div class="gallery-caption-sub">Team photo · Solar Splash 2023</div>
-          </div>
-        </div>
-
-        <!-- Item 3 -->
-        <div class="gallery-item reveal" style="transition-delay:0.10s;" data-cat="construccion" onclick="openGallery('Hull Construction','Engineering Workshop · UPRM')">
-          <div class="gallery-placeholder" style="height:180px;">
-            <!-- <img src="fotos/construccion.jpg" alt="Construcción"> -->
-            <svg width="90" height="60" viewBox="0 0 90 60" fill="none" aria-hidden="true">
-              <rect x="10" y="20" width="70" height="28" rx="6" fill="#e8f5ec"/>
-              <rect x="20" y="25" width="50" height="14" rx="3" fill="#4a7c58"/>
-              <line x1="20" y1="31" x2="70" y2="31" stroke="#4ac26a" stroke-width="1.5"/>
-              <line x1="20" y1="35" x2="70" y2="35" stroke="#4ac26a" stroke-width="1.5"/>
-              <circle cx="15" cy="8" r="5" fill="#1a7c35"/>
-              <circle cx="75" cy="8" r="5" fill="#1a7c35"/>
-            </svg>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">Hull Construction</div>
-            <div class="gallery-caption-sub">Engineering Workshop · UPRM</div>
-          </div>
-        </div>
-
-        <!-- Item 4 -->
-        <div class="gallery-item reveal" style="transition-delay:0.15s;" data-cat="competencia" onclick="openGallery('Water Testing','Local lake · Mayagüez, PR')">
-          <div class="gallery-placeholder" style="height:220px;">
-            <!-- <img src="fotos/pruebas-agua.jpg" alt="Pruebas en el agua"> -->
-            <svg width="100" height="70" viewBox="0 0 100 70" fill="none" aria-hidden="true">
-              <ellipse cx="50" cy="58" rx="42" ry="12" fill="#1a57c2" opacity="0.2"/>
-              <path d="M8 40 Q50 24 92 40 L89 52 Q50 64 11 52Z" fill="#4a7c58"/>
-              <path d="M8 40 Q50 27 92 40" stroke="#4ac26a" stroke-width="1.8" fill="none"/>
-              <rect x="14" y="31" width="48" height="12" rx="3" fill="#2d5c3e"/>
-              <path d="M26 14 Q50 4 74 14 L71 30 H29Z" fill="#1a7c35"/>
-              <path d="M33 14 Q50 7 67 14 L64 27 H36Z" fill="#22a045"/>
-            </svg>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">Water Testing</div>
-            <div class="gallery-caption-sub">Local lake · Mayagüez, PR</div>
-          </div>
-        </div>
-
-        <!-- Item 5 -->
-        <div class="gallery-item reveal" style="transition-delay:0.20s;" data-cat="competencia" onclick="openGallery('2021 Awards Ceremony','The team’s first world championship')">
-          <div class="gallery-placeholder" style="height:190px;">
-            <!-- <img src="fotos/premios-2021.jpg" alt="Premios 2021"> -->
-            <svg width="80" height="60" viewBox="0 0 80 60" fill="none" aria-hidden="true">
-              <text x="40" y="38" text-anchor="middle" font-size="36" fill="#f0b429">🏆</text>
-            </svg>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">2021 Awards Ceremony</div>
-            <div class="gallery-caption-sub">First World Championship</div>
-          </div>
-        </div>
-
-        <!-- Item 6 -->
-        <div class="gallery-item reveal" style="transition-delay:0.25s;" data-cat="construccion" onclick="openGallery('Solar Panel System','Installation and calibration')">
-          <div class="gallery-placeholder" style="height:200px;">
-            <!-- <img src="fotos/paneles-solares.jpg" alt="Paneles Solares"> -->
-            <svg width="90" height="65" viewBox="0 0 90 65" fill="none" aria-hidden="true">
-              <rect x="10" y="8" width="70" height="42" rx="6" fill="#e8f5ec"/>
-              <rect x="14" y="12" width="29" height="18" rx="2" fill="#1a7c35" opacity="0.7"/>
-              <rect x="47" y="12" width="29" height="18" rx="2" fill="#1a7c35" opacity="0.7"/>
-              <rect x="14" y="34" width="29" height="11" rx="2" fill="#22a045" opacity="0.7"/>
-              <rect x="47" y="34" width="29" height="11" rx="2" fill="#22a045" opacity="0.7"/>
-              <line x1="29" y1="12" x2="29" y2="30" stroke="#4ac26a" stroke-width="1.2"/>
-              <line x1="62" y1="12" x2="62" y2="30" stroke="#4ac26a" stroke-width="1.2"/>
-              <line x1="14" y1="21" x2="43" y2="21" stroke="#4ac26a" stroke-width="1.2"/>
-              <line x1="47" y1="21" x2="76" y2="21" stroke="#4ac26a" stroke-width="1.2"/>
-            </svg>
-          </div>
-          <div class="gallery-caption">
-            <div class="gallery-caption-title">Solar Panel System</div>
-            <div class="gallery-caption-sub">Installation and calibration</div>
-          </div>
-        </div>
-
-        <!-- ADD MORE: copy a .gallery-item block and set data-cat + replace the placeholder comment with your <img> -->
-
+      <div class="gallery-grid">
+        <button class="gallery-item reveal" type="button" data-cat="barco" data-title="Solar Boat in Monaco" data-description="Solar Boat UPRM at the Monaco Energy Boat Challenge." data-src="fotos/barco-solar-monaco-puerto.jpg">
+          <img src="fotos/barco-solar-monaco-puerto.jpg" alt="Solar Boat UPRM displayed at the Monaco marina" loading="eager">
+          <span class="gallery-caption"><strong>Solar Boat in Monaco</strong><small>Monaco Energy Boat Challenge</small></span>
+        </button>
+        <button class="gallery-item reveal" type="button" data-cat="equipo" data-title="Official Team Photo" data-description="Solar Boat UPRM representing Puerto Rico in Monaco." data-src="fotos/equipo-oficial-monaco.jpg">
+          <img src="fotos/equipo-oficial-monaco.jpg" alt="Solar Boat UPRM team holding Puerto Rico flags at the Monaco Energy Boat Challenge" loading="lazy">
+          <span class="gallery-caption"><strong>Official Team Photo</strong><small>Representing Puerto Rico</small></span>
+        </button>
+        <button class="gallery-item reveal" type="button" data-cat="equipo" data-title="Team and Solar Boat" data-description="The team with its solar-powered boat at the competition marina." data-src="fotos/equipo-con-barco-monaco.jpg">
+          <img src="fotos/equipo-con-barco-monaco.jpg" alt="Solar Boat UPRM team standing with its boat at the marina" loading="lazy">
+          <span class="gallery-caption"><strong>Team and Solar Boat</strong><small>Competition marina</small></span>
+        </button>
+        <button class="gallery-item reveal" type="button" data-cat="barco" data-title="Solar Boat Profile" data-description="A side view of the Solar Boat UPRM competition vessel." data-src="fotos/barco-solar-vista-lateral-monaco.jpg">
+          <img src="fotos/barco-solar-vista-lateral-monaco.jpg" alt="Side view of the Solar Boat UPRM vessel in Monaco" loading="lazy">
+          <span class="gallery-caption"><strong>Solar Boat Profile</strong><small>Competition vessel</small></span>
+        </button>
+        <button class="gallery-item reveal" type="button" data-cat="equipo" data-title="Puerto Rico in Monaco" data-description="The Solar Boat UPRM team celebrating with the Puerto Rico flag." data-src="fotos/equipo-bandera-puerto-rico-monaco.jpg">
+          <img src="fotos/equipo-bandera-puerto-rico-monaco.jpg" alt="Solar Boat UPRM team celebrating with a Puerto Rico flag" loading="lazy">
+          <span class="gallery-caption"><strong>Puerto Rico in Monaco</strong><small>Team celebration</small></span>
+        </button>
+        <button class="gallery-item reveal" type="button" data-cat="competencia" data-title="At the Marina" data-description="The team preparing for competition activities at the Monaco marina." data-src="fotos/equipo-en-muelle-monaco.jpg">
+          <img src="fotos/equipo-en-muelle-monaco.jpg" alt="Solar Boat UPRM team at the Monaco marina" loading="lazy">
+          <span class="gallery-caption"><strong>At the Marina</strong><small>Competition day</small></span>
+        </button>
+        <button class="gallery-item reveal" type="button" data-cat="competencia" data-title="International Competitors" data-description="Participants gathered at the Monaco Energy Boat Challenge." data-src="fotos/participantes-internacionales-monaco.jpg">
+          <img src="fotos/participantes-internacionales-monaco.jpg" alt="International participants at the Monaco Energy Boat Challenge" loading="lazy">
+          <span class="gallery-caption"><strong>International Competitors</strong><small>Monaco Energy Boat Challenge</small></span>
+        </button>
+        <button class="gallery-item reveal" type="button" data-cat="equipo" data-title="Monaco Team Event" data-description="Solar Boat UPRM together during an evening event in Monaco." data-src="fotos/equipo-evento-nocturno-monaco.jpg">
+          <img src="fotos/equipo-evento-nocturno-monaco.jpg" alt="Solar Boat UPRM team together at an evening event in Monaco" loading="lazy">
+          <span class="gallery-caption"><strong>Monaco Team Event</strong><small>Team experience</small></span>
+        </button>
       </div>
 
-      <div style="text-align:center;margin-top:40px;" class="reveal">
-        <p style="font-size:14px;color:var(--text-muted);margin-bottom:16px;">
-          Have team photos? Send them to <a href="mailto:solarboat@uprm.edu" style="color:var(--green-mid);font-weight:600;">solarboat@uprm.edu</a>
+      <div class="gallery-more reveal">
+        <p>
+          Follow the team for more competition photos and project updates.
         </p>
         <a href="https://www.instagram.com/uprm_solar_boat/" target="_blank" rel="noopener" class="btn btn-primary">See More on Instagram →</a>
       </div>
     </div>
 
     <!-- Lightbox overlay -->
-    <div class="gallery-overlay" id="galleryOverlay" onclick="closeGallery(event)">
+    <div class="gallery-overlay" id="galleryOverlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Expanded gallery photo" onclick="closeGallery(event)">
       <div class="gallery-overlay-inner">
         <div class="gallery-overlay-img" id="galleryOverlayImg">
           <!-- image renders here -->
         </div>
-        <div class="gallery-overlay-body">
-          <h3 id="galleryOverlayTitle"></h3>
-          <p id="galleryOverlayDesc"></p>
-        </div>
       </div>
-      <button class="gallery-overlay-close" onclick="closeGallery()" aria-label="Close photo viewer">✕</button>
+      <button class="gallery-overlay-close" type="button" onclick="closeGallery(event)" aria-label="Close photo viewer"></button>
     </div>
   </section>
 
