@@ -23,7 +23,16 @@
 }
 
 @media (max-width: 500px) {
+  :root { --section-pad: 60px 20px; }
+
+  html { scroll-padding-top: 108px; }
+  button, a, input, select, textarea { touch-action: manipulation; }
+  .btn, .btn-donate, .sidebar-btn, .contact-form .btn-primary { min-height: 44px; }
+
   .hero h1 { letter-spacing: -1px; }
+
+  .section-heading { font-size: clamp(38px, 12vw, 44px); }
+  .section-lead { font-size: 16px; line-height: 1.7; }
 
   .wins-grid { grid-template-columns: 1fr; }
   .tl-item   { grid-template-columns: 1fr; gap: 18px; }
@@ -34,4 +43,6 @@
 
   .gallery-masonry { columns: 1; }
   .donation-ways   { grid-template-columns: 1fr; }
+  .recruitment-header, .donations-header { margin-bottom: 42px; }
+  .dept-card, .donation-way { padding-inline: 20px; }
 }

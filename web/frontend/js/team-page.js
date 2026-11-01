@@ -3,6 +3,7 @@
 
   const divisions = Array.isArray(window.SOLAR_BOAT_DIVISIONS) ? window.SOLAR_BOAT_DIVISIONS : [];
   const members = Array.isArray(window.SOLAR_BOAT_TEAM_MEMBERS) ? window.SOLAR_BOAT_TEAM_MEMBERS : [];
+  const advisor = window.SOLAR_BOAT_ADVISOR || null;
   const placeholderImage = 'fotos/emblema-bulldog-equipo.jpg';
 
   const create = (tag, className, text) => {
@@ -35,6 +36,34 @@
     if (member.major) body.appendChild(create('p', 'team-profile-meta', member.major));
     if (member.academicYear) body.appendChild(create('p', 'team-profile-meta', member.academicYear));
     card.append(photo, body);
+    return card;
+  };
+
+  const buildAdvisorCard = person => {
+    const card = create('article', 'advisor-card reveal');
+    const identity = create('div', 'advisor-card-identity');
+    const portrait = create('div', 'advisor-portrait');
+    const monogram = create('span', 'advisor-monogram', 'GS');
+    monogram.setAttribute('aria-hidden', 'true');
+    const image = create('img');
+    image.src = person.image;
+    image.alt = person.imageAlt || '';
+    image.loading = 'lazy';
+    image.addEventListener('load', () => portrait.classList.add('has-image'));
+    image.addEventListener('error', () => image.remove(), { once: true });
+    portrait.append(monogram, image);
+
+    const details = create('div', 'advisor-card-details');
+    const name = create('h3', 'advisor-card-name');
+    const profileLink = create('a', 'advisor-card-link', person.name);
+    profileLink.href = person.profileUrl;
+    profileLink.target = '_blank';
+    profileLink.rel = 'noopener noreferrer';
+    profileLink.setAttribute('aria-label', `${person.name} — view UPRM faculty profile`);
+    name.appendChild(profileLink);
+    details.append(create('span', 'advisor-card-label', 'Team Advisor'), name, create('p', 'advisor-card-role', person.role));
+    identity.append(portrait, details);
+    card.appendChild(identity);
     return card;
   };
 
@@ -86,6 +115,9 @@
       divisionLeaders.forEach(member => divisionRow.appendChild(buildMemberCard(member, 'leadership-card--division')));
       leadershipGrid.appendChild(divisionRow);
     }
+
+    const advisorContainer = overview.querySelector('[data-team-advisor]');
+    if (advisorContainer && advisor) advisorContainer.appendChild(buildAdvisorCard(advisor));
   };
 
   const renderDivision = page => {

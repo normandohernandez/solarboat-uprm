@@ -34,6 +34,14 @@
     }
   ];
 
+  root.SOLAR_BOAT_ADVISOR = {
+    name: 'Prof. Guillermo Serrano',
+    role: 'Faculty Advisor',
+    profileUrl: 'https://ece.uprm.edu/people/faculty/name/guillermo-serrano/',
+    image: 'fotos/team/guillermo-serrano.jpg',
+    imageAlt: 'Portrait of Prof. Guillermo Serrano'
+  };
+
   root.SOLAR_BOAT_TEAM_MEMBERS = [
     {
       id: 'normando-hernandez',

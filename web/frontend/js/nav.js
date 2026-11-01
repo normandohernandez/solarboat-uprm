@@ -28,6 +28,8 @@
     if (!toggle || !mobileMenu) return;
     mobileMenu.classList.toggle('open', open);
     toggle.setAttribute('aria-expanded', String(open));
+    toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    document.body.classList.toggle('mobile-menu-open', open);
     if (!open) setMobileDropdown(false);
   };
 
@@ -35,12 +37,6 @@
     toggle.setAttribute('aria-expanded', 'false');
     toggle.setAttribute('aria-controls', 'mobileMenu');
     toggle.addEventListener('click', () => setMobileMenu(!mobileMenu.classList.contains('open')));
-    toggle.addEventListener('keydown', event => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        setMobileMenu(!mobileMenu.classList.contains('open'));
-      }
-    });
     mobileMenu.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => setMobileMenu(false));
     });

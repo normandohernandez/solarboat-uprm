@@ -104,9 +104,9 @@
           <span>${CONTACT.label}</span>
           <span class="nav-cta-arrow" aria-hidden="true">↗</span>
         </a>
-        <div class="nav-toggle" id="navToggle" aria-label="Open menu" role="button" tabindex="0">
+        <button class="nav-toggle" id="navToggle" type="button" aria-label="Open menu">
           <span></span><span></span><span></span>
-        </div>
+        </button>
       </div>
       <div class="nav-waves" aria-hidden="true">
         <svg class="nav-wave nav-wave-back" viewBox="0 0 640 52" preserveAspectRatio="none" focusable="false">

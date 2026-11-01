@@ -145,6 +145,69 @@
 .leadership-division-row { display: grid; grid-template-columns: repeat(4, minmax(0, 230px)); justify-content: center; gap: 18px; }
 .leadership-spotlight .team-profile-body { padding: 17px 18px 19px; }
 .leadership-spotlight .team-profile-name { font-size: 19px; }
+.leadership-advisor {
+  max-width: 950px;
+  margin: 54px auto 0;
+  padding-top: 34px;
+  border-top: 1px solid var(--border);
+}
+.leadership-advisor:empty { display: none; }
+.advisor-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 28px 32px;
+  overflow: hidden;
+  border: 1px solid rgba(15, 77, 34, .18);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(125deg, var(--green-dark), #17682f);
+  box-shadow: 0 18px 38px rgba(15, 77, 34, .12);
+}
+.advisor-card::after {
+  content: '';
+  position: absolute;
+  right: -48px;
+  bottom: -72px;
+  width: 210px;
+  height: 150px;
+  border: 24px solid rgba(255, 255, 255, .07);
+  border-radius: 50%;
+}
+.advisor-card-identity { position: relative; z-index: 1; display: flex; align-items: center; gap: 22px; }
+.advisor-portrait {
+  position: relative;
+  width: 112px;
+  aspect-ratio: 1;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .28);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .1);
+}
+.advisor-portrait img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.advisor-monogram {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  color: var(--green-light);
+  font: 800 32px/1 var(--font-display);
+  letter-spacing: -.03em;
+}
+.advisor-portrait.has-image .advisor-monogram { visibility: hidden; }
+.advisor-card-label { color: var(--green-light); font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
+.advisor-card-name { margin-top: 6px; color: var(--white); font: 800 clamp(25px, 3vw, 34px)/1 var(--font-display); letter-spacing: -.02em; }
+.advisor-card-link { color: inherit; text-decoration: none; text-underline-offset: 5px; transition: color 160ms ease; }
+.advisor-card-link:hover { color: var(--green-light); text-decoration: underline; }
+.advisor-card-link:focus-visible { border-radius: 3px; outline: 2px solid var(--green-light); outline-offset: 4px; }
+.advisor-card-role { margin-top: 8px; color: rgba(255, 255, 255, .72); font-size: 13px; font-weight: 700; }
 .division-members-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 18px; }
 .team-profile-card { overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius-md); background: var(--white); transition: border-color 180ms ease, transform 180ms ease; }
 .team-profile-card:hover { border-color: var(--green-mid); transform: translateY(-2px); }
@@ -203,9 +266,15 @@
   .division-overview-card { min-height: 290px; padding: 24px; }
   .division-card-title { margin-top: 38px; font-size: 36px; }
   .leadership-grid, .division-members-grid { grid-template-columns: 1fr; }
-  .leadership-apex .team-profile-card { width: min(100%, 230px); }
-  .leadership-division-row { grid-template-columns: minmax(0, 230px); justify-content: center; }
-  .division-page-title { font-size: 54px; }
+  .leadership-apex .team-profile-card { width: min(100%, 320px); }
+  .leadership-division-row { grid-template-columns: minmax(0, 320px); justify-content: center; }
+  .leadership-advisor { margin-top: 42px; padding-top: 28px; }
+  .advisor-card { padding: 25px 22px; }
+  .advisor-card-identity { align-items: flex-start; gap: 16px; }
+  .advisor-portrait { width: 82px; }
+  .advisor-monogram { font-size: 24px; }
+  .advisor-card-name { font-size: 26px; }
+  .division-page-title { font-size: clamp(44px, 14vw, 54px); overflow-wrap: anywhere; }
 }
 
 @media (prefers-reduced-motion: reduce) {
