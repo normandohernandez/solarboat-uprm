@@ -51,21 +51,24 @@ async function handleNotify(btn) {
 }
 
 // ── Contact form ──
-document.getElementById('contactForm')?.addEventListener('submit', async function(e) {
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
   e.preventDefault();
-  const btn = this.querySelector('button[type="submit"]');
-  const original = btn.textContent;
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-
   const data = Object.fromEntries(new FormData(this));
-  try {
-    await postForm('/api/contact', data);
-    btn.textContent = 'Message sent! ✓';
-    this.reset();
-  } catch (err) {
-    btn.textContent = 'Error — try again';
-    btn.disabled = false;
-    setTimeout(() => { btn.textContent = original; }, 2500);
+  if (data.website) return;
+
+  if (!this.checkValidity()) {
+    this.reportValidity();
+    return;
   }
+
+  const subject = data.asunto.trim() || 'Solar Boat UPRM Website Inquiry';
+  const body = [
+    `Name: ${data.nombre.trim()}`,
+    `Email: ${data.email.trim()}`,
+    '',
+    'Message:',
+    data.mensaje.trim(),
+  ].join('\n');
+
+  window.location.href = `mailto:solarboat@uprm.edu?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });

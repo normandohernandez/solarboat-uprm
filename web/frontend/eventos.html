@@ -170,21 +170,6 @@
             <p>View the team’s current featured event or announcement.</p>
             <button class="btn btn-primary" type="button" style="width:100%;font-size:13px;padding:11px;">View announcement</button>
           </div>
-          <div class="sidebar-card reveal">
-            <h4>📬 Event Notifications</h4>
-            <p>Share your email to receive updates about upcoming fundraisers and important dates.</p>
-            <div class="sidebar-notify-form">
-              <input type="text" placeholder="Your name" />
-              <input type="email" placeholder="you@email.edu" />
-              <input type="text" class="hp-field notify-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
-              <button class="btn btn-primary" style="font-size:13px;padding:11px;" onclick="handleNotify(this)">Notify Me</button>
-            </div>
-          </div>
-          <div class="sidebar-card reveal" style="transition-delay:0.1s;">
-            <h4>📅 Add to Your Calendar</h4>
-            <p>Download the .ics file with all Solar Boat UPRM events for 2025.</p>
-            <a href="#" id="calendarDownload" class="btn btn-primary" style="width:100%;text-align:center;font-size:13px;padding:11px;display:block;">Download Calendar</a>
-          </div>
           <div class="sidebar-card reveal" style="transition-delay:0.2s;background:var(--green-pale);border-color:var(--green-mid);">
             <h4 style="color:var(--green-dark);">🍕 Want to Organize a Fundraiser?</h4>
             <p>If you have a venue or would like to collaborate on a fundraiser, contact us.</p>
@@ -203,14 +188,10 @@
   <!-- ================================================
        SCRIPTS
        Son <script> normales (no módulos) a propósito: así la
-       página también funciona abriéndola con doble clic, y las
-       funciones que llaman los onclick del HTML siguen siendo
-       accesibles. api.js va primero porque los demás lo usan.
+       página también funciona abriéndola con doble clic.
   ================================================ -->
-  <script src="js/api.js"></script>
   <script src="js/nav.js"></script>
   <script src="js/reveal.js"></script>
-  <script src="js/forms.js"></script>
   <script src="js/events-config.js"></script>
   <script src="js/event-system.js"></script>
   <script src="js/event-popup.js"></script>
