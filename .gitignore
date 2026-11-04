@@ -19,3 +19,6 @@ venv/
 # Nunca subir secretos ni la base de datos
 .env
 *.db
+
+# Repo del BMS clonado aqui (tiene su propio repo en GitHub)
+BMS-DATA-SOLARBOAT-MEBC-2027/
