@@ -7,6 +7,24 @@
 (function () {
   window.SOLAR_BOAT_EVENTS = [
     {
+      id: 'pretzel-fundraiser-2026',
+      version: 1,
+      type: 'fundraising',
+      category: 'Fundraiser',
+      title: 'PRETZEL FUNDRAISER',
+      description: 'Support UPRM Solar Boat with Mr. Pretzels! Pre-sale runs until November 9.',
+      image: 'fotos/pretzel-fundraiser.jpg',
+      imageAlt: 'Pretzel Fundraiser poster: November 17 at Chardon Lobby, 10:30 AM to 12:00 PM, pre-sale until November 9',
+      eventDate: 'November 17, 2026 · 10:30 AM – 12:00 PM',
+      location: 'Chardon Lobby, UPRM',
+      buttonText: '',
+      buttonUrl: '', // Add the pre-sale form URL here and set buttonText to show a button.
+      active: true,
+      priority: 1,
+      displayStart: '',
+      displayEnd: '2026-11-17'
+    },
+    {
       id: 'gran-rifa-solar-boat',
       version: 1,
       type: 'raffle',
@@ -20,7 +38,7 @@
       raffleDate: 'Coming Soon',
       buttonText: 'Participate Now',
       buttonUrl: '', // Add the participation URL to enable the button.
-      active: true,
+      active: false,
       priority: 1,
       displayStart: '',
       displayEnd: ''
