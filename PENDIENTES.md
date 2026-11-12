@@ -1,7 +1,10 @@
 # Pendientes — Sitio web Solar Boat UPRM
 
-> Actualizado: 2026-08-29 (3)
+> Revisado: 2026-11-12
 > Nombre oficial del equipo: **UPRM Solar Boat Team**
+>
+> Las tareas de diseño y contenido de este documento vienen de una revisión
+> anterior. Confirma su vigencia con el equipo antes de tratarlas como pendientes.
 
 ---
 
@@ -58,11 +61,14 @@
 
 ## 🔧 Notas técnicas
 
-- `API_BASE` vive ahora en `web/frontend/js/api.js` y apunta a `http://localhost:5000`. **Hay que cambiarlo al URL de Render antes de publicar**, o los formularios (contacto, reclutamiento, notificaciones) y la descarga del calendario `.ics` fallarán en producción.
-- `render.yaml` está en `web/backend/`, pero Render solo detecta Blueprints cuando el archivo está en la **raíz del repo**. Si quieres desplegar con Blueprint hay que moverlo a la raíz (su `rootDir: web/backend` ya apunta bien). Si creas el servicio a mano en Render, no hace falta.
-- El repo local **no tiene remote de git** todavía. Siguiente paso pendiente: crear el repo en GitHub y desplegar (Pages para el sitio, Render para `web/backend/`).
-- Como el sitio ya no está en la raíz, GitHub Pages no lo puede servir con "deploy from a branch" (solo sabe raíz o `/docs`). Se añadió `.github/workflows/deploy-pages.yml` para publicar `web/frontend/`. **Hay que poner Settings → Pages → Source: "GitHub Actions"** o no hará nada. Si prefieres no usar Actions, la alternativa es renombrar `web/frontend/` a `docs/` en la raíz del repo.
-- El correo `solarboat@uprm.edu` aparece en 3 sitios (galería, reclutamiento, footer). Confirmar que es el correcto.
-- El CSS de `.win-card` / `.wins-grid` quedó sin usar tras la reestructuración de Logros. Vive en `web/frontend/css/sections/achievements.css` por si se quieren recuperar las tarjetas de trofeos.
-- `web/frontend/index.html` todavía tiene 1,088 líneas, pero ya es solo contenido. Partirlo más necesitaría un generador de sitios estáticos o plantillas — dilo si lo quieres.
-- El footer dice "© 2024" — actualizar el año.
+- `API_BASE` está en `web/frontend/js/api.js` y apunta a `http://localhost:5000`.
+  El formulario de contacto usa `mailto:` y la página Únete enlaza a Linktree.
+  Los endpoints de reclutamiento y avisos siguen en el backend, pero los
+  manejadores correspondientes de `web/frontend/js/forms.js` no están conectados
+  a formularios de las páginas actuales. El enlace de calendario sí usa `API_BASE`.
+- `.github/workflows/deploy-pages.yml` publica `web/frontend/` al hacer push a
+  `main`; GitHub Pages debe estar configurado para usar GitHub Actions.
+- `web/backend/render.yaml` contiene la configuración de Render. El estado real
+  de los despliegues de GitHub Pages y Render debe confirmarse en sus paneles.
+- El repositorio tiene configurado el remoto `origin`. La rama de revisión no
+  publica ni despliega cambios automáticamente.

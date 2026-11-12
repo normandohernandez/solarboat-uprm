@@ -34,11 +34,11 @@ web/frontend/
     event-popup.js    Renderizado y accesibilidad del popup
     team-data.js      Fuente central de divisiones y miembros
     team-page.js      Genera tarjetas, conteos y páginas de división
-    api.js            Contacto con el backend. Aquí está API_BASE.
+    api.js            Solicitudes al backend. Aquí está API_BASE.
     nav.js            Menú móvil
     reveal.js         Animación de scroll
     gallery.js        Filtros y visor de fotos
-    forms.js          Formularios de reclutamiento, eventos y contacto
+    forms.js          Contacto por mailto y manejadores antiguos de API
 ```
 
 ## Cómo editar
@@ -108,15 +108,26 @@ abriéndola con doble clic (los módulos ES fallan con `file://`) y las funcione
 que llaman los `onclick` del HTML siguen siendo accesibles. `api.js` va primero
 porque los demás usan su `postForm`.
 
-## Ver el sitio
+## Ejecutar localmente
 
 ```bash
-# Doble clic en index.html funciona, pero los formularios necesitan el backend:
-cd web/backend && python app.py    # arranca en http://localhost:5000
-python3 -m http.server 8000        # desde web/frontend/, abre http://localhost:8000
+# Terminal 1: desde web/backend/
+python3 app.py                      # http://localhost:5000
+
+# Terminal 2: desde web/frontend/
+python3 -m http.server 8000          # http://localhost:8000
 ```
+
+El formulario de contacto abre la aplicación de correo del visitante mediante
+`mailto:`. La página Únete enlaza al Linktree del equipo. El backend conserva
+endpoints de reclutamiento y avisos para integraciones; los manejadores de
+`js/forms.js` no están conectados a formularios de las páginas actuales.
+`js/api.js` configura la dirección del backend en `API_BASE`.
 
 ## Antes de publicar
 
-`API_BASE` en `js/api.js` apunta a `http://localhost:5000`. Hay que cambiarlo al
-URL de Render o los formularios fallarán en producción.
+El workflow de GitHub Actions publica esta carpeta en GitHub Pages cuando Pages
+está configurado para usar GitHub Actions. Si vuelves a conectar formularios al
+API, configura `API_BASE` con la URL del backend y permite el origen del sitio
+en `ALLOWED_ORIGINS`. El backend y su despliegue se documentan en
+`web/backend/README.md`.

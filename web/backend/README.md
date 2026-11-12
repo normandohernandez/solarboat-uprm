@@ -1,17 +1,18 @@
 # Solar Boat UPRM — Backend
 
-Small Flask API that handles the three forms on `index.html` (contact,
-recruitment, and event notifications). Submissions are saved to SQLite and,
-if SMTP is configured, an email is sent to the team.
+Flask API for recruitment and event-notification signups, plus an events
+calendar and an admin dashboard. Those form submissions are saved to SQLite
+and emailed to the team when SMTP is configured. The contact form lives on the
+static site and uses `mailto:`; it does not submit to this API.
 
 ## Endpoints
 
 | Method | Path                      | Body                                   | Purpose                        |
 |--------|---------------------------|----------------------------------------|--------------------------------|
 | GET    | `/api/health`             | —                                      | Liveness + email config status |
-| POST   | `/api/contact`            | `nombre, email, asunto?, mensaje`      | Contact form                   |
-| POST   | `/api/recruit`            | `email`                                | "Únete al equipo" form         |
-| POST   | `/api/notify`             | `nombre?, email`                       | Events mailing list            |
+| POST   | `/api/contact`            | `nombre, email, asunto?, mensaje`      | Contact submissions from API clients |
+| POST   | `/api/recruit`            | `email`                                | Recruitment integrations       |
+| POST   | `/api/notify`             | `nombre?, email`                       | Event notification integrations |
 | GET    | `/api/events.ics`         | —                                      | Calendar download (`events.json`) |
 | GET    | `/api/admin/submissions`  | header `X-Admin-Token: <ADMIN_TOKEN>`  | View all submissions (JSON)    |
 | GET    | `/admin`                  | —                                      | Browser admin dashboard        |
@@ -46,6 +47,7 @@ Edit the JSON and redeploy to update the calendar.
 
 ```bash
 cd web/backend
+python3 -m venv .venv
 source .venv/bin/activate
 pip install pytest
 pytest -q
@@ -63,13 +65,14 @@ cp .env.example .env      # then edit .env with your values
 python app.py             # serves on http://localhost:5000
 ```
 
-The frontend (`web/frontend/js/api.js`) points at `http://localhost:5000` via the
-`API_BASE` constant in its `<script>` block — change that to your deployed
-URL for production.
+The current frontend contact form uses `mailto:`. The Join page links to
+Linktree, and the backend's recruitment and notification endpoints are not
+currently connected to rendered frontend forms. If those forms are connected
+again, set `API_BASE` in `web/frontend/js/api.js` to the deployed backend URL.
 
 ## Configuration (.env)
 
-See `.env.example`. Key variables:
+Copy `.env.example` to `.env` for local development. Key variables:
 
 - `ADMIN_TOKEN` — required to read `/api/admin/submissions`.
 - `ALLOWED_ORIGINS` — comma-separated frontend origins (use your real domain

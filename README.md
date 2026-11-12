@@ -1,37 +1,65 @@
-# UPRM Solar Boat Team
+# UPRM Solar Boat Team website
 
-Sitio web y backend del equipo de botes solares de la Universidad de Puerto Rico,
-Recinto de Mayagüez.
+The repository contains the team's public website and a Flask API for contact,
+recruitment, and event-notification submissions. The contact page currently
+opens the visitor's email application with a prefilled message using `mailto:`.
+The Join page links to the team's Linktree; the backend recruitment and
+notification endpoints are available for integrations.
 
-## Estructura
+## Repository layout
 
+```text
+.github/workflows/deploy-pages.yml  Publishes the static frontend to GitHub Pages
+web/frontend/                       Static HTML, CSS, JavaScript, and images
+web/backend/                        Flask API, SQLite persistence, and deployment config
+PENDIENTES.md                       Project tasks and status
 ```
-web/
-  frontend/   Sitio estático — HTML, CSS y JS. Sin build ni dependencias.
-  backend/    API en Flask + SQLite para los formularios del sitio.
-PENDIENTES.md Lo que falta por hacer, por estado.
-```
 
-Cada carpeta tiene su propio README con el detalle.
+See the [frontend guide](web/frontend/README.md) for page and asset conventions,
+and the [backend guide](web/backend/README.md) for API setup and deployment.
 
-## Arrancarlo local
+## Run locally
 
-```bash
-# API (formularios y calendario)
+Use two terminals from the repository root. Python 3 is needed for both servers;
+the backend also needs the packages in `web/backend/requirements.txt`.
+
+```sh
+# Terminal 1: start the API
 cd web/backend
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-python app.py                      # http://localhost:5000
+cp .env.example .env  # optional; edit settings as needed
+python app.py
 
-# Sitio
+# Terminal 2: serve the website
 cd web/frontend
-python3 -m http.server 8000        # http://localhost:8000
+python3 -m http.server 8000
 ```
 
-El sitio abre con doble clic en `index.html`, pero los formularios necesitan
-el backend corriendo.
+Open <http://localhost:8000>. The contact form opens the user's email
+application. The Join page opens Linktree. The backend API is available at
+`http://localhost:5000` for integrations; `API_BASE` is configured in
+`web/frontend/js/api.js`.
 
-## Estado
+## Checks
 
-En desarrollo, todavía sin desplegar. Antes de publicar hay que resolver lo
-que está marcado como bloqueador en [PENDIENTES.md](PENDIENTES.md) — sobre todo
-`API_BASE` en `web/frontend/js/api.js`, que apunta a `localhost`.
+```sh
+# Frontend logic tests (Node.js)
+cd web/frontend
+node --test tests/*.test.js
+
+# Backend tests (activate the backend virtual environment first)
+cd ../backend
+pip install pytest
+pytest -q
+```
+
+## Deployment
+
+GitHub Actions publishes `web/frontend/` to GitHub Pages on pushes to `main`
+after Pages is configured to use GitHub Actions. The backend is configured for
+Render in `web/backend/render.yaml`; set its environment variables in the
+hosting dashboard. If frontend forms are connected to the API, set `API_BASE`
+to the deployed backend URL and set `ALLOWED_ORIGINS` to the website's origin.
+Keep secrets in the host's environment settings, never in the repository.

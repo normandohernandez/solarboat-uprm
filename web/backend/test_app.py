@@ -8,7 +8,6 @@ no network, no SMTP (email is unconfigured in tests and skips gracefully).
 import importlib
 import os
 import sys
-import tempfile
 
 import pytest
 

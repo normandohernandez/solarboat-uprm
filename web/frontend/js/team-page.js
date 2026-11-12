@@ -76,6 +76,7 @@
 
     const divisionGrid = overview.querySelector('[data-division-grid]');
     divisions.forEach(division => {
+      const divisionMembers = membersFor(division.id);
       const card = create('a', 'division-overview-card reveal');
       card.href = division.pageUrl;
       card.setAttribute('aria-label', `View ${division.name} members`);
@@ -83,7 +84,7 @@
       const top = create('div', 'division-card-top');
       top.append(
         create('span', 'division-card-code', division.shortCode),
-        create('span', 'division-card-count', `${membersFor(division.id).length} ${membersFor(division.id).length === 1 ? 'member' : 'members'}`)
+        create('span', 'division-card-count', `${divisionMembers.length} ${divisionMembers.length === 1 ? 'member' : 'members'}`)
       );
       card.appendChild(top);
       card.appendChild(create('h3', 'division-card-title', division.name));

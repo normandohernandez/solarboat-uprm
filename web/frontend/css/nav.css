@@ -278,11 +278,12 @@
   overflow-x: hidden;
 }
 .mobile-team-dropdown { border-bottom: 1px solid var(--border); }
-.mobile-team-toggle {
+.mobile-menu .mobile-team-toggle {
   width: 100%;
   min-height: 44px;
   padding: 10px 0;
   font-size: 15px;
+  font-weight: 500;
   text-align: left;
   color: var(--text-mid);
 }
