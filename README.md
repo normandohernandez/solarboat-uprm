@@ -18,6 +18,14 @@ PENDIENTES.md                       Project tasks and status
 See the [frontend guide](web/frontend/README.md) for page and asset conventions,
 and the [backend guide](web/backend/README.md) for API setup and deployment.
 
+## Temporary site changes
+
+The Achievements section in `web/frontend/logros.html` is currently kept inside
+an inert `<template>`, so it does not render. Its header and footer navigation
+entries in `web/frontend/js/layout.js`, and the buttons on the home and About
+pages, are commented out for now. To restore the section, move it out of the
+template and uncomment those navigation entries and buttons.
+
 ## Run locally
 
 Use two terminals from the repository root. Python 3 is needed for both servers;

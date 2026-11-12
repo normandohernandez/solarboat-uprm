@@ -21,7 +21,8 @@
 
   const PAGES = [
     { href: 'index.html',    label: 'Home' },
-    { href: 'logros.html',   label: 'Achievements' },
+    // Temporarily hidden while the Achievements section is off the site.
+    // { href: 'logros.html',   label: 'Achievements' },
     { label: 'Team', divisions: TEAM_DIVISIONS },
     { href: 'eventos.html',  label: 'Events' },
     { href: 'donar.html',    label: 'Donate' },
@@ -31,7 +32,8 @@
   // Footer navigation — kept separate from the main navigation order.
   const FOOTER_PAGES = [
     { href: 'team.html', label: 'Our Team' },
-    { href: 'logros.html', label: 'Achievements' },
+    // Temporarily hidden with the Achievements section.
+    // { href: 'logros.html', label: 'Achievements' },
     { href: 'eventos.html', label: 'Events' },
     { href: 'donar.html', label: 'Donate' },
     { href: 'unete.html', label: 'Join Us' },
