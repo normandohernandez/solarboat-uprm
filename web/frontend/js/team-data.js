@@ -67,15 +67,6 @@
       leadershipOrder: 1
     },
     {
-      id: 'eliel-santiago',
-      name: 'Eliel Santiago',
-      image: 'fotos/team/eliel-santiago.jpg',
-      imageAlt: 'Portrait of Eliel Santiago',
-      division: 'icom-inso',
-      academicYear: '4th Year',
-      isLeader: false
-    },
-    {
       id: 'sebastian-latalladi',
       name: 'Sebastián Latalladi',
       image: 'fotos/team/sebastian-latalladi.jpg',

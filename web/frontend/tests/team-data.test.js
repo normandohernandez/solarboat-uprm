@@ -8,7 +8,7 @@ const divisionIds = new Set(divisions.map(division => division.id));
 const memberIds = new Set(members.map(member => member.id));
 
 assert.equal(divisions.length, 4);
-assert.equal(members.length, 24, 'All Canva team members should be represented.');
+assert.equal(members.length, 23, 'All current team members should be represented.');
 assert.equal(divisionIds.size, divisions.length, 'Division IDs must be unique.');
 assert.equal(memberIds.size, members.length, 'Member IDs must be unique.');
 assert.ok(divisions.every(division => division.name && division.description && division.pageUrl));
